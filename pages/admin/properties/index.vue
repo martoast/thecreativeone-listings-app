@@ -23,7 +23,7 @@
                   <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Price</th>
                   <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Bedrooms</th>
                   <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Bathrooms</th>
-                  <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Square Footage</th>
+                  
                   <th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-6"> </th>
                 </tr>
               </thead>
@@ -33,7 +33,7 @@
                   <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ property.price }}</td>
                   <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ property.bedrooms }}</td>
                   <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ property.bathrooms }}</td>
-                  <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ property.square_footage }}</td>
+                  
                   <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
                     <a :href="'/admin/properties/' + property.ID + '/edit'" class="text-indigo-600 hover:text-indigo-900 mr-6">Edit</a>
                     <button @click="openDeleteModal(property)" class="text-red-600 hover:text-red-800">Delete</button>
@@ -45,7 +45,7 @@
         </div>
       </div>
     </div>
-    <ConfirmationModal v-if="showModal" :property="propertyToDelete" @confirm="deleteProperty" @cancel="hideModal"/>
+    <ConfirmationModal v-if="showModal" :property="propertyToDelete" :loading="data.loading" @confirm="deleteProperty" @cancel="hideModal"/>
   </div>
 
   </div>
@@ -57,7 +57,7 @@ import { usePropertiesStore } from '~/store/DataStore'
 
 const store = usePropertiesStore()
 
-const { data, pending, error, refresh } = await useAsyncData(
+await useAsyncData(
   'properties',
   () => store.get()
 )
@@ -69,6 +69,12 @@ const properties = computed(() => store.properties.map(property => ({
 
 const showModal = ref(false)
 const propertyToDelete = ref(null)
+
+const data = reactive({
+  loading: false,
+  errors: {}
+});
+
 
 function hideModal() {
   showModal.value = false
@@ -83,11 +89,13 @@ function openDeleteModal(property) {
 
 const deleteProperty = async (property) => {
   // Perform the delete operation
+  data.loading = true;
   console.log("Property delete confirmed, delete it in the API!." + property.ID)
   await useAsyncData(
     'properties',
     () => store.delete(property.ID)
   )
+  data.loading = false;
   showModal.value = false
   propertyToDelete.value = null
 }

@@ -1,0 +1,1036 @@
+{
+    "listingProvider": null,
+    "zpid": 17180840,
+    "buildingPermits": null,
+    "propertyTaxRate": 1.17,
+    "contact_recipients": [
+        {
+            "agent_reason": 1,
+            "zpro": null,
+            "recent_sales": 1,
+            "review_count": 174,
+            "display_name": "Patti McKelvey",
+            "zuid": "X1-ZUz0aeo7dmyart_2rqd8",
+            "rating_average": 5,
+            "badge_type": "Premier Agent",
+            "phone": {
+                "prefix": "456",
+                "areacode": "619",
+                "number": "0624"
+            },
+            "image_url": "https://photos.zillowstatic.com/h_n/ISt8ygskkvulvc1000000000.jpg"
+        }
+    ],
+    "zipcode": "91910",
+    "openHouseSchedule": {},
+    "longitude": -117.012024,
+    "zestimateLowPercent": "5",
+    "address": {
+        "community": null,
+        "city": "Chula Vista",
+        "state": "CA",
+        "neighborhood": null,
+        "subdivision": null,
+        "streetAddress": "1058 Petalo Plz",
+        "zipcode": "91910"
+    },
+    "cityId": 51405,
+    "timeOnZillow": "17 days",
+    "url": "/homedetails/1058-Petalo-Plz-Chula-Vista-CA-91910/17180840_zpid/",
+    "zestimate": 838700,
+    "imgSrc": "https://photos.zillowstatic.com/fp/e743306307b6bbfbae5192c74e3e4b35-p_d.jpg",
+    "description": "Immerse yourself in the vibrant Chula Vista lifestyle with this exceptional three-bedroom, three-bathroom home. Nestled in the heart of the community and built in 1989, this residence exudes timeless charm and modern comfort. Boasting a thoughtfully designed 1570 square feet floorplan, every corner of this home maximizes space and functionality, offering an inviting sanctuary for daily living and entertaining alike.  Convenience is at your fingertips with its proximity to a plethora of amenities, including shopping destinations, dining establishments, esteemed schools, and picturesque parks. Whether you're seeking a relaxing evening stroll or a culinary adventure, this prime location caters to every lifestyle preference.  Elegance and convenience converge seamlessly in this beautiful home, making it an irresistible opportunity for discerning buyers. Don't miss your chance to own a piece of Chula Vista's coveted lifestyle. Reach out today by submitting your inquiry through the form below and take the first step towards making this remarkable residence your own.",
+    "price": 799000,
+    "livingAreaValue": 1570,
+    "resoFacts": {
+        "hasAttachedProperty": false,
+        "frontageType": null,
+        "poolFeatures": [
+            "Community"
+        ],
+        "flooring": [
+            "Vinyl"
+        ],
+        "builderModel": null,
+        "accessibilityFeatures": null,
+        "hasGarage": true,
+        "hasPetsAllowed": null,
+        "bodyType": null,
+        "topography": null,
+        "landLeaseExpirationDate": null,
+        "hasAdditionalParcels": false,
+        "waterViewYN": null,
+        "livingQuarters": {},
+        "atAGlanceFacts": [
+            {
+                "factValue": "Single Family Residence",
+                "factLabel": "Type"
+            },
+            {
+                "factValue": "1989",
+                "factLabel": "Year Built"
+            },
+            {
+                "factValue": null,
+                "factLabel": "Heating"
+            },
+            {
+                "factValue": "Central Air",
+                "factLabel": "Cooling"
+            },
+            {
+                "factValue": "2 Attached Garage spaces",
+                "factLabel": "Parking"
+            },
+            {
+                "factValue": "$294 monthly",
+                "factLabel": "HOA"
+            },
+            {
+                "factValue": "2.58 Acres",
+                "factLabel": "Lot"
+            },
+            {
+                "factValue": "17 Days",
+                "factLabel": "Days on Zillow"
+            },
+            {
+                "factValue": "$509",
+                "factLabel": "Price/sqft"
+            },
+            {
+                "factValue": "2.5",
+                "factLabel": "Buyers Agency Fee"
+            },
+            {
+                "factValue": null,
+                "factLabel": "Offer Review Date"
+            }
+        ],
+        "offerReviewDate": null,
+        "horseYN": null,
+        "view": [
+            "Park/Greenbelt"
+        ],
+        "buyerAgencyCompensationType": "%",
+        "rooms": {},
+        "belowGradeFinishedArea": null,
+        "feesAndDues": [
+            {
+                "phone": null,
+                "name": "Villa Palmera Homeowners Association",
+                "fee": "$294 monthly",
+                "type": "HOA"
+            }
+        ],
+        "cityRegion": "Chula Vista",
+        "subAgencyCompensation": null,
+        "hasPrivatePool": null,
+        "associationFeeIncludes": null,
+        "waterSource": null,
+        "carportParkingCapacity": null,
+        "transactionBrokerCompensationType": null,
+        "hasFireplace": true,
+        "gas": null,
+        "sewer": [
+            "Public Sewer"
+        ],
+        "elevationUnits": null,
+        "roadSurfaceType": null,
+        "mainLevelBedrooms": 1,
+        "numberOfUnitsVacant": null,
+        "hasWaterfrontView": null,
+        "bathroomsOneQuarter": null,
+        "lotSize": "2.58 Acres",
+        "subAgencyCompensationType": null,
+        "entryLevel": null,
+        "irrigationWaterRightsAcres": null,
+        "greenWaterConservation": null,
+        "stories": 2,
+        "bathrooms": 3,
+        "numberOfUnitsInCommunity": 1,
+        "listingTerms": null,
+        "otherParking": null,
+        "associationFee": "$294 monthly",
+        "marketingType": null,
+        "greenEnergyEfficient": null,
+        "greenSustainability": null,
+        "heating": null,
+        "associationPhone": null,
+        "greenBuildingVerificationType": null,
+        "hasAttachedGarage": true,
+        "bedrooms": 3,
+        "architecturalStyle": null,
+        "listingId": null,
+        "structureType": null,
+        "interiorFeatures": [
+            "Family Room",
+            "Main Floor Master Bedroom",
+            "Master Suite"
+        ],
+        "horseAmenities": null,
+        "electric": null,
+        "otherFacts": {},
+        "lotFeatures": [
+            "0-1 Unit/Acre"
+        ],
+        "roofType": null,
+        "compensationBasedOn": null,
+        "greenEnergyGeneration": null,
+        "taxAnnualAmount": 9348,
+        "daysOnZillow": 17,
+        "listAOR": "California Regional MLS (North San Diego County & Pacific Southwest AORs)",
+        "hasHeating": null,
+        "elementarySchool": null,
+        "constructionMaterials": [
+            "Drywall Walls",
+            "Stucco"
+        ],
+        "basementYN": null,
+        "hoaFeeTotal": "$294 monthly",
+        "appliances": [
+            "Dishwasher",
+            "Disposal",
+            "Gas Range",
+            "Microwave",
+            "Refrigerator"
+        ],
+        "virtualTour": "https://sites.rocksynergies.com/vd/134457856",
+        "bathroomsPartial": null,
+        "fencing": null,
+        "yearBuiltEffective": null,
+        "foundationDetails": {},
+        "buildingName": null,
+        "hasAssociation": true,
+        "isSeniorCommunity": null,
+        "propertySubType": [
+            "Single Family Residence"
+        ],
+        "propertyCondition": null,
+        "hasCarport": false,
+        "canRaiseHorses": false,
+        "hasLandLease": false,
+        "communityFeatures": [
+            "Curbs",
+            "Golf",
+            "Sidewalks",
+            "Storm Drains",
+            "Street Lights",
+            "Dog Park",
+            "Park"
+        ],
+        "parcelNumber": "6402800921",
+        "elevation": null,
+        "lotSizeDimensions": null,
+        "buildingAreaSource": null,
+        "contingency": null,
+        "yearBuilt": 1989,
+        "otherStructures": null,
+        "livingArea": "1,570 sqft",
+        "bathroomsFull": 2,
+        "livingAreaRangeUnits": null,
+        "incomeIncludes": null,
+        "highSchool": "Otay Ranch",
+        "aboveGradeFinishedArea": null,
+        "isNewConstruction": false,
+        "inclusions": null,
+        "hasHomeWarranty": false,
+        "additionalFeeInfo": null,
+        "windowFeatures": [
+            "Double Pane Windows"
+        ],
+        "ownership": null,
+        "woodedArea": null,
+        "middleOrJuniorSchoolDistrict": null,
+        "associationPhone2": null,
+        "exteriorFeatures": {},
+        "buildingFeatures": null,
+        "frontageLength": null,
+        "buildingArea": null,
+        "associationAmenities": [
+            "Call for Rules",
+            "Management",
+            "Pool"
+        ],
+        "bathroomsHalf": 1,
+        "hasCooling": true,
+        "additionalParcelsDescription": null,
+        "parkingFeatures": [
+            "Assigned",
+            "Direct Access",
+            "Asphalt",
+            "Paved",
+            "Garage",
+            "Garage Faces Rear",
+            "Garage - Single Door",
+            "Garage Door Opener",
+            "Parking Space",
+            "Shared Driveway"
+        ],
+        "foundationArea": null,
+        "zoning": "R-1:SINGLE FAM-RES",
+        "hoaFee": "$294 monthly",
+        "livingAreaRange": null,
+        "zoningDescription": null,
+        "developmentStatus": null,
+        "availabilityDate": null,
+        "waterfrontFeatures": null,
+        "waterBodyName": null,
+        "utilities": null,
+        "entryLocation": "1",
+        "totalActualRent": null,
+        "hasView": true,
+        "subdivisionName": null,
+        "securityFeatures": null,
+        "attic": null,
+        "fireplaceFeatures": [
+            "Family Room",
+            "Gas",
+            "Wood Burning"
+        ],
+        "mainLevelBathrooms": 2,
+        "doorFeatures": null,
+        "ownershipType": null,
+        "associationName": "Villa Palmera Homeowners Association",
+        "associations": [
+            {
+                "feeFrequency": "$294 monthly",
+                "name": "Villa Palmera Homeowners Association",
+                "phone": null
+            }
+        ],
+        "waterView": null,
+        "garageParkingCapacity": 2,
+        "cropsIncludedYN": null,
+        "laundryFeatures": [
+            "Gas & Electric Dryer Hookup",
+            "In Garage"
+        ],
+        "buyerAgencyCompensation": "2.5",
+        "greenIndoorAirQuality": null,
+        "homeType": "SingleFamily",
+        "spaFeatures": null,
+        "municipality": null,
+        "bathroomsThreeQuarter": null,
+        "hasSpa": false,
+        "basement": null,
+        "associationFee2": null,
+        "cooling": [
+            "Central Air"
+        ],
+        "openParkingCapacity": null,
+        "associationName2": null,
+        "hasRentControl": null,
+        "elementarySchoolDistrict": null,
+        "otherEquipment": null,
+        "commonWalls": "No Common Walls",
+        "specialListingConditions": "Standard",
+        "furnished": false,
+        "vegetation": null,
+        "patioAndPorchFeatures": null,
+        "bathroomsFloat": 3,
+        "builderName": null,
+        "highSchoolDistrict": "Sweetwater Union",
+        "transactionBrokerCompensation": null,
+        "storiesTotal": 2,
+        "cumulativeDaysOnMarket": null,
+        "fireplaces": null,
+        "irrigationWaterRightsYN": null,
+        "exclusions": null,
+        "hasOpenParking": true,
+        "landLeaseAmount": null,
+        "coveredParkingCapacity": 2,
+        "middleOrJuniorSchool": null,
+        "hasElectricOnProperty": null,
+        "onMarketDate": 1714089600000,
+        "pricePerSquareFoot": 509,
+        "parkingCapacity": 2,
+        "levels": "Two"
+    },
+    "taxHistory": [
+        {
+            "time": 1684014138203,
+            "valueIncreaseRate": 0.28006586,
+            "taxIncreaseRate": 0.3080926,
+            "taxPaid": 7591.62,
+            "value": 653000
+        },
+        {
+            "time": 1652478138203,
+            "valueIncreaseRate": 0.01999888,
+            "taxIncreaseRate": 0.025508791,
+            "taxPaid": 5803.58,
+            "value": 510130
+        },
+        {
+            "time": 1620942138203,
+            "valueIncreaseRate": 0.15850286,
+            "taxIncreaseRate": 0.176509,
+            "taxPaid": 5659.22,
+            "value": 500128
+        },
+        {
+            "time": 1589406138203,
+            "valueIncreaseRate": 0.019998204,
+            "taxIncreaseRate": 0.036547177,
+            "taxPaid": 4810.18,
+            "value": 431702
+        },
+        {
+            "time": 1557783738203,
+            "valueIncreaseRate": 0.019998072,
+            "taxIncreaseRate": 0.008105121,
+            "taxPaid": 4640.58,
+            "value": 423238
+        },
+        {
+            "time": 1526247738203,
+            "valueIncreaseRate": 0.019997297,
+            "taxIncreaseRate": 0.014128201,
+            "taxPaid": 4603.27,
+            "value": 414940
+        },
+        {
+            "time": 1494711738203,
+            "valueIncreaseRate": 0.043089744,
+            "taxIncreaseRate": 0.03821066,
+            "taxPaid": 4539.14,
+            "value": 406805
+        },
+        {
+            "time": 1463175738203,
+            "valueIncreaseRate": 0.083333336,
+            "taxIncreaseRate": 0.08035825,
+            "taxPaid": 4372.08,
+            "value": 390000
+        },
+        {
+            "time": 1431553338203,
+            "valueIncreaseRate": 0.22033899,
+            "taxIncreaseRate": -0.011770269,
+            "taxPaid": 4046.88,
+            "value": 360000
+        },
+        {
+            "time": 1400017338203,
+            "valueIncreaseRate": 0.18,
+            "taxIncreaseRate": 0,
+            "taxPaid": 4095.08,
+            "value": 295000
+        },
+        {
+            "time": 1368481338203,
+            "valueIncreaseRate": 0,
+            "taxIncreaseRate": 0,
+            "taxPaid": null,
+            "value": 250000
+        },
+        {
+            "time": 1336945338203,
+            "valueIncreaseRate": 0,
+            "taxIncreaseRate": 0,
+            "taxPaid": null,
+            "value": 250000
+        },
+        {
+            "time": 1305322938203,
+            "valueIncreaseRate": 0,
+            "taxIncreaseRate": 0,
+            "taxPaid": null,
+            "value": 250000
+        },
+        {
+            "time": 1273786938203,
+            "valueIncreaseRate": 0,
+            "taxIncreaseRate": 0,
+            "taxPaid": null,
+            "value": 250000
+        },
+        {
+            "time": 1242250938203,
+            "valueIncreaseRate": -0.30450845,
+            "taxIncreaseRate": 0,
+            "taxPaid": null,
+            "value": 250000
+        },
+        {
+            "time": 1210714938203,
+            "valueIncreaseRate": 0.019999433,
+            "taxIncreaseRate": 0,
+            "taxPaid": null,
+            "value": 359458
+        },
+        {
+            "time": 1179092538203,
+            "valueIncreaseRate": 0.019997047,
+            "taxIncreaseRate": 0,
+            "taxPaid": null,
+            "value": 352410
+        },
+        {
+            "time": 1147556538203,
+            "valueIncreaseRate": 0.019998405,
+            "taxIncreaseRate": 0,
+            "taxPaid": null,
+            "value": 345501
+        },
+        {
+            "time": 1116020538203,
+            "valueIncreaseRate": 0.019997831,
+            "taxIncreaseRate": 0,
+            "taxPaid": null,
+            "value": 338727
+        },
+        {
+            "time": 1084484538203,
+            "valueIncreaseRate": 0.4926354,
+            "taxIncreaseRate": 0,
+            "taxPaid": null,
+            "value": 332086
+        },
+        {
+            "time": 1052862138203,
+            "valueIncreaseRate": 0.019993398,
+            "taxIncreaseRate": 0,
+            "taxPaid": null,
+            "value": 222483
+        },
+        {
+            "time": 1021326138203,
+            "valueIncreaseRate": 0.11857436,
+            "taxIncreaseRate": 0,
+            "taxPaid": null,
+            "value": 218122
+        },
+        {
+            "time": 989790138203,
+            "valueIncreaseRate": 0,
+            "taxIncreaseRate": 0,
+            "taxPaid": null,
+            "value": 195000
+        }
+    ],
+    "brokerId": null,
+    "stateId": 9,
+    "streetAddress": "1058 Petalo Plz",
+    "listingSubType": {
+        "is_FSBA": true,
+        "is_comingSoon": false,
+        "is_newHome": false,
+        "is_pending": false,
+        "is_forAuction": false,
+        "is_foreclosure": false,
+        "is_bankOwned": false,
+        "is_openHouse": false,
+        "is_FSBO": false
+    },
+    "solarPotential": null,
+    "dateSold": null,
+    "countyId": 2841,
+    "timeZone": "America/Los_Angeles",
+    "homeType": "SINGLE_FAMILY",
+    "livingAreaUnits": "sqft",
+    "comingSoonOnMarketDate": null,
+    "rentZestimate": 3599,
+    "bathrooms": 3,
+    "annualHomeownersInsurance": 3356,
+    "state": "CA",
+    "propertyTypeDimension": "Single Family",
+    "building": null,
+    "listed_by": {
+        "agent_reason": 3,
+        "zpro": false,
+        "recent_sales": 0,
+        "zuid": "X1-ZU13igz5duhfimh_2ca41",
+        "review_count": 2,
+        "display_name": "Lawrence Avila",
+        "profile_url": "https://www.zillow.com/profile/lavila82/",
+        "business_name": "Coldwell Banker West",
+        "rating_average": 5,
+        "phone": {
+            "prefix": "609",
+            "areacode": "909",
+            "number": "8976"
+        },
+        "badge_type": "Listing Agent",
+        "image_url": "https://photos.zillowstatic.com/h_n/IS6ytzromdmgzt0000000000.jpg"
+    },
+    "yearBuilt": 1989,
+    "brokerageName": "Coldwell Banker West",
+    "pageViewCount": 1690,
+    "county": "San Diego County",
+    "mortgageRates": {
+        "thirtyYearFixedRate": 6.642
+    },
+    "attributionInfo": {
+        "buyerAgentName": null,
+        "mlsName": "CRMLS",
+        "coAgentLicenseNumber": null,
+        "listingOffices": [
+            {
+                "associatedOfficeType": "listOffice",
+                "officeName": "Coldwell Banker West"
+            }
+        ],
+        "lastUpdated": "2024-04-26 01:20:52",
+        "buyerAgentMemberStateLicense": null,
+        "brokerName": "Coldwell Banker West",
+        "listingAgreement": null,
+        "infoString10": "The multiple listing data appearing on this website, or contained in reports produced therefrom, is owned and copyrighted by California Regional Multiple Listing Service, Inc. (\"CRMLS\") and is protected by all applicable copyright laws. Information provided is for viewer's personal, non-commercial use and may not be used for any purpose other than to identify prospective properties the viewer may be interested in purchasing. All listing data, including but not limited to square footage and lot size is believed to be accurate, but the listing Agent, listing Broker and CRMLS and its affiliates do not warrant or guarantee such accuracy. The viewer should independently verify the listed data prior to making any decisions based on such information by personal inspection and/or contacting a real estate professional.\n\nBased on information from California Regional Multiple Listing Service, Inc. as of 2024-01-24 10:53:37 PST and /or other sources. All data, including all measurements and calculations of area, is obtained from various sources and has not been, and will not be, verified by broker or MLS. All information should be independently reviewed and verified for accuracy. Properties may or may not be listed by the office/agent presenting the information\n\nThe listing broker’s offer of compensation is made only to participants of the MLS where the listing is filed.",
+        "trueStatus": null,
+        "infoString3": "https://photos.zillowstatic.com/fp/9f61463932aa73f48f1ae3d056f0eb39-zillow_web_95_35.jpg",
+        "agentEmail": "lawrence@koasales.com",
+        "agentName": "Lawrence Avila",
+        "attributionTitle": "Listing Provided by:",
+        "mlsId": "PTP2401928",
+        "coAgentName": null,
+        "coAgentNumber": null,
+        "infoString5": "909-609-8976",
+        "listingAgents": [
+            {
+                "memberStateLicense": "DRE #02087637",
+                "memberFullName": "Lawrence Avila",
+                "associatedAgentType": "listAgent"
+            }
+        ],
+        "agentPhoneNumber": "909-609-8976",
+        "agentLicenseNumber": "DRE #02087637",
+        "providerLogo": "https://photos.zillowstatic.com/fp/9f61463932aa73f48f1ae3d056f0eb39-zillow_web_95_35.jpg",
+        "infoString16": null,
+        "buyerBrokerageName": null,
+        "mlsDisclaimer": "The multiple listing data appearing on this website, or contained in reports produced therefrom, is owned and copyrighted by California Regional Multiple Listing Service, Inc. (\"CRMLS\") and is protected by all applicable copyright laws. Information provided is for viewer's personal, non-commercial use and may not be used for any purpose other than to identify prospective properties the viewer may be interested in purchasing. All listing data, including but not limited to square footage and lot size is believed to be accurate, but the listing Agent, listing Broker and CRMLS and its affiliates do not warrant or guarantee such accuracy. The viewer should independently verify the listed data prior to making any decisions based on such information by personal inspection and/or contacting a real estate professional.\n\nBased on information from California Regional Multiple Listing Service, Inc. as of 2024-01-24 10:53:37 PST and /or other sources. All data, including all measurements and calculations of area, is obtained from various sources and has not been, and will not be, verified by broker or MLS. All information should be independently reviewed and verified for accuracy. Properties may or may not be listed by the office/agent presenting the information\n\nThe listing broker’s offer of compensation is made only to participants of the MLS where the listing is filed.",
+        "brokerPhoneNumber": "619-325-4100",
+        "lastChecked": "2024-05-13 14:21:47"
+    },
+    "monthlyHoaFee": 294,
+    "homeStatus": "FOR_SALE",
+    "homeFacts": null,
+    "latitude": 32.63125,
+    "datePosted": "2024-04-26",
+    "bedrooms": 3,
+    "nearbyHomes": [
+        {
+            "livingArea": 1128,
+            "livingAreaValue": 1128,
+            "lotAreaUnits": "sqft",
+            "lotAreaValue": null,
+            "lotSize": null,
+            "miniCardPhotos": [
+                {
+                    "url": "https://photos.zillowstatic.com/fp/380c613402bbed024cb23182b739a582-p_c.jpg"
+                }
+            ],
+            "zpid": 17180775,
+            "longitude": -117.01244,
+            "livingAreaUnits": "Square Feet",
+            "address": {
+                "city": "Chula Vista",
+                "state": "CA",
+                "streetAddress": "1051 Florido Plz",
+                "zipcode": "91910"
+            },
+            "livingAreaUnitsShort": "sqft",
+            "price": 645000,
+            "homeType": "CONDO",
+            "homeStatus": "RECENTLY_SOLD",
+            "currency": "USD",
+            "latitude": 32.63099
+        },
+        {
+            "livingArea": 1570,
+            "livingAreaValue": 1570,
+            "lotAreaUnits": "Acres",
+            "lotAreaValue": 3.2606290174472,
+            "lotSize": 142033,
+            "miniCardPhotos": [
+                {
+                    "url": "https://maps.googleapis.com/maps/api/staticmap?mobile=false&sensor=true&maptype=satellite&size=316x234&zoom=17&center=32.631004333496094,-117.01158905029297&key=AIzaSyBJsNQO5ZeG-XAbqqWLKwG08fWITSxg33w&&signature=_wpTr0yuqfoDR3JilVgEkGU8gmo="
+                }
+            ],
+            "zpid": 17180773,
+            "longitude": -117.01159,
+            "livingAreaUnits": "Square Feet",
+            "address": {
+                "city": "Chula Vista",
+                "state": "CA",
+                "streetAddress": "1059 Florido Plz",
+                "zipcode": "91910"
+            },
+            "livingAreaUnitsShort": "sqft",
+            "price": 756100,
+            "homeType": "CONDO",
+            "homeStatus": "OTHER",
+            "currency": "USD",
+            "latitude": 32.631004
+        },
+        {
+            "livingArea": 1570,
+            "livingAreaValue": 1570,
+            "lotAreaUnits": "Acres",
+            "lotAreaValue": 3.2606290174472,
+            "lotSize": 142033,
+            "miniCardPhotos": [
+                {
+                    "url": "https://maps.googleapis.com/maps/api/staticmap?mobile=false&sensor=true&maptype=satellite&size=316x234&zoom=17&center=32.631004333496094,-117.01158905029297&key=AIzaSyBJsNQO5ZeG-XAbqqWLKwG08fWITSxg33w&&signature=_wpTr0yuqfoDR3JilVgEkGU8gmo="
+                }
+            ],
+            "zpid": 17180774,
+            "longitude": -117.01159,
+            "livingAreaUnits": "Square Feet",
+            "address": {
+                "city": "Chula Vista",
+                "state": "CA",
+                "streetAddress": "1055 Florido Plz",
+                "zipcode": "91910"
+            },
+            "livingAreaUnitsShort": "sqft",
+            "price": 758700,
+            "homeType": "CONDO",
+            "homeStatus": "OTHER",
+            "currency": "USD",
+            "latitude": 32.631004
+        },
+        {
+            "livingArea": 1242,
+            "livingAreaValue": 1242,
+            "lotAreaUnits": "Acres",
+            "lotAreaValue": 3.2606290174472,
+            "lotSize": 142033,
+            "miniCardPhotos": [
+                {
+                    "url": "https://maps.googleapis.com/maps/api/streetview?location=1050+Florido+Plz%2C+Chula+Vista%2C+CA+91910&size=316x234&key=AIzaSyARFMLB1na-BBWf7_R3-5YOQQaHqEJf6RQ&source=outdoor&&signature=upo4-GEwHOJr1oTTVEaNJ1y70es="
+                }
+            ],
+            "zpid": 17180776,
+            "longitude": -117.01159,
+            "livingAreaUnits": "Square Feet",
+            "address": {
+                "city": "Chula Vista",
+                "state": "CA",
+                "streetAddress": "1050 Florido Plz",
+                "zipcode": "91910"
+            },
+            "livingAreaUnitsShort": "sqft",
+            "price": 674600,
+            "homeType": "CONDO",
+            "homeStatus": "OTHER",
+            "currency": "USD",
+            "latitude": 32.631004
+        },
+        {
+            "livingArea": 1570,
+            "livingAreaValue": 1570,
+            "lotAreaUnits": "Acres",
+            "lotAreaValue": 3.2606290174472,
+            "lotSize": 142033,
+            "miniCardPhotos": [
+                {
+                    "url": "https://maps.googleapis.com/maps/api/staticmap?mobile=false&sensor=true&maptype=satellite&size=316x234&zoom=17&center=32.631004333496094,-117.01158905029297&key=AIzaSyBJsNQO5ZeG-XAbqqWLKwG08fWITSxg33w&&signature=_wpTr0yuqfoDR3JilVgEkGU8gmo="
+                }
+            ],
+            "zpid": 17180777,
+            "longitude": -117.01159,
+            "livingAreaUnits": "Square Feet",
+            "address": {
+                "city": "Chula Vista",
+                "state": "CA",
+                "streetAddress": "1054 Florido Plz",
+                "zipcode": "91910"
+            },
+            "livingAreaUnitsShort": "sqft",
+            "price": 756600,
+            "homeType": "CONDO",
+            "homeStatus": "OTHER",
+            "currency": "USD",
+            "latitude": 32.631004
+        },
+        {
+            "livingArea": 1760,
+            "livingAreaValue": 1760,
+            "lotAreaUnits": "Acres",
+            "lotAreaValue": 3.2600091827365,
+            "lotSize": 142006,
+            "miniCardPhotos": [
+                {
+                    "url": "https://maps.googleapis.com/maps/api/staticmap?mobile=false&sensor=true&maptype=satellite&size=316x234&zoom=17&center=32.631004333496094,-117.01158905029297&key=AIzaSyBJsNQO5ZeG-XAbqqWLKwG08fWITSxg33w&&signature=_wpTr0yuqfoDR3JilVgEkGU8gmo="
+                }
+            ],
+            "zpid": 17180778,
+            "longitude": -117.01159,
+            "livingAreaUnits": "Square Feet",
+            "address": {
+                "city": "Chula Vista",
+                "state": "CA",
+                "streetAddress": "1058 Florido Plz",
+                "zipcode": "91910"
+            },
+            "livingAreaUnitsShort": "sqft",
+            "price": 767200,
+            "homeType": "TOWNHOUSE",
+            "homeStatus": "OTHER",
+            "currency": "USD",
+            "latitude": 32.631004
+        },
+        {
+            "livingArea": 1790,
+            "livingAreaValue": 1790,
+            "lotAreaUnits": "Acres",
+            "lotAreaValue": 3.2606290174472,
+            "lotSize": 142033,
+            "miniCardPhotos": [
+                {
+                    "url": "https://photos.zillowstatic.com/fp/7cab889f8235798d315110ea91bda71d-p_c.jpg"
+                }
+            ],
+            "zpid": 17180779,
+            "longitude": -117.01159,
+            "livingAreaUnits": "Square Feet",
+            "address": {
+                "city": "Chula Vista",
+                "state": "CA",
+                "streetAddress": "1062 Florido Plz",
+                "zipcode": "91910"
+            },
+            "livingAreaUnitsShort": "sqft",
+            "price": 896900,
+            "homeType": "SINGLE_FAMILY",
+            "homeStatus": "OTHER",
+            "currency": "USD",
+            "latitude": 32.631004
+        },
+        {
+            "livingArea": 1570,
+            "livingAreaValue": 1570,
+            "lotAreaUnits": "Acres",
+            "lotAreaValue": 3.2606290174472,
+            "lotSize": 142033,
+            "miniCardPhotos": [
+                {
+                    "url": "https://photos.zillowstatic.com/fp/348725c6b012fb2fa04dd8a6004d9d95-p_c.jpg"
+                }
+            ],
+            "zpid": 17180780,
+            "longitude": -117.01159,
+            "livingAreaUnits": "Square Feet",
+            "address": {
+                "city": "Chula Vista",
+                "state": "CA",
+                "streetAddress": "1066 Florido Plz",
+                "zipcode": "91910"
+            },
+            "livingAreaUnitsShort": "sqft",
+            "price": 791800,
+            "homeType": "SINGLE_FAMILY",
+            "homeStatus": "OTHER",
+            "currency": "USD",
+            "latitude": 32.631004
+        }
+    ],
+    "livingArea": 1570,
+    "priceHistory": [
+        {
+            "priceChangeRate": 0.10972222222222,
+            "date": "2024-04-26",
+            "source": "CRMLS",
+            "postingIsRental": false,
+            "time": 1714089600000,
+            "sellerAgent": null,
+            "showCountyLink": false,
+            "attributeSource": {
+                "infoString2": "CRMLS",
+                "infoString3": "https://photos.zillowstatic.com/fp/9f61463932aa73f48f1ae3d056f0eb39-zillow_web_logo_inf_11.jpg",
+                "infoString1": "PTP2401928"
+            },
+            "pricePerSquareFoot": 509,
+            "buyerAgent": null,
+            "event": "Listed for sale",
+            "price": 799000
+        },
+        {
+            "priceChangeRate": 0.066824714772559,
+            "date": "2022-04-01",
+            "source": "SDMLS",
+            "postingIsRental": false,
+            "time": 1648771200000,
+            "sellerAgent": {
+                "name": "Lynn More",
+                "photo": {
+                    "url": "https://photos.zillowstatic.com/h_e/ISnys7zf1xs85f0000000000.jpg"
+                },
+                "profileUrl": "/profile/lynn7019/"
+            },
+            "showCountyLink": false,
+            "attributeSource": {
+                "infoString2": "SDMLS",
+                "infoString3": "https://photos.zillowstatic.com/fp/94f49ee6f5011140a8b34f38324c4c0a-zillow_web_logo_inf_11.jpg",
+                "infoString1": "220005678"
+            },
+            "pricePerSquareFoot": 459,
+            "buyerAgent": {
+                "name": "Lawrence Avila",
+                "photo": {
+                    "url": "https://photos.zillowstatic.com/h_e/IS6ytzromdmgzt0000000000.jpg"
+                },
+                "profileUrl": "/profile/lavila82/"
+            },
+            "event": "Sold",
+            "price": 720000
+        },
+        {
+            "priceChangeRate": 0,
+            "date": "2022-03-13",
+            "source": "SDMLS",
+            "postingIsRental": false,
+            "time": 1647129600000,
+            "sellerAgent": null,
+            "showCountyLink": false,
+            "attributeSource": {
+                "infoString2": "SDMLS",
+                "infoString3": "https://photos.zillowstatic.com/fp/94f49ee6f5011140a8b34f38324c4c0a-zillow_web_logo_inf_11.jpg",
+                "infoString1": "220005678"
+            },
+            "pricePerSquareFoot": 430,
+            "buyerAgent": null,
+            "event": "Pending sale",
+            "price": 674900
+        },
+        {
+            "priceChangeRate": 0.36343434343434,
+            "date": "2022-03-12",
+            "source": "SDMLS",
+            "postingIsRental": false,
+            "time": 1647043200000,
+            "sellerAgent": null,
+            "showCountyLink": false,
+            "attributeSource": {
+                "infoString2": "SDMLS",
+                "infoString3": "https://photos.zillowstatic.com/fp/94f49ee6f5011140a8b34f38324c4c0a-zillow_web_logo_inf_11.jpg",
+                "infoString1": "220005678"
+            },
+            "pricePerSquareFoot": 430,
+            "buyerAgent": null,
+            "event": "Listed for sale",
+            "price": 674900
+        },
+        {
+            "priceChangeRate": 0,
+            "date": "2020-04-15",
+            "source": "Glendale AOR ZDD",
+            "postingIsRental": false,
+            "time": 1586908800000,
+            "sellerAgent": {
+                "name": "Omar Manzanarez",
+                "photo": {
+                    "url": "https://photos.zillowstatic.com/h_e/ISa1v5txv0q85d1000000000.jpg"
+                },
+                "profileUrl": "/profile/omanzanarez/"
+            },
+            "showCountyLink": false,
+            "attributeSource": {
+                "infoString2": "Glendale AOR ZDD",
+                "infoString3": "https://photos.zillowstatic.com/fp/d6de69e573dd2afaeff53b2e86683093-zillow_web_logo_inf_11.jpg",
+                "infoString1": "200013248"
+            },
+            "pricePerSquareFoot": 315,
+            "buyerAgent": {
+                "name": "Rose Gomez and Lynn More",
+                "photo": {
+                    "url": "https://photos.zillowstatic.com/h_e/IS3b9xshd8gy2q0000000000.jpg"
+                },
+                "profileUrl": "/profile/thecitywideagent/"
+            },
+            "event": "Sold",
+            "price": 495000
+        },
+        {
+            "priceChangeRate": 0,
+            "date": "2020-04-13",
+            "source": "Coldwell Banker West",
+            "postingIsRental": false,
+            "time": 1586736000000,
+            "sellerAgent": null,
+            "showCountyLink": false,
+            "attributeSource": {
+                "infoString2": "Coldwell Banker West",
+                "infoString3": null,
+                "infoString1": "200013248"
+            },
+            "pricePerSquareFoot": 315,
+            "buyerAgent": null,
+            "event": "Pending sale",
+            "price": 495000
+        },
+        {
+            "priceChangeRate": 0,
+            "date": "2020-03-17",
+            "source": "Coldwell Banker West",
+            "postingIsRental": false,
+            "time": 1584403200000,
+            "sellerAgent": null,
+            "showCountyLink": false,
+            "attributeSource": {
+                "infoString2": "Coldwell Banker West",
+                "infoString3": null,
+                "infoString1": "200013248"
+            },
+            "pricePerSquareFoot": 315,
+            "buyerAgent": null,
+            "event": "Listed for sale",
+            "price": 495000
+        }
+    ],
+    "favoriteCount": 52,
+    "schools": [
+        {
+            "link": "https://www.greatschools.org/california/chula-vista/5825-Casillas-Joseph-Elementary-School/",
+            "rating": 6,
+            "totalCount": null,
+            "distance": 0.1,
+            "assigned": null,
+            "name": "Casillas (Joseph) Elementary School",
+            "studentsPerTeacher": null,
+            "isAssigned": null,
+            "size": null,
+            "level": "Elementary",
+            "grades": "K-6",
+            "type": "Public"
+        },
+        {
+            "link": "https://www.greatschools.org/california/chula-vista/6294-Rancho-Del-Rey-Middle-School/",
+            "rating": 6,
+            "totalCount": null,
+            "distance": 0.2,
+            "assigned": null,
+            "name": "Rancho Del Rey Middle School",
+            "studentsPerTeacher": null,
+            "isAssigned": null,
+            "size": null,
+            "level": "Middle",
+            "grades": "7-8",
+            "type": "Public"
+        },
+        {
+            "link": "https://www.greatschools.org/california/chula-vista/12628-Otay-Ranch-Senior-High-School/",
+            "rating": 8,
+            "totalCount": null,
+            "distance": 1.5,
+            "assigned": null,
+            "name": "Otay Ranch Senior High School",
+            "studentsPerTeacher": null,
+            "isAssigned": null,
+            "size": null,
+            "level": "High",
+            "grades": "9-12",
+            "type": "Public"
+        }
+    ],
+    "zestimateHighPercent": "5",
+    "mlsid": "PTP2401928",
+    "countyFIPS": "06073",
+    "city": "Chula Vista",
+    "providerListingID": null,
+    "country": "USA",
+    "currency": "USD",
+    "isListedByOwner": null,
+    "contingentListingType": null
+}

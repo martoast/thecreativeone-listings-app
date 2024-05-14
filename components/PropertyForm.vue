@@ -191,7 +191,7 @@
         </div>
   
         <div class="mt-6 pb-6 flex items-center justify-end gap-x-6">
-          <a href="/admin/properties">
+          <a href="/admin">
             <button type="button" class="text-sm font-semibold leading-6">Cancel</button>
           </a>
           <button type="submit" class="rounded-md bg-indigo-500 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400">Save</button>

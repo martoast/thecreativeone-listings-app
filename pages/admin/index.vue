@@ -27,10 +27,10 @@
                   <th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-6"> </th>
                 </tr>
               </thead>
-              <tbody class="divide-y divide-gray-200 bg-white">
+              <tbody v-if="properties.length" class="divide-y divide-gray-200 bg-white">
                 <tr v-for="property in properties" :key="property.ID">
                   <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">{{ property.address }}</td>
-                  <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ property.price }}</td>
+                  <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ formatCurrency(property.price) }}</td>
                   <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ property.bedrooms }}</td>
                   <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ property.bathrooms }}</td>
                   
@@ -40,6 +40,9 @@
                   </td>
                 </tr>
               </tbody>
+              <div v-else class="mt-4">
+                <p>No Properties</p>
+              </div>
             </table>
           </div>
         </div>
@@ -97,4 +100,12 @@ const deleteProperty = async (property) => {
   showModal.value = false;
   propertyToDelete.value = null;
 };
+
+function formatCurrency(value) {
+  if (typeof value !== 'number') {
+    return value;
+  }
+  return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(value);
+}
+
 </script>

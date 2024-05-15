@@ -27,7 +27,7 @@ export const usePropertiesStore = defineStore('properties', {
 
       return $fetch(url, {
         method: method,
-        body: params.form
+        body: params.property
       });
     },
 

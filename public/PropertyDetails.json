@@ -1,56 +1,55 @@
 {
     "listingProvider": null,
-    "zpid": 17180840,
+    "zpid": 17984953,
     "buildingPermits": null,
-    "propertyTaxRate": 1.17,
+    "propertyTaxRate": 1.19,
     "contact_recipients": [
         {
             "agent_reason": 1,
             "zpro": null,
-            "recent_sales": 1,
-            "review_count": 174,
-            "display_name": "Patti McKelvey",
-            "zuid": "X1-ZUz0aeo7dmyart_2rqd8",
+            "recent_sales": 0,
+            "review_count": 54,
+            "display_name": "Melody and Denny Ramirez",
+            "zuid": "X1-ZU12xs58gnxomix_52lx3",
             "rating_average": 5,
             "badge_type": "Premier Agent",
             "phone": {
-                "prefix": "456",
-                "areacode": "619",
-                "number": "0624"
+                "prefix": "496",
+                "areacode": "760",
+                "number": "5585"
             },
-            "image_url": "https://photos.zillowstatic.com/h_n/ISt8ygskkvulvc1000000000.jpg"
+            "image_url": "https://photos.zillowstatic.com/h_n/IS3zf67c50lct31000000000.jpg"
         }
     ],
-    "zipcode": "91910",
+    "zipcode": "92544",
     "openHouseSchedule": {},
-    "longitude": -117.012024,
-    "zestimateLowPercent": "5",
+    "longitude": -116.931404,
+    "zestimateLowPercent": null,
     "address": {
         "community": null,
-        "city": "Chula Vista",
+        "city": "Hemet",
         "state": "CA",
         "neighborhood": null,
         "subdivision": null,
-        "streetAddress": "1058 Petalo Plz",
-        "zipcode": "91910"
+        "streetAddress": "26864 Stanford St",
+        "zipcode": "92544"
     },
-    "cityId": 51405,
-    "timeOnZillow": "17 days",
-    "url": "/homedetails/1058-Petalo-Plz-Chula-Vista-CA-91910/17180840_zpid/",
-    "zestimate": 838700,
-    "imgSrc": "https://photos.zillowstatic.com/fp/e743306307b6bbfbae5192c74e3e4b35-p_d.jpg",
-    "description": "Immerse yourself in the vibrant Chula Vista lifestyle with this exceptional three-bedroom, three-bathroom home. Nestled in the heart of the community and built in 1989, this residence exudes timeless charm and modern comfort. Boasting a thoughtfully designed 1570 square feet floorplan, every corner of this home maximizes space and functionality, offering an inviting sanctuary for daily living and entertaining alike.  Convenience is at your fingertips with its proximity to a plethora of amenities, including shopping destinations, dining establishments, esteemed schools, and picturesque parks. Whether you're seeking a relaxing evening stroll or a culinary adventure, this prime location caters to every lifestyle preference.  Elegance and convenience converge seamlessly in this beautiful home, making it an irresistible opportunity for discerning buyers. Don't miss your chance to own a piece of Chula Vista's coveted lifestyle. Reach out today by submitting your inquiry through the form below and take the first step towards making this remarkable residence your own.",
-    "price": 799000,
-    "livingAreaValue": 1570,
+    "cityId": 11865,
+    "timeOnZillow": "598 days",
+    "url": "/homedetails/26864-Stanford-St-Hemet-CA-92544/17984953_zpid/",
+    "zestimate": null,
+    "imgSrc": "https://photos.zillowstatic.com/fp/7827c6422706713f7a9ed38799245470-p_d.jpg",
+    "description": "3 bedroom 2 1/2 bath home.",
+    "price": 537900,
+    "livingAreaValue": 2784,
     "resoFacts": {
         "hasAttachedProperty": false,
         "frontageType": null,
         "poolFeatures": [
-            "Community"
+            "Private",
+            "In Ground"
         ],
-        "flooring": [
-            "Vinyl"
-        ],
+        "flooring": null,
         "builderModel": null,
         "accessibilityFeatures": null,
         "hasGarage": true,
@@ -67,11 +66,11 @@
                 "factLabel": "Type"
             },
             {
-                "factValue": "1989",
+                "factValue": "1962",
                 "factLabel": "Year Built"
             },
             {
-                "factValue": null,
+                "factValue": "Central",
                 "factLabel": "Heating"
             },
             {
@@ -79,24 +78,12 @@
                 "factLabel": "Cooling"
             },
             {
-                "factValue": "2 Attached Garage spaces",
+                "factValue": "3 Attached Garage spaces",
                 "factLabel": "Parking"
             },
             {
-                "factValue": "$294 monthly",
-                "factLabel": "HOA"
-            },
-            {
-                "factValue": "2.58 Acres",
+                "factValue": "0.39 Acres",
                 "factLabel": "Lot"
-            },
-            {
-                "factValue": "17 Days",
-                "factLabel": "Days on Zillow"
-            },
-            {
-                "factValue": "$509",
-                "factLabel": "Price/sqft"
             },
             {
                 "factValue": "2.5",
@@ -110,7 +97,7 @@
         "offerReviewDate": null,
         "horseYN": null,
         "view": [
-            "Park/Greenbelt"
+            "None"
         ],
         "buyerAgencyCompensationType": "%",
         "rooms": {},
@@ -118,44 +105,48 @@
         "feesAndDues": [
             {
                 "phone": null,
-                "name": "Villa Palmera Homeowners Association",
-                "fee": "$294 monthly",
+                "name": null,
+                "fee": null,
                 "type": "HOA"
             }
         ],
-        "cityRegion": "Chula Vista",
+        "cityRegion": "Hemet",
         "subAgencyCompensation": null,
-        "hasPrivatePool": null,
+        "hasPrivatePool": true,
         "associationFeeIncludes": null,
-        "waterSource": null,
+        "waterSource": [
+            "Public"
+        ],
         "carportParkingCapacity": null,
         "transactionBrokerCompensationType": null,
         "hasFireplace": true,
         "gas": null,
         "sewer": [
-            "Public Sewer"
+            "Septic Type Unknown"
         ],
-        "elevationUnits": null,
+        "elevationUnits": "Feet",
         "roadSurfaceType": null,
-        "mainLevelBedrooms": 1,
+        "mainLevelBedrooms": 3,
         "numberOfUnitsVacant": null,
         "hasWaterfrontView": null,
         "bathroomsOneQuarter": null,
-        "lotSize": "2.58 Acres",
+        "lotSize": "0.39 Acres",
         "subAgencyCompensationType": null,
         "entryLevel": null,
         "irrigationWaterRightsAcres": null,
         "greenWaterConservation": null,
-        "stories": 2,
+        "stories": 1,
         "bathrooms": 3,
-        "numberOfUnitsInCommunity": 1,
-        "listingTerms": null,
+        "numberOfUnitsInCommunity": null,
+        "listingTerms": "Down Payment Resource",
         "otherParking": null,
-        "associationFee": "$294 monthly",
+        "associationFee": null,
         "marketingType": null,
         "greenEnergyEfficient": null,
         "greenSustainability": null,
-        "heating": null,
+        "heating": [
+            "Central"
+        ],
         "associationPhone": null,
         "greenBuildingVerificationType": null,
         "hasAttachedGarage": true,
@@ -164,81 +155,67 @@
         "listingId": null,
         "structureType": null,
         "interiorFeatures": [
-            "Family Room",
-            "Main Floor Master Bedroom",
-            "Master Suite"
+            "All Bedrooms Down",
+            "Kitchen",
+            "Living Room"
         ],
         "horseAmenities": null,
         "electric": null,
         "otherFacts": {},
         "lotFeatures": [
-            "0-1 Unit/Acre"
+            "Yard"
         ],
         "roofType": null,
         "compensationBasedOn": null,
         "greenEnergyGeneration": null,
-        "taxAnnualAmount": 9348,
-        "daysOnZillow": 17,
-        "listAOR": "California Regional MLS (North San Diego County & Pacific Southwest AORs)",
-        "hasHeating": null,
+        "taxAnnualAmount": 6401,
+        "daysOnZillow": 598,
+        "listAOR": "California Regional MLS",
+        "hasHeating": true,
         "elementarySchool": null,
-        "constructionMaterials": [
-            "Drywall Walls",
-            "Stucco"
-        ],
+        "constructionMaterials": {},
         "basementYN": null,
-        "hoaFeeTotal": "$294 monthly",
+        "hoaFeeTotal": null,
         "appliances": [
             "Dishwasher",
-            "Disposal",
-            "Gas Range",
-            "Microwave",
-            "Refrigerator"
+            "Gas Range"
         ],
-        "virtualTour": "https://sites.rocksynergies.com/vd/134457856",
+        "virtualTour": null,
         "bathroomsPartial": null,
         "fencing": null,
         "yearBuiltEffective": null,
         "foundationDetails": {},
         "buildingName": null,
-        "hasAssociation": true,
+        "hasAssociation": false,
         "isSeniorCommunity": null,
         "propertySubType": [
             "Single Family Residence"
         ],
         "propertyCondition": null,
-        "hasCarport": false,
+        "hasCarport": null,
         "canRaiseHorses": false,
         "hasLandLease": false,
         "communityFeatures": [
-            "Curbs",
-            "Golf",
-            "Sidewalks",
-            "Storm Drains",
-            "Street Lights",
-            "Dog Park",
-            "Park"
+            "Urban"
         ],
-        "parcelNumber": "6402800921",
+        "parcelNumber": "449250002",
         "elevation": null,
         "lotSizeDimensions": null,
         "buildingAreaSource": null,
         "contingency": null,
-        "yearBuilt": 1989,
+        "yearBuilt": 1962,
         "otherStructures": null,
-        "livingArea": "1,570 sqft",
-        "bathroomsFull": 2,
+        "livingArea": "2,784 sqft",
+        "bathroomsFull": 1,
         "livingAreaRangeUnits": null,
         "incomeIncludes": null,
-        "highSchool": "Otay Ranch",
+        "highSchool": null,
         "aboveGradeFinishedArea": null,
         "isNewConstruction": false,
         "inclusions": null,
         "hasHomeWarranty": false,
         "additionalFeeInfo": null,
-        "windowFeatures": [
-            "Double Pane Windows"
-        ],
+        "windowFeatures": null,
         "ownership": null,
         "woodedArea": null,
         "middleOrJuniorSchoolDistrict": null,
@@ -247,29 +224,16 @@
         "buildingFeatures": null,
         "frontageLength": null,
         "buildingArea": null,
-        "associationAmenities": [
-            "Call for Rules",
-            "Management",
-            "Pool"
-        ],
+        "associationAmenities": null,
         "bathroomsHalf": 1,
         "hasCooling": true,
         "additionalParcelsDescription": null,
         "parkingFeatures": [
-            "Assigned",
-            "Direct Access",
-            "Asphalt",
-            "Paved",
-            "Garage",
-            "Garage Faces Rear",
-            "Garage - Single Door",
-            "Garage Door Opener",
-            "Parking Space",
-            "Shared Driveway"
+            "Garage - Attached"
         ],
         "foundationArea": null,
-        "zoning": "R-1:SINGLE FAM-RES",
-        "hoaFee": "$294 monthly",
+        "zoning": "A-1-5",
+        "hoaFee": null,
         "livingAreaRange": null,
         "zoningDescription": null,
         "developmentStatus": null,
@@ -277,48 +241,39 @@
         "waterfrontFeatures": null,
         "waterBodyName": null,
         "utilities": null,
-        "entryLocation": "1",
+        "entryLocation": null,
         "totalActualRent": null,
         "hasView": true,
         "subdivisionName": null,
         "securityFeatures": null,
         "attic": null,
         "fireplaceFeatures": [
-            "Family Room",
-            "Gas",
-            "Wood Burning"
+            "Decorative"
         ],
-        "mainLevelBathrooms": 2,
+        "mainLevelBathrooms": 3,
         "doorFeatures": null,
         "ownershipType": null,
-        "associationName": "Villa Palmera Homeowners Association",
-        "associations": [
-            {
-                "feeFrequency": "$294 monthly",
-                "name": "Villa Palmera Homeowners Association",
-                "phone": null
-            }
-        ],
+        "associationName": null,
+        "associations": {},
         "waterView": null,
-        "garageParkingCapacity": 2,
+        "garageParkingCapacity": 3,
         "cropsIncludedYN": null,
         "laundryFeatures": [
-            "Gas & Electric Dryer Hookup",
-            "In Garage"
+            "Inside"
         ],
         "buyerAgencyCompensation": "2.5",
         "greenIndoorAirQuality": null,
         "homeType": "SingleFamily",
         "spaFeatures": null,
         "municipality": null,
-        "bathroomsThreeQuarter": null,
+        "bathroomsThreeQuarter": 1,
         "hasSpa": false,
         "basement": null,
         "associationFee2": null,
         "cooling": [
             "Central Air"
         ],
-        "openParkingCapacity": null,
+        "openParkingCapacity": 3,
         "associationName2": null,
         "hasRentControl": null,
         "elementarySchoolDistrict": null,
@@ -330,191 +285,191 @@
         "patioAndPorchFeatures": null,
         "bathroomsFloat": 3,
         "builderName": null,
-        "highSchoolDistrict": "Sweetwater Union",
+        "highSchoolDistrict": "Hemet Unified",
         "transactionBrokerCompensation": null,
-        "storiesTotal": 2,
-        "cumulativeDaysOnMarket": null,
+        "storiesTotal": 1,
+        "cumulativeDaysOnMarket": "42 days",
         "fireplaces": null,
         "irrigationWaterRightsYN": null,
         "exclusions": null,
-        "hasOpenParking": true,
+        "hasOpenParking": null,
         "landLeaseAmount": null,
-        "coveredParkingCapacity": 2,
+        "coveredParkingCapacity": 3,
         "middleOrJuniorSchool": null,
         "hasElectricOnProperty": null,
-        "onMarketDate": 1714089600000,
-        "pricePerSquareFoot": 509,
-        "parkingCapacity": 2,
-        "levels": "Two"
+        "onMarketDate": 1656633600000,
+        "pricePerSquareFoot": 193,
+        "parkingCapacity": 6,
+        "levels": "One"
     },
     "taxHistory": [
         {
-            "time": 1684014138203,
-            "valueIncreaseRate": 0.28006586,
-            "taxIncreaseRate": 0.3080926,
-            "taxPaid": 7591.62,
-            "value": 653000
+            "time": 1684090446199,
+            "valueIncreaseRate": 1.5905414,
+            "taxIncreaseRate": 1.566058,
+            "taxPaid": 6151.2,
+            "value": 537900
         },
         {
-            "time": 1652478138203,
-            "valueIncreaseRate": 0.01999888,
-            "taxIncreaseRate": 0.025508791,
-            "taxPaid": 5803.58,
-            "value": 510130
+            "time": 1652554446199,
+            "valueIncreaseRate": 0.019998133,
+            "taxIncreaseRate": 0.016840281,
+            "taxPaid": 2397.14,
+            "value": 207640
         },
         {
-            "time": 1620942138203,
-            "valueIncreaseRate": 0.15850286,
-            "taxIncreaseRate": 0.176509,
-            "taxPaid": 5659.22,
-            "value": 500128
+            "time": 1621018446199,
+            "valueIncreaseRate": 0.010353231,
+            "taxIncreaseRate": -0.17220072,
+            "taxPaid": 2357.44,
+            "value": 203569
         },
         {
-            "time": 1589406138203,
-            "valueIncreaseRate": 0.019998204,
-            "taxIncreaseRate": 0.036547177,
-            "taxPaid": 4810.18,
-            "value": 431702
+            "time": 1589482446199,
+            "valueIncreaseRate": 0.019996658,
+            "taxIncreaseRate": 0.2491732,
+            "taxPaid": 2847.84,
+            "value": 201483
         },
         {
-            "time": 1557783738203,
-            "valueIncreaseRate": 0.019998072,
-            "taxIncreaseRate": 0.008105121,
-            "taxPaid": 4640.58,
-            "value": 423238
+            "time": 1557860046199,
+            "valueIncreaseRate": 0.0199937,
+            "taxIncreaseRate": 0.03210702,
+            "taxPaid": 2279.78,
+            "value": 197533
         },
         {
-            "time": 1526247738203,
-            "valueIncreaseRate": 0.019997297,
-            "taxIncreaseRate": 0.014128201,
-            "taxPaid": 4603.27,
-            "value": 414940
+            "time": 1526324046199,
+            "valueIncreaseRate": 0.019993152,
+            "taxIncreaseRate": 0.012096509,
+            "taxPaid": 2208.86,
+            "value": 193661
         },
         {
-            "time": 1494711738203,
-            "valueIncreaseRate": 0.043089744,
-            "taxIncreaseRate": 0.03821066,
-            "taxPaid": 4539.14,
-            "value": 406805
-        },
-        {
-            "time": 1463175738203,
-            "valueIncreaseRate": 0.083333336,
-            "taxIncreaseRate": 0.08035825,
-            "taxPaid": 4372.08,
-            "value": 390000
-        },
-        {
-            "time": 1431553338203,
-            "valueIncreaseRate": 0.22033899,
-            "taxIncreaseRate": -0.011770269,
-            "taxPaid": 4046.88,
-            "value": 360000
-        },
-        {
-            "time": 1400017338203,
-            "valueIncreaseRate": 0.18,
+            "time": 1494788046199,
+            "valueIncreaseRate": 0.01999538,
             "taxIncreaseRate": 0,
-            "taxPaid": 4095.08,
-            "value": 295000
+            "taxPaid": 2182.46,
+            "value": 189865
         },
         {
-            "time": 1368481338203,
+            "time": 1463252046199,
+            "valueIncreaseRate": 0.015238698,
+            "taxIncreaseRate": 0.010360673,
+            "taxPaid": 2182.46,
+            "value": 186143
+        },
+        {
+            "time": 1431629646199,
+            "valueIncreaseRate": 0.019971184,
+            "taxIncreaseRate": 0.04740293,
+            "taxPaid": 2160.08,
+            "value": 183349
+        },
+        {
+            "time": 1400093646199,
+            "valueIncreaseRate": 0.004532043,
+            "taxIncreaseRate": 0,
+            "taxPaid": 2062.32,
+            "value": 179759
+        },
+        {
+            "time": 1368557646199,
+            "valueIncreaseRate": 0.04039535,
+            "taxIncreaseRate": 0,
+            "taxPaid": null,
+            "value": 178948
+        },
+        {
+            "time": 1337021646199,
             "valueIncreaseRate": 0,
             "taxIncreaseRate": 0,
             "taxPaid": null,
-            "value": 250000
+            "value": 172000
         },
         {
-            "time": 1336945338203,
+            "time": 1305399246199,
+            "valueIncreaseRate": -0.27755377,
+            "taxIncreaseRate": 0,
+            "taxPaid": null,
+            "value": 172000
+        },
+        {
+            "time": 1273863246199,
+            "valueIncreaseRate": -0.002375894,
+            "taxIncreaseRate": 0,
+            "taxPaid": null,
+            "value": 238080
+        },
+        {
+            "time": 1242327246199,
+            "valueIncreaseRate": 0.019998461,
+            "taxIncreaseRate": 0,
+            "taxPaid": null,
+            "value": 238647
+        },
+        {
+            "time": 1210791246199,
+            "valueIncreaseRate": 0.01999285,
+            "taxIncreaseRate": 0,
+            "taxPaid": null,
+            "value": 233968
+        },
+        {
+            "time": 1179168846199,
+            "valueIncreaseRate": 0.019992352,
+            "taxIncreaseRate": 0,
+            "taxPaid": null,
+            "value": 229382
+        },
+        {
+            "time": 1147632846199,
+            "valueIncreaseRate": 0.01999755,
+            "taxIncreaseRate": 0,
+            "taxPaid": null,
+            "value": 224886
+        },
+        {
+            "time": 1116096846199,
+            "valueIncreaseRate": 0.03903014,
+            "taxIncreaseRate": 0,
+            "taxPaid": null,
+            "value": 220477
+        },
+        {
+            "time": 1052938446199,
+            "valueIncreaseRate": 0.019996636,
+            "taxIncreaseRate": 0,
+            "taxPaid": null,
+            "value": 212195
+        },
+        {
+            "time": 1021402446199,
+            "valueIncreaseRate": 0.01999441,
+            "taxIncreaseRate": 0,
+            "taxPaid": null,
+            "value": 208035
+        },
+        {
+            "time": 989866446199,
+            "valueIncreaseRate": 0.019994099,
+            "taxIncreaseRate": 0.01919571,
+            "taxPaid": 2033.54,
+            "value": 203957
+        },
+        {
+            "time": 958330446199,
             "valueIncreaseRate": 0,
             "taxIncreaseRate": 0,
-            "taxPaid": null,
-            "value": 250000
-        },
-        {
-            "time": 1305322938203,
-            "valueIncreaseRate": 0,
-            "taxIncreaseRate": 0,
-            "taxPaid": null,
-            "value": 250000
-        },
-        {
-            "time": 1273786938203,
-            "valueIncreaseRate": 0,
-            "taxIncreaseRate": 0,
-            "taxPaid": null,
-            "value": 250000
-        },
-        {
-            "time": 1242250938203,
-            "valueIncreaseRate": -0.30450845,
-            "taxIncreaseRate": 0,
-            "taxPaid": null,
-            "value": 250000
-        },
-        {
-            "time": 1210714938203,
-            "valueIncreaseRate": 0.019999433,
-            "taxIncreaseRate": 0,
-            "taxPaid": null,
-            "value": 359458
-        },
-        {
-            "time": 1179092538203,
-            "valueIncreaseRate": 0.019997047,
-            "taxIncreaseRate": 0,
-            "taxPaid": null,
-            "value": 352410
-        },
-        {
-            "time": 1147556538203,
-            "valueIncreaseRate": 0.019998405,
-            "taxIncreaseRate": 0,
-            "taxPaid": null,
-            "value": 345501
-        },
-        {
-            "time": 1116020538203,
-            "valueIncreaseRate": 0.019997831,
-            "taxIncreaseRate": 0,
-            "taxPaid": null,
-            "value": 338727
-        },
-        {
-            "time": 1084484538203,
-            "valueIncreaseRate": 0.4926354,
-            "taxIncreaseRate": 0,
-            "taxPaid": null,
-            "value": 332086
-        },
-        {
-            "time": 1052862138203,
-            "valueIncreaseRate": 0.019993398,
-            "taxIncreaseRate": 0,
-            "taxPaid": null,
-            "value": 222483
-        },
-        {
-            "time": 1021326138203,
-            "valueIncreaseRate": 0.11857436,
-            "taxIncreaseRate": 0,
-            "taxPaid": null,
-            "value": 218122
-        },
-        {
-            "time": 989790138203,
-            "valueIncreaseRate": 0,
-            "taxIncreaseRate": 0,
-            "taxPaid": null,
-            "value": 195000
+            "taxPaid": 1995.24,
+            "value": 199959
         }
     ],
     "brokerId": null,
     "stateId": 9,
-    "streetAddress": "1058 Petalo Plz",
+    "streetAddress": "26864 Stanford St",
     "listingSubType": {
-        "is_FSBA": true,
+        "is_FSBA": false,
         "is_comingSoon": false,
         "is_newHome": false,
         "is_pending": false,
@@ -526,496 +481,526 @@
     },
     "solarPotential": null,
     "dateSold": null,
-    "countyId": 2841,
+    "countyId": 2832,
     "timeZone": "America/Los_Angeles",
     "homeType": "SINGLE_FAMILY",
     "livingAreaUnits": "sqft",
     "comingSoonOnMarketDate": null,
-    "rentZestimate": 3599,
+    "rentZestimate": 2999,
     "bathrooms": 3,
-    "annualHomeownersInsurance": 3356,
+    "annualHomeownersInsurance": 2259,
     "state": "CA",
     "propertyTypeDimension": "Single Family",
     "building": null,
     "listed_by": {
         "agent_reason": 3,
         "zpro": false,
-        "recent_sales": 0,
-        "zuid": "X1-ZU13igz5duhfimh_2ca41",
-        "review_count": 2,
-        "display_name": "Lawrence Avila",
-        "profile_url": "https://www.zillow.com/profile/lavila82/",
-        "business_name": "Coldwell Banker West",
-        "rating_average": 5,
+        "recent_sales": 1,
+        "zuid": "X1-ZUyyfpowq45ekp_6r0de",
+        "review_count": 6,
+        "display_name": "Judi Reimer",
+        "profile_url": "https://www.zillow.com/profile/Judi-Reimer/",
+        "business_name": "First Team Real Estate",
+        "rating_average": 3,
         "phone": {
-            "prefix": "609",
-            "areacode": "909",
-            "number": "8976"
+            "prefix": "266",
+            "areacode": "310",
+            "number": "1649"
         },
         "badge_type": "Listing Agent",
-        "image_url": "https://photos.zillowstatic.com/h_n/IS6ytzromdmgzt0000000000.jpg"
+        "image_url": "https://photos.zillowstatic.com/h_n/ISug4ry3mcr79b0000000000.jpg"
     },
-    "yearBuilt": 1989,
-    "brokerageName": "Coldwell Banker West",
-    "pageViewCount": 1690,
-    "county": "San Diego County",
+    "yearBuilt": 1962,
+    "brokerageName": "First Team Real Estate",
+    "pageViewCount": 3,
+    "county": "Riverside County",
     "mortgageRates": {
-        "thirtyYearFixedRate": 6.642
+        "thirtyYearFixedRate": 6.746
     },
     "attributionInfo": {
-        "buyerAgentName": null,
+        "buyerAgentName": "Christopher Lamoree",
         "mlsName": "CRMLS",
-        "coAgentLicenseNumber": null,
+        "coAgentLicenseNumber": "DRE #01371801",
         "listingOffices": [
             {
                 "associatedOfficeType": "listOffice",
-                "officeName": "Coldwell Banker West"
+                "officeName": "First Team Real Estate"
+            },
+            {
+                "associatedOfficeType": "coListOffice",
+                "officeName": "First Team Real Estate"
+            },
+            {
+                "associatedOfficeType": "buyerOffice",
+                "officeName": "Berkshire Hathaway HomeServices California Properties"
             }
         ],
-        "lastUpdated": "2024-04-26 01:20:52",
-        "buyerAgentMemberStateLicense": null,
-        "brokerName": "Coldwell Banker West",
+        "lastUpdated": "2022-09-23 02:24:40",
+        "buyerAgentMemberStateLicense": "DRE #01877567",
+        "brokerName": "First Team Real Estate",
         "listingAgreement": null,
         "infoString10": "The multiple listing data appearing on this website, or contained in reports produced therefrom, is owned and copyrighted by California Regional Multiple Listing Service, Inc. (\"CRMLS\") and is protected by all applicable copyright laws. Information provided is for viewer's personal, non-commercial use and may not be used for any purpose other than to identify prospective properties the viewer may be interested in purchasing. All listing data, including but not limited to square footage and lot size is believed to be accurate, but the listing Agent, listing Broker and CRMLS and its affiliates do not warrant or guarantee such accuracy. The viewer should independently verify the listed data prior to making any decisions based on such information by personal inspection and/or contacting a real estate professional.\n\nBased on information from California Regional Multiple Listing Service, Inc. as of 2024-01-24 10:53:37 PST and /or other sources. All data, including all measurements and calculations of area, is obtained from various sources and has not been, and will not be, verified by broker or MLS. All information should be independently reviewed and verified for accuracy. Properties may or may not be listed by the office/agent presenting the information\n\nThe listing broker’s offer of compensation is made only to participants of the MLS where the listing is filed.",
         "trueStatus": null,
         "infoString3": "https://photos.zillowstatic.com/fp/9f61463932aa73f48f1ae3d056f0eb39-zillow_web_95_35.jpg",
-        "agentEmail": "lawrence@koasales.com",
-        "agentName": "Lawrence Avila",
+        "agentEmail": null,
+        "agentName": "Judi Reimer",
         "attributionTitle": "Listing Provided by:",
-        "mlsId": "PTP2401928",
-        "coAgentName": null,
-        "coAgentNumber": null,
-        "infoString5": "909-609-8976",
+        "mlsId": "DW22122354",
+        "coAgentName": "Janette Reimer",
+        "coAgentNumber": "310-529-7725",
+        "infoString5": "310-266-1649",
         "listingAgents": [
             {
-                "memberStateLicense": "DRE #02087637",
-                "memberFullName": "Lawrence Avila",
+                "memberStateLicense": "DRE #01218767",
+                "memberFullName": "Judi Reimer",
                 "associatedAgentType": "listAgent"
+            },
+            {
+                "memberStateLicense": "DRE #01371801",
+                "memberFullName": "Janette Reimer",
+                "associatedAgentType": "coListAgent"
+            },
+            {
+                "memberStateLicense": "DRE #01877567",
+                "memberFullName": "Christopher Lamoree",
+                "associatedAgentType": "buyerAgent"
             }
         ],
-        "agentPhoneNumber": "909-609-8976",
-        "agentLicenseNumber": "DRE #02087637",
+        "agentPhoneNumber": "310-266-1649",
+        "agentLicenseNumber": "DRE #01218767",
         "providerLogo": "https://photos.zillowstatic.com/fp/9f61463932aa73f48f1ae3d056f0eb39-zillow_web_95_35.jpg",
         "infoString16": null,
-        "buyerBrokerageName": null,
+        "buyerBrokerageName": "Berkshire Hathaway HomeServices California Properties",
         "mlsDisclaimer": "The multiple listing data appearing on this website, or contained in reports produced therefrom, is owned and copyrighted by California Regional Multiple Listing Service, Inc. (\"CRMLS\") and is protected by all applicable copyright laws. Information provided is for viewer's personal, non-commercial use and may not be used for any purpose other than to identify prospective properties the viewer may be interested in purchasing. All listing data, including but not limited to square footage and lot size is believed to be accurate, but the listing Agent, listing Broker and CRMLS and its affiliates do not warrant or guarantee such accuracy. The viewer should independently verify the listed data prior to making any decisions based on such information by personal inspection and/or contacting a real estate professional.\n\nBased on information from California Regional Multiple Listing Service, Inc. as of 2024-01-24 10:53:37 PST and /or other sources. All data, including all measurements and calculations of area, is obtained from various sources and has not been, and will not be, verified by broker or MLS. All information should be independently reviewed and verified for accuracy. Properties may or may not be listed by the office/agent presenting the information\n\nThe listing broker’s offer of compensation is made only to participants of the MLS where the listing is filed.",
-        "brokerPhoneNumber": "619-325-4100",
-        "lastChecked": "2024-05-13 14:21:47"
+        "brokerPhoneNumber": "310-266-1649",
+        "lastChecked": "2024-05-14 11:48:59"
     },
-    "monthlyHoaFee": 294,
-    "homeStatus": "FOR_SALE",
+    "monthlyHoaFee": null,
+    "homeStatus": "SOLD",
     "homeFacts": null,
-    "latitude": 32.63125,
-    "datePosted": "2024-04-26",
+    "latitude": 33.731194,
+    "datePosted": "2024-02-13",
     "bedrooms": 3,
     "nearbyHomes": [
         {
-            "livingArea": 1128,
-            "livingAreaValue": 1128,
-            "lotAreaUnits": "sqft",
-            "lotAreaValue": null,
-            "lotSize": null,
+            "livingArea": 2227,
+            "livingAreaValue": 2227,
+            "lotAreaUnits": "Square Feet",
+            "lotAreaValue": 7405,
+            "lotSize": 7405,
             "miniCardPhotos": [
                 {
-                    "url": "https://photos.zillowstatic.com/fp/380c613402bbed024cb23182b739a582-p_c.jpg"
+                    "url": "https://photos.zillowstatic.com/fp/f46651175cb62c77bccc52ce9aee7b3e-p_c.jpg"
                 }
             ],
-            "zpid": 17180775,
-            "longitude": -117.01244,
+            "zpid": 17985235,
+            "longitude": -116.93135,
             "livingAreaUnits": "Square Feet",
             "address": {
-                "city": "Chula Vista",
+                "city": "Hemet",
                 "state": "CA",
-                "streetAddress": "1051 Florido Plz",
-                "zipcode": "91910"
+                "streetAddress": "41819 Lomas St",
+                "zipcode": "92544"
             },
             "livingAreaUnitsShort": "sqft",
-            "price": 645000,
-            "homeType": "CONDO",
-            "homeStatus": "RECENTLY_SOLD",
-            "currency": "USD",
-            "latitude": 32.63099
-        },
-        {
-            "livingArea": 1570,
-            "livingAreaValue": 1570,
-            "lotAreaUnits": "Acres",
-            "lotAreaValue": 3.2606290174472,
-            "lotSize": 142033,
-            "miniCardPhotos": [
-                {
-                    "url": "https://maps.googleapis.com/maps/api/staticmap?mobile=false&sensor=true&maptype=satellite&size=316x234&zoom=17&center=32.631004333496094,-117.01158905029297&key=AIzaSyBJsNQO5ZeG-XAbqqWLKwG08fWITSxg33w&&signature=_wpTr0yuqfoDR3JilVgEkGU8gmo="
-                }
-            ],
-            "zpid": 17180773,
-            "longitude": -117.01159,
-            "livingAreaUnits": "Square Feet",
-            "address": {
-                "city": "Chula Vista",
-                "state": "CA",
-                "streetAddress": "1059 Florido Plz",
-                "zipcode": "91910"
-            },
-            "livingAreaUnitsShort": "sqft",
-            "price": 756100,
-            "homeType": "CONDO",
-            "homeStatus": "OTHER",
-            "currency": "USD",
-            "latitude": 32.631004
-        },
-        {
-            "livingArea": 1570,
-            "livingAreaValue": 1570,
-            "lotAreaUnits": "Acres",
-            "lotAreaValue": 3.2606290174472,
-            "lotSize": 142033,
-            "miniCardPhotos": [
-                {
-                    "url": "https://maps.googleapis.com/maps/api/staticmap?mobile=false&sensor=true&maptype=satellite&size=316x234&zoom=17&center=32.631004333496094,-117.01158905029297&key=AIzaSyBJsNQO5ZeG-XAbqqWLKwG08fWITSxg33w&&signature=_wpTr0yuqfoDR3JilVgEkGU8gmo="
-                }
-            ],
-            "zpid": 17180774,
-            "longitude": -117.01159,
-            "livingAreaUnits": "Square Feet",
-            "address": {
-                "city": "Chula Vista",
-                "state": "CA",
-                "streetAddress": "1055 Florido Plz",
-                "zipcode": "91910"
-            },
-            "livingAreaUnitsShort": "sqft",
-            "price": 758700,
-            "homeType": "CONDO",
-            "homeStatus": "OTHER",
-            "currency": "USD",
-            "latitude": 32.631004
-        },
-        {
-            "livingArea": 1242,
-            "livingAreaValue": 1242,
-            "lotAreaUnits": "Acres",
-            "lotAreaValue": 3.2606290174472,
-            "lotSize": 142033,
-            "miniCardPhotos": [
-                {
-                    "url": "https://maps.googleapis.com/maps/api/streetview?location=1050+Florido+Plz%2C+Chula+Vista%2C+CA+91910&size=316x234&key=AIzaSyARFMLB1na-BBWf7_R3-5YOQQaHqEJf6RQ&source=outdoor&&signature=upo4-GEwHOJr1oTTVEaNJ1y70es="
-                }
-            ],
-            "zpid": 17180776,
-            "longitude": -117.01159,
-            "livingAreaUnits": "Square Feet",
-            "address": {
-                "city": "Chula Vista",
-                "state": "CA",
-                "streetAddress": "1050 Florido Plz",
-                "zipcode": "91910"
-            },
-            "livingAreaUnitsShort": "sqft",
-            "price": 674600,
-            "homeType": "CONDO",
-            "homeStatus": "OTHER",
-            "currency": "USD",
-            "latitude": 32.631004
-        },
-        {
-            "livingArea": 1570,
-            "livingAreaValue": 1570,
-            "lotAreaUnits": "Acres",
-            "lotAreaValue": 3.2606290174472,
-            "lotSize": 142033,
-            "miniCardPhotos": [
-                {
-                    "url": "https://maps.googleapis.com/maps/api/staticmap?mobile=false&sensor=true&maptype=satellite&size=316x234&zoom=17&center=32.631004333496094,-117.01158905029297&key=AIzaSyBJsNQO5ZeG-XAbqqWLKwG08fWITSxg33w&&signature=_wpTr0yuqfoDR3JilVgEkGU8gmo="
-                }
-            ],
-            "zpid": 17180777,
-            "longitude": -117.01159,
-            "livingAreaUnits": "Square Feet",
-            "address": {
-                "city": "Chula Vista",
-                "state": "CA",
-                "streetAddress": "1054 Florido Plz",
-                "zipcode": "91910"
-            },
-            "livingAreaUnitsShort": "sqft",
-            "price": 756600,
-            "homeType": "CONDO",
-            "homeStatus": "OTHER",
-            "currency": "USD",
-            "latitude": 32.631004
-        },
-        {
-            "livingArea": 1760,
-            "livingAreaValue": 1760,
-            "lotAreaUnits": "Acres",
-            "lotAreaValue": 3.2600091827365,
-            "lotSize": 142006,
-            "miniCardPhotos": [
-                {
-                    "url": "https://maps.googleapis.com/maps/api/staticmap?mobile=false&sensor=true&maptype=satellite&size=316x234&zoom=17&center=32.631004333496094,-117.01158905029297&key=AIzaSyBJsNQO5ZeG-XAbqqWLKwG08fWITSxg33w&&signature=_wpTr0yuqfoDR3JilVgEkGU8gmo="
-                }
-            ],
-            "zpid": 17180778,
-            "longitude": -117.01159,
-            "livingAreaUnits": "Square Feet",
-            "address": {
-                "city": "Chula Vista",
-                "state": "CA",
-                "streetAddress": "1058 Florido Plz",
-                "zipcode": "91910"
-            },
-            "livingAreaUnitsShort": "sqft",
-            "price": 767200,
-            "homeType": "TOWNHOUSE",
-            "homeStatus": "OTHER",
-            "currency": "USD",
-            "latitude": 32.631004
-        },
-        {
-            "livingArea": 1790,
-            "livingAreaValue": 1790,
-            "lotAreaUnits": "Acres",
-            "lotAreaValue": 3.2606290174472,
-            "lotSize": 142033,
-            "miniCardPhotos": [
-                {
-                    "url": "https://photos.zillowstatic.com/fp/7cab889f8235798d315110ea91bda71d-p_c.jpg"
-                }
-            ],
-            "zpid": 17180779,
-            "longitude": -117.01159,
-            "livingAreaUnits": "Square Feet",
-            "address": {
-                "city": "Chula Vista",
-                "state": "CA",
-                "streetAddress": "1062 Florido Plz",
-                "zipcode": "91910"
-            },
-            "livingAreaUnitsShort": "sqft",
-            "price": 896900,
+            "price": 469600,
             "homeType": "SINGLE_FAMILY",
             "homeStatus": "OTHER",
             "currency": "USD",
-            "latitude": 32.631004
+            "latitude": 33.73152
         },
         {
-            "livingArea": 1570,
-            "livingAreaValue": 1570,
-            "lotAreaUnits": "Acres",
-            "lotAreaValue": 3.2606290174472,
-            "lotSize": 142033,
+            "livingArea": 1574,
+            "livingAreaValue": 1574,
+            "lotAreaUnits": "Square Feet",
+            "lotAreaValue": 6969,
+            "lotSize": 6969,
             "miniCardPhotos": [
                 {
-                    "url": "https://photos.zillowstatic.com/fp/348725c6b012fb2fa04dd8a6004d9d95-p_c.jpg"
+                    "url": "https://photos.zillowstatic.com/fp/97defd44c2262a9ec7e18037b913baf8-p_c.jpg"
                 }
             ],
-            "zpid": 17180780,
-            "longitude": -117.01159,
+            "zpid": 17985234,
+            "longitude": -116.93157,
             "livingAreaUnits": "Square Feet",
             "address": {
-                "city": "Chula Vista",
+                "city": "Hemet",
                 "state": "CA",
-                "streetAddress": "1066 Florido Plz",
-                "zipcode": "91910"
+                "streetAddress": "41805 Lomas St",
+                "zipcode": "92544"
             },
             "livingAreaUnitsShort": "sqft",
-            "price": 791800,
+            "price": 436000,
             "homeType": "SINGLE_FAMILY",
             "homeStatus": "OTHER",
             "currency": "USD",
-            "latitude": 32.631004
+            "latitude": 33.73152
+        },
+        {
+            "livingArea": 1574,
+            "livingAreaValue": 1574,
+            "lotAreaUnits": "Square Feet",
+            "lotAreaValue": 7841,
+            "lotSize": 7841,
+            "miniCardPhotos": [
+                {
+                    "url": "https://photos.zillowstatic.com/fp/c8a53ebbf2a8195d261996e7a0d89b8e-p_c.jpg"
+                }
+            ],
+            "zpid": 17985236,
+            "longitude": -116.93113,
+            "livingAreaUnits": "Square Feet",
+            "address": {
+                "city": "Hemet",
+                "state": "CA",
+                "streetAddress": "41833 Lomas St",
+                "zipcode": "92544"
+            },
+            "livingAreaUnitsShort": "sqft",
+            "price": 420000,
+            "homeType": "SINGLE_FAMILY",
+            "homeStatus": "SOLD",
+            "currency": "USD",
+            "latitude": 33.731525
+        },
+        {
+            "livingArea": 1398,
+            "livingAreaValue": 1398,
+            "lotAreaUnits": "Acres",
+            "lotAreaValue": 1,
+            "lotSize": 43560,
+            "miniCardPhotos": [
+                {
+                    "url": "https://maps.googleapis.com/maps/api/streetview?location=26880+Stanford+St%2C+Hemet%2C+CA+92544&size=316x234&key=AIzaSyARFMLB1na-BBWf7_R3-5YOQQaHqEJf6RQ&source=outdoor&&signature=koU--bTM8RmXCulznuQSixndvVo="
+                }
+            ],
+            "zpid": 17984965,
+            "longitude": -116.931946,
+            "livingAreaUnits": "Square Feet",
+            "address": {
+                "city": "Hemet",
+                "state": "CA",
+                "streetAddress": "26880 Stanford St",
+                "zipcode": "92544"
+            },
+            "livingAreaUnitsShort": "sqft",
+            "price": 419100,
+            "homeType": "SINGLE_FAMILY",
+            "homeStatus": "OTHER",
+            "currency": "USD",
+            "latitude": 33.731125
+        },
+        {
+            "livingArea": 2127,
+            "livingAreaValue": 2127,
+            "lotAreaUnits": "Square Feet",
+            "lotAreaValue": 7405,
+            "lotSize": 7405,
+            "miniCardPhotos": [
+                {
+                    "url": "https://maps.googleapis.com/maps/api/streetview?location=41791+Lomas+St%2C+Hemet%2C+CA+92544&size=316x234&key=AIzaSyARFMLB1na-BBWf7_R3-5YOQQaHqEJf6RQ&source=outdoor&&signature=PXvBWNk1ZZbMrVqIYsIft0NjtyQ="
+                }
+            ],
+            "zpid": 17985233,
+            "longitude": -116.93179,
+            "livingAreaUnits": "Square Feet",
+            "address": {
+                "city": "Hemet",
+                "state": "CA",
+                "streetAddress": "41791 Lomas St",
+                "zipcode": "92544"
+            },
+            "livingAreaUnitsShort": "sqft",
+            "price": 468200,
+            "homeType": "SINGLE_FAMILY",
+            "homeStatus": "OTHER",
+            "currency": "USD",
+            "latitude": 33.731518
+        },
+        {
+            "livingArea": 2127,
+            "livingAreaValue": 2127,
+            "lotAreaUnits": "Square Feet",
+            "lotAreaValue": 6969,
+            "lotSize": 6969,
+            "miniCardPhotos": [
+                {
+                    "url": "https://photos.zillowstatic.com/fp/f6f3a31998dde7d37f03b7be4fde74fa-p_c.jpg"
+                }
+            ],
+            "zpid": 17985237,
+            "longitude": -116.930885,
+            "livingAreaUnits": "Square Feet",
+            "address": {
+                "city": "Hemet",
+                "state": "CA",
+                "streetAddress": "41847 Lomas St",
+                "zipcode": "92544"
+            },
+            "livingAreaUnitsShort": "sqft",
+            "price": 478600,
+            "homeType": "SINGLE_FAMILY",
+            "homeStatus": "OTHER",
+            "currency": "USD",
+            "latitude": 33.73152
+        },
+        {
+            "livingArea": 2505,
+            "livingAreaValue": 2505,
+            "lotAreaUnits": "Acres",
+            "lotAreaValue": 2,
+            "lotSize": 87120,
+            "miniCardPhotos": [
+                {
+                    "url": "https://maps.googleapis.com/maps/api/staticmap?mobile=false&sensor=true&maptype=satellite&size=316x234&zoom=17&center=33.73114776611328,-116.93074035644531&key=AIzaSyBJsNQO5ZeG-XAbqqWLKwG08fWITSxg33w&&signature=MYdVR2Xpv87T031on-3Q0MS4rLc="
+                }
+            ],
+            "zpid": 17984966,
+            "longitude": -116.93074,
+            "livingAreaUnits": "Square Feet",
+            "address": {
+                "city": "Hemet",
+                "state": "CA",
+                "streetAddress": "26884 Stanford St",
+                "zipcode": "92544"
+            },
+            "livingAreaUnitsShort": "sqft",
+            "price": 728800,
+            "homeType": "SINGLE_FAMILY",
+            "homeStatus": "OTHER",
+            "currency": "USD",
+            "latitude": 33.731148
+        },
+        {
+            "livingArea": 1729,
+            "livingAreaValue": 1729,
+            "lotAreaUnits": "Square Feet",
+            "lotAreaValue": 6969,
+            "lotSize": 6969,
+            "miniCardPhotos": [
+                {
+                    "url": "https://photos.zillowstatic.com/fp/0f22e61f4c902393f88f67e18edc44cd-p_c.jpg"
+                }
+            ],
+            "zpid": 17985232,
+            "longitude": -116.93202,
+            "livingAreaUnits": "Square Feet",
+            "address": {
+                "city": "Hemet",
+                "state": "CA",
+                "streetAddress": "41777 Lomas St",
+                "zipcode": "92544"
+            },
+            "livingAreaUnitsShort": "sqft",
+            "price": 457400,
+            "homeType": "SINGLE_FAMILY",
+            "homeStatus": "OTHER",
+            "currency": "USD",
+            "latitude": 33.731518
         }
     ],
-    "livingArea": 1570,
+    "livingArea": 2784,
     "priceHistory": [
         {
-            "priceChangeRate": 0.10972222222222,
-            "date": "2024-04-26",
+            "priceChangeRate": -0.0037043897017966,
+            "date": "2022-09-23",
             "source": "CRMLS",
             "postingIsRental": false,
-            "time": 1714089600000,
+            "time": 1663891200000,
+            "sellerAgent": {
+                "name": "Judi Reimer",
+                "photo": {
+                    "url": "https://photos.zillowstatic.com/h_e/ISug4ry3mcr79b0000000000.jpg"
+                },
+                "profileUrl": "/profile/Judi-Reimer/"
+            },
+            "showCountyLink": false,
+            "attributeSource": {
+                "infoString2": "CRMLS",
+                "infoString3": "https://photos.zillowstatic.com/fp/9f61463932aa73f48f1ae3d056f0eb39-zillow_web_logo_inf_11.jpg",
+                "infoString1": "DW22122354"
+            },
+            "pricePerSquareFoot": 193,
+            "buyerAgent": {
+                "name": "Chris Lamoree",
+                "photo": {
+                    "url": "https://photos.zillowstatic.com/h_e/ISxfuprbpifhei0000000000.jpg"
+                },
+                "profileUrl": "/profile/ChrisLamoreeRealtor/"
+            },
+            "event": "Sold",
+            "price": 537900
+        },
+        {
+            "priceChangeRate": 0,
+            "date": "2022-08-12",
+            "source": "CRMLS",
+            "postingIsRental": false,
+            "time": 1660262400000,
             "sellerAgent": null,
             "showCountyLink": false,
             "attributeSource": {
                 "infoString2": "CRMLS",
                 "infoString3": "https://photos.zillowstatic.com/fp/9f61463932aa73f48f1ae3d056f0eb39-zillow_web_logo_inf_11.jpg",
-                "infoString1": "PTP2401928"
+                "infoString1": "DW22122354"
             },
-            "pricePerSquareFoot": 509,
-            "buyerAgent": null,
-            "event": "Listed for sale",
-            "price": 799000
-        },
-        {
-            "priceChangeRate": 0.066824714772559,
-            "date": "2022-04-01",
-            "source": "SDMLS",
-            "postingIsRental": false,
-            "time": 1648771200000,
-            "sellerAgent": {
-                "name": "Lynn More",
-                "photo": {
-                    "url": "https://photos.zillowstatic.com/h_e/ISnys7zf1xs85f0000000000.jpg"
-                },
-                "profileUrl": "/profile/lynn7019/"
-            },
-            "showCountyLink": false,
-            "attributeSource": {
-                "infoString2": "SDMLS",
-                "infoString3": "https://photos.zillowstatic.com/fp/94f49ee6f5011140a8b34f38324c4c0a-zillow_web_logo_inf_11.jpg",
-                "infoString1": "220005678"
-            },
-            "pricePerSquareFoot": 459,
-            "buyerAgent": {
-                "name": "Lawrence Avila",
-                "photo": {
-                    "url": "https://photos.zillowstatic.com/h_e/IS6ytzromdmgzt0000000000.jpg"
-                },
-                "profileUrl": "/profile/lavila82/"
-            },
-            "event": "Sold",
-            "price": 720000
-        },
-        {
-            "priceChangeRate": 0,
-            "date": "2022-03-13",
-            "source": "SDMLS",
-            "postingIsRental": false,
-            "time": 1647129600000,
-            "sellerAgent": null,
-            "showCountyLink": false,
-            "attributeSource": {
-                "infoString2": "SDMLS",
-                "infoString3": "https://photos.zillowstatic.com/fp/94f49ee6f5011140a8b34f38324c4c0a-zillow_web_logo_inf_11.jpg",
-                "infoString1": "220005678"
-            },
-            "pricePerSquareFoot": 430,
+            "pricePerSquareFoot": 194,
             "buyerAgent": null,
             "event": "Pending sale",
-            "price": 674900
+            "price": 539900
         },
         {
-            "priceChangeRate": 0.36343434343434,
-            "date": "2022-03-12",
-            "source": "SDMLS",
+            "priceChangeRate": -0.044424778761062,
+            "date": "2022-07-26",
+            "source": "CRMLS",
             "postingIsRental": false,
-            "time": 1647043200000,
+            "time": 1658793600000,
             "sellerAgent": null,
             "showCountyLink": false,
             "attributeSource": {
-                "infoString2": "SDMLS",
-                "infoString3": "https://photos.zillowstatic.com/fp/94f49ee6f5011140a8b34f38324c4c0a-zillow_web_logo_inf_11.jpg",
-                "infoString1": "220005678"
+                "infoString2": "CRMLS",
+                "infoString3": "https://photos.zillowstatic.com/fp/9f61463932aa73f48f1ae3d056f0eb39-zillow_web_logo_inf_11.jpg",
+                "infoString1": "DW22122354"
             },
-            "pricePerSquareFoot": 430,
+            "pricePerSquareFoot": 194,
             "buyerAgent": null,
-            "event": "Listed for sale",
-            "price": 674900
+            "event": "Price change",
+            "price": 539900
         },
         {
-            "priceChangeRate": 0,
-            "date": "2020-04-15",
-            "source": "Glendale AOR ZDD",
+            "priceChangeRate": 0.56944444444444,
+            "date": "2022-07-01",
+            "source": "CRMLS",
             "postingIsRental": false,
-            "time": 1586908800000,
-            "sellerAgent": {
-                "name": "Omar Manzanarez",
-                "photo": {
-                    "url": "https://photos.zillowstatic.com/h_e/ISa1v5txv0q85d1000000000.jpg"
-                },
-                "profileUrl": "/profile/omanzanarez/"
-            },
+            "time": 1656633600000,
+            "sellerAgent": null,
             "showCountyLink": false,
             "attributeSource": {
-                "infoString2": "Glendale AOR ZDD",
-                "infoString3": "https://photos.zillowstatic.com/fp/d6de69e573dd2afaeff53b2e86683093-zillow_web_logo_inf_11.jpg",
-                "infoString1": "200013248"
+                "infoString2": "CRMLS",
+                "infoString3": "https://photos.zillowstatic.com/fp/9f61463932aa73f48f1ae3d056f0eb39-zillow_web_logo_inf_11.jpg",
+                "infoString1": "DW22122354"
             },
-            "pricePerSquareFoot": 315,
-            "buyerAgent": {
-                "name": "Rose Gomez and Lynn More",
-                "photo": {
-                    "url": "https://photos.zillowstatic.com/h_e/IS3b9xshd8gy2q0000000000.jpg"
-                },
-                "profileUrl": "/profile/thecitywideagent/"
+            "pricePerSquareFoot": 203,
+            "buyerAgent": null,
+            "event": "Listed for sale",
+            "price": 565000
+        },
+        {
+            "priceChangeRate": 1.093023255814,
+            "date": "2022-03-16",
+            "source": "Public Record",
+            "postingIsRental": false,
+            "time": 1647388800000,
+            "sellerAgent": null,
+            "showCountyLink": false,
+            "attributeSource": {
+                "infoString2": "Public Record",
+                "infoString3": null,
+                "infoString1": null
             },
+            "pricePerSquareFoot": 129,
+            "buyerAgent": null,
             "event": "Sold",
-            "price": 495000
+            "price": 360000
         },
         {
-            "priceChangeRate": 0,
-            "date": "2020-04-13",
-            "source": "Coldwell Banker West",
+            "priceChangeRate": -0.14,
+            "date": "2010-11-16",
+            "source": "Public Record",
             "postingIsRental": false,
-            "time": 1586736000000,
-            "sellerAgent": null,
+            "time": 1289865600000,
+            "sellerAgent": {
+                "name": "Bud Feaster",
+                "photo": {
+                    "url": "https://photos.zillowstatic.com/h_e/IStg8iutxslc8d0000000000.jpg"
+                },
+                "profileUrl": "/profile/Bud-Feaster/"
+            },
             "showCountyLink": false,
             "attributeSource": {
-                "infoString2": "Coldwell Banker West",
+                "infoString2": "Public Record",
                 "infoString3": null,
-                "infoString1": "200013248"
+                "infoString1": null
             },
-            "pricePerSquareFoot": 315,
+            "pricePerSquareFoot": 62,
             "buyerAgent": null,
-            "event": "Pending sale",
-            "price": 495000
+            "event": "Sold",
+            "price": 172000
         },
         {
-            "priceChangeRate": 0,
-            "date": "2020-03-17",
-            "source": "Coldwell Banker West",
+            "priceChangeRate": 0.081081081081081,
+            "date": "2010-09-10",
+            "source": "Coldwell Banker Kivett-Teeters",
             "postingIsRental": false,
-            "time": 1584403200000,
+            "time": 1284076800000,
             "sellerAgent": null,
             "showCountyLink": false,
             "attributeSource": {
-                "infoString2": "Coldwell Banker West",
+                "infoString2": "Coldwell Banker Kivett-Teeters",
                 "infoString3": null,
-                "infoString1": "200013248"
+                "infoString1": "H743391"
             },
-            "pricePerSquareFoot": 315,
+            "pricePerSquareFoot": 72,
             "buyerAgent": null,
             "event": "Listed for sale",
-            "price": 495000
+            "price": 200000
+        },
+        {
+            "priceChangeRate": 0,
+            "date": "1996-01-31",
+            "source": "Public Record",
+            "postingIsRental": false,
+            "time": 823046400000,
+            "sellerAgent": null,
+            "showCountyLink": false,
+            "attributeSource": {
+                "infoString2": "Public Record",
+                "infoString3": null,
+                "infoString1": null
+            },
+            "pricePerSquareFoot": 66,
+            "buyerAgent": null,
+            "event": "Sold",
+            "price": 185000
         }
     ],
-    "favoriteCount": 52,
+    "favoriteCount": 0,
     "schools": [
         {
-            "link": "https://www.greatschools.org/california/chula-vista/5825-Casillas-Joseph-Elementary-School/",
-            "rating": 6,
+            "link": "https://www.greatschools.org/california/hemet/4316-Little-Lake-Elementary-School/",
+            "rating": 4,
             "totalCount": null,
-            "distance": 0.1,
+            "distance": 0.8,
             "assigned": null,
-            "name": "Casillas (Joseph) Elementary School",
+            "name": "Little Lake Elementary School",
             "studentsPerTeacher": null,
             "isAssigned": null,
             "size": null,
             "level": "Elementary",
-            "grades": "K-6",
+            "grades": "K-5",
             "type": "Public"
         },
         {
-            "link": "https://www.greatschools.org/california/chula-vista/6294-Rancho-Del-Rey-Middle-School/",
-            "rating": 6,
+            "link": "https://www.greatschools.org/california/hemet/4310-Dartmouth-Middle-School/",
+            "rating": 2,
             "totalCount": null,
-            "distance": 0.2,
+            "distance": 0.6,
             "assigned": null,
-            "name": "Rancho Del Rey Middle School",
+            "name": "Dartmouth Middle School",
             "studentsPerTeacher": null,
             "isAssigned": null,
             "size": null,
             "level": "Middle",
-            "grades": "7-8",
+            "grades": "6-8",
             "type": "Public"
         },
         {
-            "link": "https://www.greatschools.org/california/chula-vista/12628-Otay-Ranch-Senior-High-School/",
-            "rating": 8,
+            "link": "https://www.greatschools.org/california/hemet/4314-Hemet-High-School/",
+            "rating": 6,
             "totalCount": null,
-            "distance": 1.5,
+            "distance": 0.2,
             "assigned": null,
-            "name": "Otay Ranch Senior High School",
+            "name": "Hemet High School",
             "studentsPerTeacher": null,
             "isAssigned": null,
             "size": null,
@@ -1024,10 +1009,10 @@
             "type": "Public"
         }
     ],
-    "zestimateHighPercent": "5",
-    "mlsid": "PTP2401928",
-    "countyFIPS": "06073",
-    "city": "Chula Vista",
+    "zestimateHighPercent": null,
+    "mlsid": "DW22122354",
+    "countyFIPS": "06065",
+    "city": "Hemet",
     "providerListingID": null,
     "country": "USA",
     "currency": "USD",

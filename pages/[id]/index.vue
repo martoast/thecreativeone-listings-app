@@ -66,7 +66,6 @@
                 { name: 'Square Footage', value: property.square_footage },
                 { name: 'Year Built', value: property.year_built },
                 { name: 'Lot Size', value: property.lot_size },
-                { name: 'Parking Details', value: property.parking_details },
               ]" :key="index" v-slot="{ open }">
                 <h3>
                   <DisclosureButton class="group relative flex w-full items-center justify-between py-6 text-left">

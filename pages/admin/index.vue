@@ -55,48 +55,46 @@
 <script setup>
 import { usePropertiesStore } from '~/store/DataStore'
 
-const store = usePropertiesStore()
+const store = usePropertiesStore();
 
-await useAsyncData(
-  'properties',
-  () => store.get()
-)
+const fetchProperties = async () => {
+  await store.get();
+};
+
+await fetchProperties();
 
 const properties = computed(() => store.properties.map(property => ({
- ...property,
+  ...property,
   images: JSON.parse(property.images) // Assuming 'images' is a JSON string of URLs
-})))
+})));
 
-const showModal = ref(false)
-const propertyToDelete = ref(null)
+const showModal = ref(false);
+const propertyToDelete = ref(null);
 
 const data = reactive({
   loading: false,
   errors: {}
 });
 
-
 function hideModal() {
-  showModal.value = false
-  propertyToDelete.value = null
+  showModal.value = false;
+  propertyToDelete.value = null;
 }
 
 function openDeleteModal(property) {
-  console.log("setting delete property")
-  propertyToDelete.value = property
-  showModal.value = true
+  console.log("setting delete property");
+  propertyToDelete.value = property;
+  showModal.value = true;
 }
 
 const deleteProperty = async (property) => {
   // Perform the delete operation
   data.loading = true;
-  console.log("Property delete confirmed, delete it in the API!." + property.ID)
-  await useAsyncData(
-    'properties',
-    () => store.delete(property.ID)
-  )
+  console.log("Property delete confirmed, delete it in the API!." + property.ID);
+  await store.delete(property.ID);
+  await fetchProperties(); // Fetch properties again after deletion
   data.loading = false;
-  showModal.value = false
-  propertyToDelete.value = null
-}
+  showModal.value = false;
+  propertyToDelete.value = null;
+};
 </script>

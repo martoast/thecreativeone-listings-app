@@ -19,7 +19,7 @@
               >
             </mapbox-search-box>
           </div>
-          <div v-if="data.form.address || property.address && !data.loading" class="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6 mt-5">
+          <div v-if="!data.loading && data.form.address || props.property" class="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6 mt-5">
             <!-- Each input field below corresponds to a property attribute -->
             
             <div class="col-span-3">
@@ -88,6 +88,11 @@
         <div class="sm:col-span-3">
         <label for="lot-size" class="block text-sm font-medium leading-6">Lot Size (sq ft)</label>
         <input v-model="property.lot_size" type="number" id="lot-size" class="block w-full border-gray-400 rounded-md py-1.5 shadow-sm focus:ring-indigo-500 sm:text-sm sm:leading-6" placeholder="Lot Size in Square Feet">
+        </div>
+
+        <div class="sm:col-span-3">
+        <label for="zoning" class="block text-sm font-medium leading-6">Zoning</label>
+        <input v-model="property.zoning" type="text" id="zoning" class="block w-full border-gray-400 rounded-md py-1.5 shadow-sm focus:ring-indigo-500 sm:text-sm sm:leading-6" placeholder="Zoning">
         </div>
 
             <!-- Images (JSON array input as string) -->
@@ -184,7 +189,8 @@
           
           
           </div>
-          <div v-if="data.loading">
+
+          <div v-else-if="data.loading">
             Loading
 
           </div>
@@ -194,7 +200,7 @@
           <a href="/admin">
             <button type="button" class="text-sm font-semibold leading-6">Cancel</button>
           </a>
-          <button type="submit" class="rounded-md bg-indigo-500 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400">Save</button>
+          <button :disabled="data.form.loading" type="submit" class="rounded-md bg-indigo-500 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400">Save</button>
         </div>
       </div>
     </form>
@@ -202,6 +208,7 @@
 
 <script setup>
 import { ref } from 'vue';
+import { usePropertiesStore } from '~/store/DataStore'
 
 const config = useRuntimeConfig()
 
@@ -213,14 +220,14 @@ const props = defineProps({
 });
 
 
-
 const data = reactive({
   loading: false,
   errors: {},
   form: {
     latitude: null,
     longitude: null,
-    address: null
+    address: null,
+    loading: false
   },
 });
 
@@ -243,6 +250,7 @@ const defaultProperty = {
   zestimate: null,
   price_per_square_foot: null,
   property_type: '',
+  zoning: '',
   year_built: null,
   lot_size: null,
   mortgage_balance: null,
@@ -285,7 +293,6 @@ await useFetch(apiUrl, {
   onResponse({ request, response, options }) {
     // Process the response data
     if (response.ok) {
-        console.log(response)
         fetchPropertyImages(response._data.zpid)
       property.value.price = response._data.price;
       property.value.bedrooms = response._data.bedrooms;
@@ -293,8 +300,9 @@ await useFetch(apiUrl, {
       property.value.description = response._data.description;
       property.value.rent_zestimate = response._data.rentZestimate;
       property.value.zestimate = response._data.zestimate;
-      property.value.property_type =response._data.homeType;
-      property.value.lot_size = response._data.lotSize;
+      property.value.property_type = response._data.homeType;
+      property.value.zoning = response._data.zoning ? response._data.zoning : response._data.resoFacts.zoning
+       property.value.lot_size = response._data.lotSize ? response._data.lotSize : null ;
       property.value.year_built = response._data.yearBuilt;
       property.value.square_footage = response._data.livingArea;
       property.value.price_per_square_foot = response._data.resoFacts.pricePerSquareFoot
@@ -311,15 +319,27 @@ await useFetch(apiUrl, {
   }
 });
 
-function handleSubmit(e) {
-  if (props.property && props.property.ID) {
-    // update the existing property
-    console.log('Updating property...', property.value);
-  } else {
-    // create a new property
-    console.log('Creating new property...', property.value);
-  }
-  // Proceed with API call to save/update
+const handleSubmit = async (e) => {
+    data.form.loading = true;
+    const propertiesStore = usePropertiesStore();
+    if (props.property && props.property.ID) {
+        // update the existing property
+        console.log('Updating property...', property.value);
+        await propertiesStore.store({ property: {
+            ...property.value,
+            images: JSON.stringify(property.value.images)
+        } });
+        
+    } else {
+        // create a new property
+        console.log('Creating new property...', property.value)
+        await propertiesStore.store({ property: {
+            ...property.value,
+            images: JSON.stringify(property.value.images)
+        } });
+    }
+    data.form.loading = false;
+    await navigateTo('/admin/')
 }
 
 function cancelEdit() {
@@ -353,10 +373,7 @@ const fetchPropertyImages = async (zpid) => {
     }
   });
 
-  console.log(response);
-
   if (response.images.length) {
-    console.log(response.images);
     property.value.images = response.images;
   } else {
     console.error('Error fetching images');

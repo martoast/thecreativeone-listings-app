@@ -277,7 +277,7 @@ const fetchPropertyImages = async (zpid) => {
   });
 
   if (response.images.length) {
-    property.value.images = response.images;
+    property.value.images = response.images.slice(0, 12);
   } else {
     console.error('Error fetching images');
   }

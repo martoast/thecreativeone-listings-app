@@ -36,11 +36,12 @@
             <TabPanel
               v-for="(image, index) in property.images"
               :key="index"
+              @click="openModal(index)"
             >
               <img
                 :src="image"
                 :alt="`Image ${index + 1}`"
-                class="h-full w-full object-cover object-center sm:rounded-lg"
+                class="h-full w-full object-cover object-center sm:rounded-lg cursor-pointer"
               />
             </TabPanel>
           </TabPanels>
@@ -69,11 +70,9 @@
                 <p><span class="font-medium">Property Type:</span> {{ property.property_type }}</p>
                 <p><span class="font-medium">Bedrooms:</span> {{ property.bedrooms }}</p>
                 <p><span class="font-medium">Bathrooms:</span> {{ property.bathrooms }}</p>
-                <p v-if="property.year_built !== null"><span class="font-medium">Year Built:</span> {{ property.year_built }}</p>
-                <p v-if="property.square_footage !== null"><span class="font-medium">Square Footage:</span> {{ property.square_footage }} sq ft</p>
-                <p v-if="property.lot_size !== null"><span class="font-medium">Lot Size:</span> {{ property.lot_size }}</p>
-                <p v-if="property.living_area !== null"><span class="font-medium">Living Area:</span> {{ property.living_area }}</p>
-                
+                <p><span class="font-medium">Year Built:</span> {{ property.year_built ?? 'N/A' }}</p>
+                <p><span class="font-medium">Lot Size:</span> {{ property.lot_size ?? 'N/A' }}</p>
+                <p><span class="font-medium">Living Area:</span> {{ property.living_area ?? 'N/A' }}</p>
               </div>
             </section>
 
@@ -81,10 +80,10 @@
             <section>
               <h3 class="text-xl font-semibold text-gray-900">Financial Information</h3>
               <div class="space-y-2 text-base text-gray-700 mt-2">
-                <p v-if="property.rent_zestimate !== null"><span class="font-medium">Rent Zestimate:</span> {{ formatCurrency(property.rent_zestimate) }}</p>
-                <p v-if="property.zestimate !== null"><span class="font-medium">Zestimate:</span> {{ formatCurrency(property.zestimate) }}</p>
-                <p v-if="property.price_per_square_foot !== null"><span class="font-medium">Price per Square Foot:</span> {{ formatCurrency(property.price_per_square_foot) }}</p>
-                <p v-if="property.zoning !== null"><span class="font-medium">Zoning:</span> {{ property.zoning }}</p>
+                <p><span class="font-medium">Rent Zestimate:</span> {{ formatCurrency(property.rent_zestimate) ?? 'N/A'}}</p>
+                <p><span class="font-medium">Zestimate:</span> {{ formatCurrency(property.zestimate) ?? 'N/A'}}</p>
+                <p><span class="font-medium">Price per Square Foot:</span> {{ formatCurrency(property.price_per_square_foot) ?? 'N/A' }}</p>
+                <p><span class="font-medium">Zoning:</span> {{ property.zoning ?? 'N/A'}}</p>
               </div>
             </section>
           </div>
@@ -99,23 +98,27 @@
         </div>
       </div>
     </div>
+    <ModalCarousel
+      :showModal="isModalOpen"
+      :images="property.images"
+      :startIndex="selectedImageIndex"
+      @close="isModalOpen = false"
+    />
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
+import { useRoute } from 'vue-router'
 import {
-  Disclosure,
-  DisclosureButton,
-  DisclosurePanel,
-  Tab,
   TabGroup,
   TabList,
-  TabPanel,
+  Tab,
   TabPanels,
+  TabPanel,
 } from '@headlessui/vue'
-import { PlusIcon, MinusIcon } from '@heroicons/vue/24/outline'
 import { usePropertiesStore } from '~/store/DataStore'
+import ModalCarousel from '~/components/ModalCarousel.vue'
 
 const route = useRoute()
 const store = usePropertiesStore()
@@ -126,6 +129,14 @@ const property = computed(() => ({
   ...store.property,
   images: store.property.images.length ? JSON.parse(store.property.images) : [],
 }))
+
+const isModalOpen = ref(false)
+const selectedImageIndex = ref(0)
+
+function openModal(index) {
+  selectedImageIndex.value = index
+  isModalOpen.value = true
+}
 
 function formatCurrency(value) {
   if (typeof value !== 'number') {

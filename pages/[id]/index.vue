@@ -54,25 +54,26 @@
 
           <div class="mt-3">
             <h2 class="sr-only">Property information</h2>
-            <p class="text-3xl tracking-tight text-gray-900">
+            <p class="text-3xl tracking-tight text-gray-900 mb-3">
               {{ formatCurrency(property.price) }}
             </p>
+            <p v-if="property.sold !== null" class="font-medium text-gray-700"><span>Status:</span> {{ property.sold ? 'Sold' : 'Available' }}</p>
           </div>
 
           <!-- Info Sections -->
-          <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+          <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
             <!-- General Information -->
             <section>
               <h3 class="text-xl font-semibold text-gray-900">General Information</h3>
               <div class="space-y-2 text-base text-gray-700 mt-2">
                 <p><span class="font-medium">Property Type:</span> {{ property.property_type }}</p>
-                <p><span class="font-medium">Year Built:</span> {{ property.year_built }}</p>
+                <p><span class="font-medium">Bedrooms:</span> {{ property.bedrooms }}</p>
+                <p><span class="font-medium">Bathrooms:</span> {{ property.bathrooms }}</p>
+                <p v-if="property.year_built !== null"><span class="font-medium">Year Built:</span> {{ property.year_built }}</p>
                 <p v-if="property.square_footage !== null"><span class="font-medium">Square Footage:</span> {{ property.square_footage }} sq ft</p>
                 <p v-if="property.lot_size !== null"><span class="font-medium">Lot Size:</span> {{ property.lot_size }}</p>
                 <p v-if="property.living_area !== null"><span class="font-medium">Living Area:</span> {{ property.living_area }}</p>
-                <p><span class="font-medium">Bedrooms:</span> {{ property.bedrooms }}</p>
-                <p><span class="font-medium">Bathrooms:</span> {{ property.bathrooms }}</p>
-                <p><span class="font-medium">Status:</span> {{ property.sold ? 'Sold' : 'Available' }}</p>
+                
               </div>
             </section>
 
@@ -80,18 +81,10 @@
             <section>
               <h3 class="text-xl font-semibold text-gray-900">Financial Information</h3>
               <div class="space-y-2 text-base text-gray-700 mt-2">
-                <p v-if="property.down_payment !== null"><span class="font-medium">Down Payment:</span> {{ formatCurrency(property.down_payment) }}</p>
-                <p v-if="property.total_price !== null"><span class="font-medium">Total Price:</span> {{ formatCurrency(property.total_price) }}</p>
-                <p v-if="property.interest !== null"><span class="font-medium">Interest Rate:</span> {{ property.interest }}%</p>
-                <p v-if="property.monthly_payment !== null"><span class="font-medium">Monthly Payment:</span> {{ formatCurrency(property.monthly_payment) }}</p>
-                <p v-if="property.mortgage_balance !== null"><span class="font-medium">Mortgage Balance:</span> {{ formatCurrency(property.mortgage_balance) }}</p>
                 <p v-if="property.rent_zestimate !== null"><span class="font-medium">Rent Zestimate:</span> {{ formatCurrency(property.rent_zestimate) }}</p>
                 <p v-if="property.zestimate !== null"><span class="font-medium">Zestimate:</span> {{ formatCurrency(property.zestimate) }}</p>
                 <p v-if="property.price_per_square_foot !== null"><span class="font-medium">Price per Square Foot:</span> {{ formatCurrency(property.price_per_square_foot) }}</p>
-                <p v-if="property.piti !== null"><span class="font-medium">PITI:</span> {{ formatCurrency(property.piti) }}</p>
-                <p v-if="property.estimate_roi !== null"><span class="font-medium">Estimated ROI:</span> {{ property.estimate_roi }}%</p>
-                <p v-if="property.monthly_cash_flow !== null"><span class="font-medium">Monthly Cash Flow:</span> {{ formatCurrency(property.monthly_cash_flow) }}</p>
-                <p v-if="property.equity_buildup !== null"><span class="font-medium">Equity Buildup:</span> {{ formatCurrency(property.equity_buildup) }}</p>
+                <p v-if="property.zoning !== null"><span class="font-medium">Zoning:</span> {{ property.zoning }}</p>
               </div>
             </section>
           </div>

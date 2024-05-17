@@ -48,6 +48,12 @@
               <input v-model="property.price" required type="number" id="price" class="block w-full border-gray-400 rounded-md py-1.5 shadow-sm focus:ring-indigo-500 sm:text-sm sm:leading-6" placeholder="Price in USD">
             </div>
 
+            <!-- Sold Checkbox -->
+            <div class="sm:col-span-3 flex items-center">
+              <input v-model="property.sold" type="checkbox" id="sold" class="mr-2">
+              <label for="sold" class="block text-sm font-medium leading-6">Sold: {{property.sold}}</label>
+            </div>
+
             <!-- Description -->
           <div class="col-span-full">
             <label for="description" class="block text-sm font-medium leading-6">Description</label>
@@ -228,11 +234,7 @@ const handleSubmit = async (e) => {
     if (props.property && props.property.ID) {
         // update the existing property
         console.log('Updating property...', property.value);
-        await propertiesStore.store({ property: {
-            ...property.value,
-            images: JSON.stringify(property.value.images)
-        } });
-        
+        await propertiesStore.store({ property: property.value });
     } else {
         // create a new property
         console.log('Creating new property...', property.value)

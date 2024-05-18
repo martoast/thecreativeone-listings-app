@@ -1,6 +1,7 @@
 <template>
-  <div class="bg-white container mx-auto">
-    <div class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+  <div class="bg-black">
+    <div class="container mx-auto">
+      <div class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
       <div class="lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-8">
         <!-- Image gallery -->
         <TabGroup as="div" class="flex flex-col-reverse">
@@ -10,7 +11,7 @@
               <Tab
                 v-for="(image, index) in property.images"
                 :key="index"
-                class="relative flex h-24 cursor-pointer items-center justify-center rounded-md bg-white text-sm font-medium uppercase text-gray-900 hover:bg-gray-50 focus:outline-none focus:ring focus:ring-opacity-50 focus:ring-offset-4"
+                class="relative flex h-24 cursor-pointer items-center justify-center rounded-md bg-gray-800 text-sm font-medium uppercase text-white hover:bg-gray-700 focus:outline-none focus:ring focus:ring-opacity-50 focus:ring-offset-4"
                 v-slot="{ selected }"
               >
                 <span class="sr-only">Image {{ index + 1 }}</span>
@@ -23,7 +24,7 @@
                 </span>
                 <span
                   :class="[
-                    selected ? 'ring-indigo-500' : 'ring-transparent',
+                    selected ? 'ring-primary' : 'ring-transparent',
                     'pointer-events-none absolute inset-0 rounded-md ring-2 ring-offset-2'
                   ]"
                   aria-hidden="true"
@@ -49,24 +50,24 @@
 
         <!-- Property info -->
         <div class="mt-10 px-4 sm:mt-16 sm:px-0 lg:mt-0">
-          <h1 class="text-3xl font-bold tracking-tight text-gray-900">
+          <h1 class="text-3xl font-bold tracking-tight text-white">
             {{ property.address }}
           </h1>
 
           <div class="mt-3">
             <h2 class="sr-only">Property information</h2>
-            <p class="text-3xl tracking-tight text-gray-900 mb-3">
+            <p class="text-3xl tracking-tight text-white mb-3">
               {{ formatCurrency(property.price) }}
             </p>
-            <p v-if="property.sold !== null" class="font-medium text-gray-700"><span>Status:</span> {{ property.sold ? 'Sold' : 'Available' }}</p>
+            <p v-if="property.sold !== null" class="font-medium text-gray-300"><span>Status:</span> {{ property.sold ? 'Sold' : 'Available' }}</p>
           </div>
 
           <!-- Info Sections -->
           <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
             <!-- General Information -->
             <section>
-              <h3 class="text-xl font-semibold text-gray-900">General Information</h3>
-              <div class="space-y-2 text-base text-gray-700 mt-2">
+              <h3 class="text-xl font-semibold text-white">General Information</h3>
+              <div class="space-y-2 text-base text-gray-300 mt-2">
                 <p><span class="font-medium">Property Type:</span> {{ property.property_type }}</p>
                 <p><span class="font-medium">Bedrooms:</span> {{ property.bedrooms }}</p>
                 <p><span class="font-medium">Bathrooms:</span> {{ property.bathrooms }}</p>
@@ -78,8 +79,8 @@
 
             <!-- Financial Information -->
             <section>
-              <h3 class="text-xl font-semibold text-gray-900">Financial Information</h3>
-              <div class="space-y-2 text-base text-gray-700 mt-2">
+              <h3 class="text-xl font-semibold text-white">Financial Information</h3>
+              <div class="space-y-2 text-base text-gray-300 mt-2">
                 <p><span class="font-medium">Rent Zestimate:</span> {{ formatCurrency(property.rent_zestimate) ?? 'N/A'}}</p>
                 <p><span class="font-medium">Zestimate:</span> {{ formatCurrency(property.zestimate) ?? 'N/A'}}</p>
                 <p><span class="font-medium">Price per Square Foot:</span> {{ formatCurrency(property.price_per_square_foot) ?? 'N/A' }}</p>
@@ -90,8 +91,8 @@
 
           <!-- Description -->
           <section class="mt-6">
-            <h3 class="text-xl font-semibold text-gray-900">Description</h3>
-            <div class="space-y-2 text-base text-gray-700 mt-2">
+            <h3 class="text-xl font-semibold text-white">Description</h3>
+            <div class="space-y-2 text-base text-gray-300 mt-2">
               <p>{{ property.description }}</p>
             </div>
           </section>
@@ -104,6 +105,9 @@
       :startIndex="selectedImageIndex"
       @close="isModalOpen = false"
     />
+
+    </div>
+    
   </div>
 </template>
 

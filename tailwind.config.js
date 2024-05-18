@@ -9,9 +9,10 @@ export default {
     extend: {
     },
     colors: {
-      primary: '#41733E',
+      primary: '#fdbe58',
       secondary: '#5f915c',
       'white': '#ffffff',
+      'black': '#000000',
       'red': '#dc3545',
       green: {
         50: 'rgba(196, 224, 180, 0.15)',
@@ -50,6 +51,7 @@ export default {
         300: '#d1d5db',
         400: '#898989',
         500: '#6b7280',
+        550: '#171717',
         600: '#4b5563',
         700: '#374151',
         800: '#1f2937',

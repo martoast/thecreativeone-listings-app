@@ -10,19 +10,19 @@ export const usePropertiesStore = defineStore('properties', {
   actions: {
     async get() {
       console.log("Attempting to get properties");
-      const url = 'http://localhost:8080/properties/';
+      const url = 'https://mycreativefinancing-wiy7b.ondigitalocean.app/properties/';
       this.properties = await $fetch(url);
     },
 
     async find(ID) {
-      const url = `http://localhost:8080/properties/${ID}`;
+      const url = `https://mycreativefinancing-wiy7b.ondigitalocean.app/properties/${ID}`;
       this.property = await $fetch(url);
     },
 
     async store(params) {
       const url = params.property.ID
-        ? `http://localhost:8080/properties/${params.property.ID}`
-        : "http://localhost:8080/properties/";
+        ? `https://mycreativefinancing-wiy7b.ondigitalocean.app/properties/${params.property.ID}`
+        : "https://mycreativefinancing-wiy7b.ondigitalocean.app/properties/";
       const method = params.property.ID ? 'put' : 'post';
 
       return $fetch(url, {
@@ -32,7 +32,7 @@ export const usePropertiesStore = defineStore('properties', {
     },
 
     async delete(ID) {
-      const url = `http://localhost:8080/properties/${ID}`;
+      const url = `https://mycreativefinancing-wiy7b.ondigitalocean.app/properties/${ID}`;
       return $fetch(url, {
         method: 'delete'
       });

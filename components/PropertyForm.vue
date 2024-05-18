@@ -103,6 +103,35 @@
             <label for="images" class="block text-sm font-medium leading-6">Images (URLs)</label>
             <input v-model="property.images" type="text" id="images" class="block w-full border-gray-400 rounded-md py-1.5 shadow-sm focus:ring-indigo-500 sm:text-sm sm:leading-6" placeholder='["URL1", "URL2"]'>
           </div>
+
+          <div class="sm:col-span-3">
+              <label for="purchase_price" class="block text-sm font-medium leading-6">Purchase Price</label>
+              <input v-model="property.purchase_price" type="number" id="purchase_price" class="block w-full border-gray-400 rounded-md py-1.5 shadow-sm focus:ring-indigo-500 sm:text-sm sm:leading-6" placeholder="Purchase Price">
+            </div>
+
+            <div class="sm:col-span-3">
+              <label for="balance_to_close" class="block text-sm font-medium leading-6">Balance to Close</label>
+              <input v-model="property.balance_to_close" type="number" id="balance_to_close" class="block w-full border-gray-400 rounded-md py-1.5 shadow-sm focus:ring-indigo-500 sm:text-sm sm:leading-6" placeholder="Balance to Close">
+            </div>
+
+            <div class="sm:col-span-3">
+              <label for="monthly_holding_cost" class="block text-sm font-medium leading-6">Monthly Holding Cost</label>
+              <input v-model="property.monthly_holding_cost" type="number" id="monthly_holding_cost" class="block w-full border-gray-400 rounded-md py-1.5 shadow-sm focus:ring-indigo-500 sm:text-sm sm:leading-6" placeholder="Monthly Holding Cost">
+            </div>
+
+            <div class="sm:col-span-3">
+              <label for="interest_rate" class="block text-sm font-medium leading-6">Interest Rate</label>
+              <input 
+                v-model="property.interest_rate" 
+                type="number" 
+                id="interest_rate" 
+                class="block w-full border-gray-400 rounded-md py-1.5 shadow-sm focus:ring-indigo-500 sm:text-sm sm:leading-6" 
+                placeholder="Interest Rate" 
+                step="0.01" 
+                min="0" 
+                max="1"
+              >
+            </div>
           
           </div>
 
@@ -169,6 +198,11 @@ const defaultProperty = {
   living_area: null,
   year_built: null,
   price_per_square_foot: null,
+  purchase_price: null,
+  balance_to_close: null,
+  monthly_holding_cost: null,
+  interest_rate: null
+
 };
 
 

@@ -1,7 +1,16 @@
 <template>
   <div class="bg-black">
     <div class="container mx-auto">
-      <div class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+      <div class="mx-auto max-w-2xl px-4 py-12 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+        <div class="mb-4">
+          <button @click="hanldeBackButton" type="button" class="rounded-full bg-primary p-2 text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+            </svg>
+
+            
+          </button>
+        </div>
       <div class="lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-8">
         <!-- Image gallery -->
         <TabGroup as="div" class="flex flex-col-reverse">
@@ -85,6 +94,10 @@
                 <p><span class="font-medium">Zestimate:</span> {{ formatCurrency(property.zestimate) ?? 'N/A'}}</p>
                 <p><span class="font-medium">Price per Square Foot:</span> {{ formatCurrency(property.price_per_square_foot) ?? 'N/A' }}</p>
                 <p><span class="font-medium">Zoning:</span> {{ property.zoning ?? 'N/A'}}</p>
+                <p><span class="font-medium">Purchase Price:</span> {{ formatCurrency(property.purchase_price) ?? 'N/A' }}</p>
+                <p><span class="font-medium">Balance to Close:</span> {{ formatCurrency(property.balance_to_close) ?? 'N/A' }}</p>
+                <p><span class="font-medium">Monthly Holding Cost:</span> {{ formatCurrency(property.monthly_holding_cost) ?? 'N/A' }}</p>
+                <p><span class="font-medium">Interest Rate:</span> {{ property.interest_rate ? `${parseFloat(property.interest_rate) * 100}%` : 'N/A' }}</p>
               </div>
             </section>
           </div>
@@ -112,7 +125,6 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
 import { useRoute } from 'vue-router'
 import {
   TabGroup,
@@ -147,5 +159,9 @@ function formatCurrency(value) {
     return value;
   }
   return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(value);
+}
+
+const hanldeBackButton = async () => {
+  await navigateTo('/')
 }
 </script>

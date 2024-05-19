@@ -4,14 +4,17 @@ import { defineStore } from 'pinia';
 export const usePropertiesStore = defineStore('properties', {
   state: () => ({
     properties: [],
-    property: {}
+    property: {},
+    total: 0,
   }),
 
   actions: {
-    async get() {
+    async get(page = 1, pageSize = 10) {
       console.log("Attempting to get properties");
-      const url = 'https://mycreativefinancing-wiy7b.ondigitalocean.app/properties/';
-      this.properties = await $fetch(url);
+      const url = `https://mycreativefinancing-wiy7b.ondigitalocean.app/properties/?page=${page}&pageSize=${pageSize}`;
+      const response = await $fetch(url);
+      this.properties = response.properties;
+      this.total = response.total;
     },
 
     async find(ID) {
@@ -22,7 +25,7 @@ export const usePropertiesStore = defineStore('properties', {
     async store(params) {
       const url = params.property.ID
         ? `https://mycreativefinancing-wiy7b.ondigitalocean.app/properties/${params.property.ID}`
-        : "https://mycreativefinancing-wiy7b.ondigitalocean.app/properties/";
+        : "https://mycreativefinancing-wiy7b.ondigitalocean.app/";
       const method = params.property.ID ? 'put' : 'post';
 
       return $fetch(url, {

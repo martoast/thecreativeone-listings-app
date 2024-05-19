@@ -1,7 +1,7 @@
 <template>
-  <div class="bg-black">
+  <div class="bg-black" style="height: -webkit-fill-available;">
     <div class="container mx-auto">
-      <div class="mx-auto max-w-2xl px-4 py-12 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+      <div class="mx-auto max-w-2xl px-4 py-8 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
         <div class="mb-4">
           <button @click="hanldeBackButton" type="button" class="rounded-full bg-primary p-2 text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">

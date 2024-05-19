@@ -1,7 +1,8 @@
 <template>
-  <div class="bg-black h-screen">
-    <div class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+  <div class="bg-black" style="height: -webkit-fill-available;">
+    <div class="mx-auto max-w-2xl px-4 py-8 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
       <h2 class="sr-only">Properties</h2>
+      <h1>EXPLORE OUR LISTINGS</h1>
 
       <div class="grid grid-cols-1 gap-y-4 sm:grid-cols-2 sm:gap-x-6 sm:gap-y-10 lg:grid-cols-3 lg:gap-x-8">
         <div
@@ -53,6 +54,26 @@
           </div>
         </div>
       </div>
+      <!-- Pagination controls -->
+      <div class="mt-8 flex justify-between items-center">
+        <button
+          @click="prevPage"
+          :disabled="currentPage === 1"
+          class="px-4 py-2 text-white bg-primary rounded disabled:opacity-50"
+        >
+          Previous
+        </button>
+        <p class="text-white">
+          Page {{ currentPage }} of {{ totalPages }}
+        </p>
+        <button
+          @click="nextPage"
+          :disabled="currentPage === totalPages"
+          class="px-4 py-2 text-white bg-primary rounded disabled:opacity-50"
+        >
+          Next
+        </button>
+      </div>
     </div>
   </div>
 </template>
@@ -62,15 +83,34 @@ import { usePropertiesStore } from '~/store/DataStore'
 
 const store = usePropertiesStore()
 
+const currentPage = ref(1)
+const itemsPerPage = 3 // Change this to the number of items you want per page
+
 const { data, pending, error, refresh } = await useAsyncData(
   'properties',
-  () => store.get()
+  () => store.get(currentPage.value, itemsPerPage)
 )
+
+const totalPages = computed(() => Math.ceil(store.total / itemsPerPage))
 
 const properties = computed(() => store.properties.map(property => ({
   ...property,
   images: property.images.length ? JSON.parse(property.images) : '[]' // Assuming 'images' is a JSON string of URLs
 })))
+
+const nextPage = () => {
+  if (currentPage.value < totalPages.value) {
+    currentPage.value++
+    refresh()
+  }
+}
+
+const prevPage = () => {
+  if (currentPage.value > 1) {
+    currentPage.value--
+    refresh()
+  }
+}
 
 // Method for formatting currency
 function formatCurrency(value) {

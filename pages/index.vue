@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-black" style="height: 100vh;">
+  <div class="bg-black" style="height: -webkit-fill-available;">
     <div class="mx-auto max-w-2xl px-4 py-8 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
       <h2 class="sr-only">Properties</h2>
       <h1>EXPLORE OUR LISTINGS</h1>

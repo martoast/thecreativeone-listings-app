@@ -25,7 +25,7 @@ export const usePropertiesStore = defineStore('properties', {
     async store(params) {
       const url = params.property.ID
         ? `https://mycreativefinancing-wiy7b.ondigitalocean.app/properties/${params.property.ID}`
-        : "https://mycreativefinancing-wiy7b.ondigitalocean.app/";
+        : "https://mycreativefinancing-wiy7b.ondigitalocean.app/properties/";
       const method = params.property.ID ? 'put' : 'post';
 
       return $fetch(url, {

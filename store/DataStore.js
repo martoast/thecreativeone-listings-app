@@ -9,9 +9,12 @@ export const usePropertiesStore = defineStore('properties', {
   }),
 
   actions: {
-    async get(page = 1, pageSize = 10) {
+    async get(page = 1, pageSize = 10, sold = null) {
       console.log("Attempting to get properties");
-      const url = `https://mycreativefinancing-wiy7b.ondigitalocean.app/properties/?page=${page}&pageSize=${pageSize}`;
+      let url = `https://mycreativefinancing-wiy7b.ondigitalocean.app/properties/?page=${page}&pageSize=${pageSize}`;
+      if (sold !== null) {
+        url += `&sold=${sold}`;
+      }
       const response = await $fetch(url);
       this.properties = response.properties;
       this.total = response.total;

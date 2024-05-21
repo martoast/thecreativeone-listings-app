@@ -2,6 +2,11 @@
   <div class="bg-black min-h-screen">
     <div class="container mx-auto">
       <div class="mx-auto max-w-2xl px-4 py-8 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+        <div class="flex justify-center mb-8">
+        <a href="http://mycreativefinancing.com/" target="_blank">
+          <img src="/logo.svg" alt="Logo" class="h-12 w-auto" />
+        </a>
+      </div>
         <div class="mb-4">
           <button @click="hanldeBackButton" type="button" class="rounded-full bg-primary p-2 text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -68,7 +73,7 @@
             <p class="text-3xl tracking-tight text-white mb-3">
               {{ formatCurrency(property.price) }}
             </p>
-            <p v-if="property.sold !== null" class="font-medium text-gray-300"><span>Status:</span> {{ property.sold ? 'Sold' : 'Available' }}</p>
+            <p v-if="property.sold !== null" class="font-medium text-gray-300"><span>Status:</span> <span class="font-bold" :class="property.sold ? 'text-red-700' : 'text-green-300'"> {{ property.sold ? 'Sold' : 'Available' }} </span> </p>
           </div>
 
           <!-- Info Sections -->

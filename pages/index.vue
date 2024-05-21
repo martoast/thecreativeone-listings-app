@@ -1,8 +1,27 @@
 <template>
   <div class="bg-black min-h-screen">
     <div class="mx-auto max-w-2xl px-4 py-8 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+      <div class="flex justify-center mb-8">
+        <a href="http://mycreativefinancing.com/" target="_blank">
+          <img src="/logo.svg" alt="Logo" class="h-12 w-auto" />
+        </a>
+      </div>
       <h2 class="sr-only">Properties</h2>
-      <h1>EXPLORE OUR LISTINGS</h1>
+      <h1 class="text-2xl md:text-3xl lg:text-4xl font-extrabold tracking-wide mb-8 text-center md:text-start">
+        <span class="text-primary">EXPLORE</span> <span class="text-white">OUR LISTINGS</span>
+      </h1>
+
+
+
+      <!-- Toggle Switch for Sold/Available Filter -->
+      <div class="mb-4 flex items-center">
+        <label for="soldToggle" class="text-white mr-2">Show Sold Properties</label>
+        <Switch v-model="showSold" :class="[showSold ? 'bg-primary' : 'bg-gray-200', 'relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2']">
+          <span class="sr-only">Show Sold Properties</span>
+          <span aria-hidden="true" :class="[showSold ? 'translate-x-5' : 'translate-x-0', 'pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out']" />
+        </Switch>
+        <button @click="resetShowSold" type="button" class=" ml-3 *:rounded bg-primary px-2 py-1 text-xs font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">Reset</button>
+      </div>
 
       <div class="grid grid-cols-1 gap-y-4 sm:grid-cols-2 sm:gap-x-6 sm:gap-y-10 lg:grid-cols-3 lg:gap-x-8">
         <div
@@ -41,7 +60,7 @@
               {{ property.bathrooms }} bath
             </div>
             <div class="mt-2 text-sm text-white">
-              Status: <span class="font-semibold text-white">{{ property.sold ? 'Sold' : 'Available' }}</span>
+              Status: <span class="font-semibold" :class="property.sold ? 'text-red-700' : 'text-green-300'">{{ property.sold ? 'Sold' : 'Available' }}</span>
             </div>
             <div class="mt-4 flex justify-end">
               <a
@@ -80,15 +99,17 @@
 
 <script setup>
 import { usePropertiesStore } from '~/store/DataStore'
+import { Switch } from '@headlessui/vue'
 
 const store = usePropertiesStore()
 
 const currentPage = ref(1)
-const itemsPerPage = 3 // Change this to the number of items you want per page
+const itemsPerPage = 10 // Change this to the number of items you want per page
+const showSold = ref(null)
 
 const { data, pending, error, refresh } = await useAsyncData(
   'properties',
-  () => store.get(currentPage.value, itemsPerPage)
+  () => store.get(currentPage.value, itemsPerPage, showSold.value)
 )
 
 const totalPages = computed(() => Math.ceil(store.total / itemsPerPage))
@@ -110,6 +131,17 @@ const prevPage = () => {
     currentPage.value--
     refresh()
   }
+}
+
+// Watch the toggle value and refresh properties when it changes
+watch(showSold, () => {
+  currentPage.value = 1
+  refresh()
+})
+
+const resetShowSold = () => {
+  showSold.value = null
+  refresh()
 }
 
 // Method for formatting currency

@@ -70,10 +70,10 @@
 
           <div class="mt-3">
             <h2 class="sr-only">Property information</h2>
-            <p class="text-3xl tracking-tight text-white mb-3">
+            <p class="text-3xl font-semibold tracking-tight text-white mb-3">
               {{ formatCurrency(property.price) }}
             </p>
-            <p v-if="property.sold !== null" class="font-medium text-gray-300"><span>Status:</span> <span class="font-bold" :class="property.sold ? 'text-red-700' : 'text-green-300'"> {{ property.sold ? 'Sold' : 'Available' }} </span> </p>
+            <p v-if="property.sold !== null" class="font-medium text-white"><span>Status:</span> <span class="font-bold" :class="property.sold ? 'text-red-700' : 'text-green-300'"> {{ property.sold ? 'Sold' : 'Available' }} </span> </p>
           </div>
 
           <!-- Info Sections -->
@@ -114,6 +114,59 @@
               <p>{{ property.description }}</p>
             </div>
           </section>
+
+          <section class="mt-6">
+            <h3 class="text-xl font-semibold text-white">Nearby schools</h3>
+            <div class="overflow-x-auto mt-2">
+              <table class="min-w-full bg-black text-gray-300">
+                <thead>
+                  <tr>
+                    <th class="py-2 px-4 border-b border-gray-300">Name</th>
+                    
+                    <th class="py-2 px-4 border-b border-gray-300">Rating</th>
+
+                    <th class="py-2 px-4 border-b border-gray-300">Distance</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr v-for="school in property.nearby_schools" :key="school.name">
+                    <td class="py-2 px-4 border-b border-gray-300">{{ school.name }}</td>
+                    
+                    <td class="py-2 px-4 border-b border-gray-300">{{ school.rating }}</td>
+
+                    <td class="py-2 px-4 border-b border-gray-300">{{ convertMilesToKilometers(school.distance) }} km</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="mt-6">
+            <h3 class="text-xl font-semibold text-white">Nearby Hospitals</h3>
+            <div class="overflow-x-auto mt-2">
+              <table class="min-w-full bg-black text-gray-300">
+                <thead>
+                  <tr>
+                    <th class="py-2 px-4 border-b border-gray-300">Name</th>
+                    
+                    <th class="py-2 px-4 border-b border-gray-300">Rating</th>
+
+                    <th class="py-2 px-4 border-b border-gray-300">Distance</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr v-for="hospital in property.nearby_hospitals" :key="hospital.name">
+                    <td class="py-2 px-4 border-b border-gray-300">{{ hospital.name }}</td>
+                    
+                    <td class="py-2 px-4 border-b border-gray-300">{{ hospital.rating }}</td>
+
+                    <td class="py-2 px-4 border-b border-gray-300">{{ hospital.distance }} km</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
         </div>
       </div>
     </div>
@@ -148,6 +201,8 @@ await useAsyncData('property', () => store.find(route.params.id))
 
 const property = computed(() => ({
   ...store.property,
+  nearby_hospitals: store.property.nearby_hospitals ? JSON.parse(store.property.nearby_hospitals) : [],
+  nearby_schools: store.property.nearby_schools ? JSON.parse(store.property.nearby_schools) : [],
   images: store.property.images.length ? JSON.parse(store.property.images) : [],
 }))
 
@@ -168,5 +223,9 @@ function formatCurrency(value) {
 
 const hanldeBackButton = async () => {
   await navigateTo('/')
+}
+
+const convertMilesToKilometers = (miles) => {
+  return (miles * 1.60934).toFixed(2);
 }
 </script>

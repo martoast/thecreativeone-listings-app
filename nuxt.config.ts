@@ -2,6 +2,7 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   ssr: false,
+  
   modules: [
     '@pinia/nuxt',
     '@nuxtjs/tailwindcss',
@@ -14,7 +15,8 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
         MAPBOX_API_TOKEN: process.env.MAPBOX_API_TOKEN,
-        ZILLOW_API_KEY: process.env.ZILLOW_API_KEY
+        ZILLOW_API_KEY: process.env.ZILLOW_API_KEY,
+        GOOGLE_MAPS_API_KEY: process.env.GOOGLE_MAPS_API_KEY
     }
 }
 })

@@ -1,201 +1,167 @@
 <template>
-  <div class="bg-white container mx-auto">
-    <div class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-      <div class="lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-8">
-        
-        <!-- Property info for small screens -->
-        <div class="block lg:hidden mt-10 px-4 sm:mt-16 sm:px-0 lg:mt-0">
-          <h1 class="text-3xl font-bold tracking-tight text-gray-900">
-            {{ property.address }}
-          </h1>
+  <div>
+    <h1>Maps</h1>
+    <GoogleMap ref="mapRef" :api-key="googleMapsApiKey" class="map" :center="markerPosition"
+      :zoom="15" @click="clickMap">
+      <Marker ref="markerRef" :options="{ position: markerPosition }" />
+    </GoogleMap>
+    <input v-model="address" type="text" ref="autocompleteRef" placeholder="Enter an address" />
+    <label for="lng">Longitude</label>
+    <input v-model.number="lng" id="lng" type="number" min="-180" max="180" step="0.000001" />
+    <label for="lat">Latitude</label>
+    <input v-model.number="lat" id="lat" type="number" min="-90" max="90" step="0.000001" />
 
-          <div class="mt-3">
-            <h2 class="sr-only">Property information</h2>
-            <p class="text-3xl tracking-tight text-gray-900 mb-3">
-              {{ formatCurrency(property.price) }}
-            </p>
-            <p v-if="property.sold !== null" class="font-medium text-gray-700"><span>Status:</span> {{ property.sold ? 'Sold' : 'Available' }}</p>
-          </div>
-        </div>
-
-        <!-- Image gallery for all screens -->
-        <TabGroup as="div" class="order-2 lg:order-1 flex flex-col-reverse">
-          <!-- Image selector -->
-          <div class="mx-auto mt-6 hidden w-full max-w-2xl sm:block lg:max-w-none">
-            <TabList class="grid grid-cols-4 gap-6">
-              <Tab
-                v-for="(image, index) in property.images"
-                :key="index"
-                class="relative flex h-24 cursor-pointer items-center justify-center rounded-md bg-white text-sm font-medium uppercase text-gray-900 hover:bg-gray-50 focus:outline-none focus:ring focus:ring-opacity-50 focus:ring-offset-4"
-                v-slot="{ selected }"
-              >
-                <span class="sr-only">Image {{ index + 1 }}</span>
-                <span class="absolute inset-0 overflow-hidden rounded-md">
-                  <img
-                    :src="image"
-                    alt=""
-                    class="h-full w-full object-cover object-center"
-                  />
-                </span>
-                <span
-                  :class="[
-                    selected ? 'ring-indigo-500' : 'ring-transparent',
-                    'pointer-events-none absolute inset-0 rounded-md ring-2 ring-offset-2'
-                  ]"
-                  aria-hidden="true"
-                />
-              </Tab>
-            </TabList>
-          </div>
-
-          <TabPanels class="aspect-h-1 aspect-w-1 w-full">
-            <TabPanel
-              v-for="(image, index) in property.images"
-              :key="index"
-              @click="openModal(index)"
-            >
-              <img
-                :src="image"
-                :alt="`Image ${index + 1}`"
-                class="h-full w-full object-cover object-center sm:rounded-lg cursor-pointer"
-              />
-            </TabPanel>
-          </TabPanels>
-        </TabGroup>
-
-        <!-- Property info for medium and large screens -->
-        <div class="hidden lg:block mt-10 px-4 sm:mt-16 sm:px-0 lg:mt-0">
-          <h1 class="text-3xl font-bold tracking-tight text-gray-900">
-            {{ property.address }}
-          </h1>
-
-          <div class="mt-3">
-            <h2 class="sr-only">Property information</h2>
-            <p class="text-3xl tracking-tight text-gray-900 mb-3">
-              {{ formatCurrency(property.price) }}
-            </p>
-            <p v-if="property.sold !== null" class="font-medium text-gray-700"><span>Status:</span> {{ property.sold ? 'Sold' : 'Available' }}</p>
-          </div>
-
-          <!-- Info Sections -->
-          <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
-            <!-- General Information -->
-            <section>
-              <h3 class="text-xl font-semibold text-gray-900">General Information</h3>
-              <div class="space-y-2 text-base text-gray-700 mt-2">
-                <p><span class="font-medium">Property Type:</span> {{ property.property_type }}</p>
-                <p><span class="font-medium">Bedrooms:</span> {{ property.bedrooms }}</p>
-                <p><span class="font-medium">Bathrooms:</span> {{ property.bathrooms }}</p>
-                <p v-if="property.year_built !== null"><span class="font-medium">Year Built:</span> {{ property.year_built }}</p>
-                <p v-if="property.square_footage !== null"><span class="font-medium">Square Footage:</span> {{ property.square_footage }} sq ft</p>
-                <p v-if="property.lot_size !== null"><span class="font-medium">Lot Size:</span> {{ property.lot_size }}</p>
-                <p v-if="property.living_area !== null"><span class="font-medium">Living Area:</span> {{ property.living_area }}</p>
-              </div>
-            </section>
-
-            <!-- Financial Information -->
-            <section>
-              <h3 class="text-xl font-semibold text-gray-900">Financial Information</h3>
-              <div class="space-y-2 text-base text-gray-700 mt-2">
-                <p v-if="property.rent_zestimate !== null"><span class="font-medium">Rent Zestimate:</span> {{ formatCurrency(property.rent_zestimate) }}</p>
-                <p v-if="property.zestimate !== null"><span class="font-medium">Zestimate:</span> {{ formatCurrency(property.zestimate) }}</p>
-                <p v-if="property.price_per_square_foot !== null"><span class="font-medium">Price per Square Foot:</span> {{ formatCurrency(property.price_per_square_foot) }}</p>
-                <p v-if="property.zoning !== null"><span class="font-medium">Zoning:</span> {{ property.zoning }}</p>
-              </div>
-            </section>
-          </div>
-
-          <!-- Description -->
-          <section class="mt-6">
-            <h3 class="text-xl font-semibold text-gray-900">Description</h3>
-            <div class="space-y-2 text-base text-gray-700 mt-2">
-              <p>{{ property.description }}</p>
-            </div>
-          </section>
-        </div>
-
-        <!-- Info Sections for small screens -->
-        <div class="block lg:hidden mt-6">
-          <!-- Info Sections -->
-          <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
-            <!-- General Information -->
-            <section>
-              <h3 class="text-xl font-semibold text-gray-900">General Information</h3>
-              <div class="space-y-2 text-base text-gray-700 mt-2">
-                <p><span class="font-medium">Property Type:</span> {{ property.property_type }}</p>
-                <p><span class="font-medium">Bedrooms:</span> {{ property.bedrooms }}</p>
-                <p><span class="font-medium">Bathrooms:</span> {{ property.bathrooms }}</p>
-                <p v-if="property.year_built !== null"><span class="font-medium">Year Built:</span> {{ property.year_built }}</p>
-                <p v-if="property.lot_size !== null"><span class="font-medium">Lot Size:</span> {{ property.lot_size }}</p>
-                <p v-if="property.living_area !== null"><span class="font-medium">Living Area:</span> {{ property.living_area }}</p>
-              </div>
-            </section>
-
-            <!-- Financial Information -->
-            <section>
-              <h3 class="text-xl font-semibold text-gray-900">Financial Information</h3>
-              <div class="space-y-2 text-base text-gray-700 mt-2">
-                <p v-if="property.rent_zestimate !== null"><span class="font-medium">Rent Zestimate:</span> {{ formatCurrency(property.rent_zestimate) }}</p>
-                <p v-if="property.zestimate !== null"><span class="font-medium">Zestimate:</span> {{ formatCurrency(property.zestimate) }}</p>
-                <p v-if="property.price_per_square_foot !== null"><span class="font-medium">Price per Square Foot:</span> {{ formatCurrency(property.price_per_square_foot) }}</p>
-                <p v-if="property.zoning !== null"><span class="font-medium">Zoning:</span> {{ property.zoning }}</p>
-              </div>
-            </section>
-          </div>
-
-          <!-- Description -->
-          <section class="mt-6">
-            <h3 class="text-xl font-semibold text-gray-900">Description</h3>
-            <div class="space-y-2 text-base text-gray-700 mt-2">
-              <p>{{ property.description }}</p>
-            </div>
-          </section>
-        </div>
-      </div>
-    </div>
-    <ModalCarousel
-      :showModal="isModalOpen"
-      :images="property.images"
-      :startIndex="selectedImageIndex"
-      @close="isModalOpen = false"
-    />
+    <h2>Nearby Hospitals</h2>
+    <ul>
+      <li v-for="hospital in nearbyHospitals" :key="hospital.name">
+        {{ hospital.name }} - {{ hospital.address }} - Rating: {{ hospital.rating }}
+      </li>
+    </ul>
   </div>
 </template>
 
 <script setup>
-import { useRoute } from 'vue-router'
-import {
-  TabGroup,
-  TabList,
-  Tab,
-  TabPanels,
-  TabPanel,
-} from '@headlessui/vue'
-import { usePropertiesStore } from '~/store/DataStore'
-import ModalCarousel from '~/components/ModalCarousel.vue'
+import { GoogleMap, Marker } from 'vue3-google-map';
 
-const route = useRoute()
-const store = usePropertiesStore()
+const config = useRuntimeConfig();
+const googleMapsApiKey = config.public.GOOGLE_MAPS_API_KEY;
 
-await useAsyncData('property', () => store.find(route.params.id))
+const geocoder = ref(null);
+const address = ref('');
+const mapRef = ref(null);
+const markerRef = ref(null);
+const autocompleteRef = ref(null);
 
-const property = computed(() => ({
-  ...store.property,
-  images: store.property.images.length ? JSON.parse(store.property.images) : [],
-}))
+const markerPosition = ref({ lat: 29.530868, lng: -98.7571505 });
 
-const isModalOpen = ref(false)
-const selectedImageIndex = ref(0)
+const nearbyHospitals = ref([]);
 
-function openModal(index) {
-  selectedImageIndex.value = index
-  isModalOpen.value = true
-}
+const clickMap = (e) => {
+  console.log("clickMap");
+  lng.value = e.latLng.lng();
+  lat.value = e.latLng.lat();
+  markerRef.value.marker.setPosition({ lat: lat.value, lng: lng.value });
 
-function formatCurrency(value) {
-  if (typeof value !== 'number') {
-    return value;
-  }
-  return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(value);
-}
+  geocoder.value.geocode(
+    { location: { lat: lat.value, lng: lng.value } },
+    (results, status) => {
+      if (status === "OK") {
+        if (results[0]) {
+          address.value = results[0].formatted_address;
+          console.log("address", address.value);
+          fetchNearbyHospitals(lat.value, lng.value);
+        } else {
+          window.alert("No results found");
+        }
+      } else {
+        window.alert("Geocoder failed due to: " + status);
+      }
+    }
+  );
+};
+
+const fetchNearbyHospitals = (latitude, longitude) => {
+  const service = new google.maps.places.PlacesService(mapRef.value.map);
+  const request = {
+    location: new google.maps.LatLng(latitude, longitude),
+    radius: '5000',
+    type: ['hospital'],
+  };
+
+  service.nearbySearch(request, (results, status) => {
+    if (status === google.maps.places.PlacesServiceStatus.OK) {
+      nearbyHospitals.value = results.map((place) => ({
+        name: place.name,
+        address: place.vicinity,
+        rating: place.rating || 'No rating',
+        latitude: place.geometry.location.lat(),
+        longitude: place.geometry.location.lng(),
+      }));
+      console.log(nearbyHospitals.value);
+    } else if (status === google.maps.places.PlacesServiceStatus.ZERO_RESULTS) {
+      console.log('No places found within the specified radius.');
+    } else {
+      console.log('Error with API status:', status);
+    }
+  });
+};
+
+const callbackAutocomplete = (place) => {
+  lng.value = place.geometry.location.lng();
+  lat.value = place.geometry.location.lat();
+
+  markerRef.value.marker.setPosition({ lat: lat.value, lng: lng.value });
+  mapRef.value.map.panTo({ lat: lat.value, lng: lng.value });
+  address.value = place.formatted_address;
+  fetchNearbyHospitals(lat.value, lng.value);
+};
+
+const lng = computed({
+  get: () => markerPosition.value.lng,
+  set: (v) => {
+    if (!Number.isFinite(v)) {
+      markerPosition.value.lng = 0;
+    } else if (v > 180) {
+      markerPosition.value.lng = 180;
+    } else if (v < -180) {
+      markerPosition.value.lng = -180;
+    } else {
+      markerPosition.value.lng = v;
+    }
+  },
+});
+
+const lat = computed({
+  get: () => markerPosition.value.lat,
+  set: (v) => {
+    if (!Number.isFinite(v)) {
+      markerPosition.value.lat = 0;
+    } else if (v > 90) {
+      markerPosition.value.lat = 90;
+    } else if (v < -90) {
+      markerPosition.value.lat = -90;
+    } else {
+      markerPosition.value.lat = v;
+    }
+  },
+});
+
+watch(() => mapRef.value?.ready, (ready) => {
+  if (!ready) return;
+
+  const options = {
+    fields: ["formatted_address", "geometry", "name"],
+    strictBounds: false,
+  };
+
+  const autocomplete = new mapRef.value.api.places.Autocomplete(
+    autocompleteRef.value,
+    options
+  );
+
+  geocoder.value = new mapRef.value.api.Geocoder();
+
+  autocomplete.addListener("place_changed", () => {
+    const place = autocomplete.getPlace();
+    if (!place.geometry || !place.geometry.location) {
+      console.log("No details available for input: '" + place.name + "'");
+      return;
+    }
+    callbackAutocomplete(place);
+  });
+});
 </script>
+
+<style scoped>
+.map {
+  position: relative;
+  width: 100%;
+  height: 500px;
+}
+
+input[type="number"] {
+  width: 200px;
+  margin-top: 20px;
+  margin-left: 10px;
+}
+</style>

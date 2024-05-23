@@ -19,6 +19,9 @@
               >
             </mapbox-search-box>
           </div>
+
+          <GoogleMap ref="mapRef" :api-key="googleMapsApiKey" class="map" :zoom="15">
+        </GoogleMap>
           <div v-if="!data.loading && data.form.address || props.property" class="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6 mt-5">
             <!-- Each input field below corresponds to a property attribute -->
             
@@ -98,12 +101,6 @@
         <input v-model="property.zoning" type="text" id="zoning" class="block w-full border-gray-400 rounded-md py-1.5 shadow-sm focus:ring-indigo-500 sm:text-sm sm:leading-6" placeholder="Zoning">
         </div>
 
-            <!-- Images (JSON array input as string) -->
-          <div class="col-span-full">
-            <label for="images" class="block text-sm font-medium leading-6">Images (URLs)</label>
-            <input v-model="property.images" type="text" id="images" class="block w-full border-gray-400 rounded-md py-1.5 shadow-sm focus:ring-indigo-500 sm:text-sm sm:leading-6" placeholder='["URL1", "URL2"]'>
-          </div>
-
           <div class="sm:col-span-3">
               <label for="purchase_price" class="block text-sm font-medium leading-6">Purchase Price</label>
               <input v-model="property.purchase_price" type="number" id="purchase_price" class="block w-full border-gray-400 rounded-md py-1.5 shadow-sm focus:ring-indigo-500 sm:text-sm sm:leading-6" placeholder="Purchase Price">
@@ -154,15 +151,19 @@
 <script setup>
 import { ref } from 'vue';
 import { usePropertiesStore } from '~/store/DataStore'
+import { GoogleMap, Marker } from 'vue3-google-map';
 
 const config = useRuntimeConfig()
 
 const access_token = config.public.MAPBOX_API_TOKEN;
-const zillowApiKey = config.public.ZILLOW_API_KEY; // Ensure to manage API keys securely
+const zillowApiKey = config.public.ZILLOW_API_KEY;
+const googleMapsApiKey = config.public.GOOGLE_MAPS_API_KEY;
 
 const props = defineProps({
   property: Object
 });
+
+const mapRef = ref(null);
 
 
 const data = reactive({
@@ -201,7 +202,9 @@ const defaultProperty = {
   purchase_price: null,
   balance_to_close: null,
   monthly_holding_cost: null,
-  interest_rate: null
+  interest_rate: null,
+  nearby_hospitals: [],
+  nearby_schools: []
 
 };
 
@@ -249,6 +252,7 @@ await useFetch(apiUrl, {
         property.value.living_area = response._data.livingArea;
       property.value.year_built = response._data.yearBuilt;
       property.value.price_per_square_foot = response._data.resoFacts.pricePerSquareFoot
+      property.value.nearby_schools = response._data.schools
 
       
       // Update other properties as needed
@@ -274,16 +278,13 @@ const handleSubmit = async (e) => {
         console.log('Creating new property...', property.value)
         await propertiesStore.store({ property: {
             ...property.value,
+            nearby_hospitals: JSON.stringify(property.value.nearby_hospitals),
+            nearby_schools: JSON.stringify(property.value.nearby_schools),
             images: JSON.stringify(property.value.images)
         } });
     }
     data.form.loading = false;
     await navigateTo('/admin/')
-}
-
-function cancelEdit() {
-  // reset form or redirect
-  console.log('Edit cancelled');
 }
 
 const handleRetrieve = async (event) => {
@@ -295,9 +296,12 @@ const handleRetrieve = async (event) => {
 
     property.value.address = event.detail.features[0].properties.full_address
 
+    await fetchNearbyPlaces(data.form.latitude, data.form.longitude, 'hospital');
+    // await fetchNearbyPlaces(coordinates.latitude, coordinates.longitude, 'school');
+
   }
   else {
-    alert("Tienes que buscar una ciudad, código postal, domicilio o negocio.");
+    alert("You must search a location and select from the dropdown menu.");
   }
 };
 
@@ -318,7 +322,58 @@ const fetchPropertyImages = async (zpid) => {
     console.error('Error fetching images');
   }
   data.loading = false;
-}
+};
+
+const calculateDistance = (lat1, lon1, lat2, lon2) => {
+  const toRad = (value) => (value * Math.PI) / 180;
+  const R = 6371; // Radius of the Earth in kilometers
+  const dLat = toRad(lat2 - lat1);
+  const dLon = toRad(lon2 - lon1);
+  const a =
+    Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+    Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) *
+    Math.sin(dLon / 2) * Math.sin(dLon / 2);
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  return R * c; // Distance in kilometers
+};
+
+
+const fetchNearbyPlaces = async (latitude, longitude, type) => {
+  const service = new google.maps.places.PlacesService(mapRef.value.map);
+  const request = {
+    location: new google.maps.LatLng(latitude, longitude),
+    radius: '5000',
+    type: [type],
+  };
+
+  service.nearbySearch(request, (results, status) => {
+    if (status === google.maps.places.PlacesServiceStatus.OK) {
+      const places = results.map((place) => ({
+        name: place.name,
+        address: place.vicinity,
+        rating: place.rating || 'No rating',
+        latitude: place.geometry.location.lat(),
+        longitude: place.geometry.location.lng(),
+        distance: calculateDistance(latitude, longitude, place.geometry.location.lat(), place.geometry.location.lng()).toFixed(2) // Distance in kilometers
+      }));
+
+      // Depending on the type, append to the appropriate property field
+      if (type === 'hospital') {
+        property.value.nearby_hospitals = [...(property.value.nearby_hospitals || []), ...places];
+      } else if (type === 'school') {
+        property.value.nearby_schools = [...(property.value.nearby_schools || []), ...places];
+      }
+      console.log('Updated property details:', property.value);
+
+    } else if (status === google.maps.places.PlacesServiceStatus.ZERO_RESULTS) {
+      console.log('No places found within the specified radius.');
+    } else {
+      console.error('Error with API status:', status);
+    }
+  });
+};
+
+
 
 
 </script>

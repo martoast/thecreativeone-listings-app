@@ -20,7 +20,7 @@
           <span class="sr-only">Show Sold Properties</span>
           <span aria-hidden="true" :class="[showSold ? 'translate-x-5' : 'translate-x-0', 'pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out']" />
         </Switch>
-        <button @click="resetShowSold" type="button" class=" ml-3 *:rounded bg-primary px-2 py-1 text-xs font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">Reset</button>
+        <button @click="resetShowSold" type="button" class=" ml-3 *:rounded bg-primary px-2 py-1 text-xs font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">Show All</button>
       </div>
 
       <div class="grid grid-cols-1 gap-y-4 sm:grid-cols-2 sm:gap-x-6 sm:gap-y-10 lg:grid-cols-3 lg:gap-x-8">
@@ -58,6 +58,17 @@
                 </svg>
               </span>
               {{ property.bathrooms }} bath
+              <div v-if="property.lot_size">
+                <span class="mx-1">•</span>
+              <span class="inline-block h-5 w-5 text-white mr-1" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                  <path d="M6 3a3 3 0 0 0-3 3v1.5a.75.75 0 0 0 1.5 0V6A1.5 1.5 0 0 1 6 4.5h1.5a.75.75 0 0 0 0-1.5H6ZM16.5 3a.75.75 0 0 0 0 1.5H18A1.5 1.5 0 0 1 19.5 6v1.5a.75.75 0 0 0 1.5 0V6a3 3 0 0 0-3-3h-1.5ZM4.5 16.5a.75.75 0 0 0-1.5 0V18a3 3 0 0 0 3 3h1.5a.75.75 0 0 0 0-1.5H6A1.5 1.5 0 0 1 4.5 18v-1.5ZM21 16.5a.75.75 0 0 0-1.5 0V18a1.5 1.5 0 0 1-1.5 1.5h-1.5a.75.75 0 0 0 0 1.5H18a3 3 0 0 0 3-3v-1.5Z" />
+                </svg>
+
+
+              </span>
+              {{ property.lot_size }} sqft
+              </div>
             </div>
             <div class="mt-2 text-sm text-white">
               Status: <span class="font-semibold" :class="property.sold ? 'text-red-700' : 'text-green-300'">{{ property.sold ? 'Sold' : 'Available' }}</span>

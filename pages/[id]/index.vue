@@ -102,6 +102,7 @@
                 <p><span class="font-medium">Purchase Price:</span> {{ formatCurrency(property.purchase_price) ?? 'N/A' }}</p>
                 <p><span class="font-medium">Balance to Close:</span> {{ formatCurrency(property.balance_to_close) ?? 'N/A' }}</p>
                 <p><span class="font-medium">Monthly Holding Cost:</span> {{ formatCurrency(property.monthly_holding_cost) ?? 'N/A' }}</p>
+                <p><span class="font-medium">Monthly HOA Fee:</span> {{ formatCurrency(property.monthly_hoa_fee) ?? 'N/A' }}</p>
                 <p><span class="font-medium">Interest Rate:</span> {{ property.interest_rate ? `${parseFloat(property.interest_rate) * 100}%` : 'N/A' }}</p>
               </div>
             </section>
@@ -167,6 +168,72 @@
             </div>
           </section>
 
+          <section class="mt-6">
+              <h3 class="text-xl font-semibold text-white">Nearby Homes</h3>
+              <div class="overflow-x-auto mt-2">
+                <table class="min-w-full bg-black text-gray-300">
+                  <thead>
+                    <tr>
+                      <th class="py-2 px-4 border-b border-gray-300">Address</th>
+                      <th class="py-2 px-4 border-b border-gray-300">Price</th>
+                      <th class="py-2 px-4 border-b border-gray-300">Lot Size</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr v-for="home in property.nearby_homes" :key="home.address.streetAddress">
+                      <td class="py-2 px-4 border-b border-gray-300">{{ home.address.streetAddress }}</td>
+                      <td class="py-2 px-4 border-b border-gray-300">{{ formatCurrency(home.price) }}</td>
+                      <td class="py-2 px-4 border-b border-gray-300">{{ home.lotSize }} {{home.livingAreaUnits}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+          </section>
+
+          <!-- Tax History -->
+          <section class="mt-6">
+            <h3 class="text-xl font-semibold text-white">Tax History</h3>
+            <div class="overflow-x-auto mt-2">
+              <table class="min-w-full bg-black text-gray-300">
+                <thead>
+                  <tr>
+                    <th class="py-2 px-4 border-b border-gray-300">Year</th>
+                    <th class="py-2 px-4 border-b border-gray-300">Amount</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr v-for="tax in property.tax_history" :key="tax.time">
+                    <td class="py-2 px-4 border-b border-gray-300">{{ new Date(tax.time).getFullYear() }}</td>
+                    <td class="py-2 px-4 border-b border-gray-300">{{ formatCurrency(tax.taxPaid) }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- Price History -->
+          <section class="mt-6">
+            <h3 class="text-xl font-semibold text-white">Price History</h3>
+            <div class="overflow-x-auto mt-2">
+              <table class="min-w-full bg-black text-gray-300">
+                <thead>
+                  <tr>
+                    <th class="py-2 px-4 border-b border-gray-300">Date</th>
+                    <th class="py-2 px-4 border-b border-gray-300">Event</th>
+                    <th class="py-2 px-4 border-b border-gray-300">Price</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr v-for="price in property.price_history" :key="price.date">
+                    <td class="py-2 px-4 border-b border-gray-300">{{ new Date(price.date).toLocaleDateString() }}</td>
+                    <td class="py-2 px-4 border-b border-gray-300">{{ price.event }}</td>
+                    <td class="py-2 px-4 border-b border-gray-300">{{ formatCurrency(price.price) }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
         </div>
       </div>
     </div>
@@ -203,7 +270,10 @@ const property = computed(() => ({
   ...store.property,
   nearby_hospitals: store.property.nearby_hospitals ? JSON.parse(store.property.nearby_hospitals) : [],
   nearby_schools: store.property.nearby_schools ? JSON.parse(store.property.nearby_schools) : [],
+  nearby_homes : store.property.nearby_homes ? JSON.parse(store.property.nearby_homes) : [],
   images: store.property.images.length ? JSON.parse(store.property.images) : [],
+  tax_history: store.property.tax_history ? JSON.parse(store.property.tax_history) : [],
+  price_history: store.property.price_history ? JSON.parse(store.property.price_history) : [],
 }))
 
 const isModalOpen = ref(false)

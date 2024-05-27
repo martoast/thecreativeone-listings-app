@@ -30,6 +30,12 @@
               <input v-model="property.address" required type="text" id="address" class="block w-full border-gray-400 rounded-md py-1.5 shadow-sm focus:ring-indigo-500 sm:text-sm sm:leading-6" placeholder="Property Address">
             </div>
 
+            <!-- Sold Checkbox -->
+            <div class="sm:col-span-3 flex items-center">
+              <input v-model="property.sold" type="checkbox" id="sold" class="mr-2">
+              <label for="sold" class="block text-sm font-medium leading-6">Sold: {{property.sold}}</label>
+            </div>
+
             <div class="sm:col-span-3">
                 <label for="property-type" class="block text-sm font-medium leading-6">Property Type</label>
                 <input v-model="property.property_type" type="text" id="property-type" class="block w-full border-gray-400 rounded-md py-1.5 shadow-sm focus:ring-indigo-500 sm:text-sm sm:leading-6" placeholder="Type of Property">
@@ -51,11 +57,12 @@
               <input v-model="property.price" required type="number" id="price" class="block w-full border-gray-400 rounded-md py-1.5 shadow-sm focus:ring-indigo-500 sm:text-sm sm:leading-6" placeholder="Price in USD">
             </div>
 
-            <!-- Sold Checkbox -->
-            <div class="sm:col-span-3 flex items-center">
-              <input v-model="property.sold" type="checkbox" id="sold" class="mr-2">
-              <label for="sold" class="block text-sm font-medium leading-6">Sold: {{property.sold}}</label>
+            <div class="sm:col-span-3">
+              <label for="monthly_hoa_fee" class="block text-sm font-medium leading-6">Monthly HOA Fee</label>
+              <input v-model="property.monthly_hoa_fee" required type="number" id="monthly_hoa_fee" class="block w-full border-gray-400 rounded-md py-1.5 shadow-sm focus:ring-indigo-500 sm:text-sm sm:leading-6" placeholder="HOA Fee in USD">
             </div>
+
+            
 
             <!-- Description -->
           <div class="col-span-full">
@@ -142,7 +149,7 @@
           <a href="/admin">
             <button type="button" class="text-sm font-semibold leading-6">Cancel</button>
           </a>
-          <button :disabled="data.form.loading" type="submit" class="rounded-md bg-indigo-500 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400">Save</button>
+          <button :disabled="data.form.loading || !property.price" type="submit" class="rounded-md bg-indigo-500 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400">Save</button>
         </div>
       </div>
     </form>
@@ -204,7 +211,12 @@ const defaultProperty = {
   monthly_holding_cost: null,
   interest_rate: null,
   nearby_hospitals: [],
-  nearby_schools: []
+  nearby_schools: [],
+  nearby_homes: [],
+  price_history: [],
+  tax_history: [],
+  monthly_hoa_fee: null
+
 
 };
 
@@ -251,8 +263,12 @@ await useFetch(apiUrl, {
         property.value.lot_size = response._data.lotSize ? response._data.lotSize : null ;
         property.value.living_area = response._data.livingArea;
       property.value.year_built = response._data.yearBuilt;
-      property.value.price_per_square_foot = response._data.resoFacts.pricePerSquareFoot
-      property.value.nearby_schools = response._data.schools
+      property.value.price_per_square_foot = response._data.resoFacts.pricePerSquareFoot;
+      property.value.nearby_schools = response._data.schools;
+      property.value.nearby_homes = response._data.nearbyHomes;
+      property.value.price_history = response._data.priceHistory;
+      property.value.tax_history = response._data.taxHistory;
+      property.value.monthly_hoa_fee = response._data.monthlyHoaFee
 
       
       // Update other properties as needed
@@ -276,12 +292,17 @@ const handleSubmit = async (e) => {
     } else {
         // create a new property
         console.log('Creating new property...', property.value)
+  
         await propertiesStore.store({ property: {
-            ...property.value,
-            nearby_hospitals: JSON.stringify(property.value.nearby_hospitals),
-            nearby_schools: JSON.stringify(property.value.nearby_schools),
-            images: JSON.stringify(property.value.images)
-        } });
+          ...property.value,
+          nearby_hospitals: JSON.stringify(property.value.nearby_hospitals),
+          nearby_schools: JSON.stringify(property.value.nearby_schools),
+          images: JSON.stringify(property.value.images),
+          nearby_homes: JSON.stringify(property.value.nearby_homes),
+          price_history: JSON.stringify(property.value.price_history),
+          tax_history: JSON.stringify(property.value.tax_history)
+      } });
+        
     }
     data.form.loading = false;
     await navigateTo('/admin/')

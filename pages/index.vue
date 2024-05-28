@@ -7,7 +7,7 @@
         </a>
       </div>
       <h2 class="sr-only">Properties</h2>
-      <h1 class="text-2xl md:text-3xl lg:text-4xl font-extrabold tracking-wide mb-8 text-center md:text-start">
+      <h1 class="text-2xl md:text-3xl lg:text-4xl font-extrabold tracking-wide mb-8 text-center">
         <span class="text-primary">EXPLORE</span> <span class="text-white">OUR LISTINGS</span>
       </h1>
 

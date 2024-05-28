@@ -1,5 +1,5 @@
 <template>
-  <div class="container mx-auto" v-if="isAuthenticated">
+  <div class="container mx-auto">
     
     <div class="pt-8 px-4 sm:px-6 lg:px-8">
       <a href="http://mycreativefinancing.com/" target="_blank">
@@ -82,27 +82,15 @@
   </div>
 
   </div>
-
-  <div v-else class="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-75">
-    <div class="bg-white p-6 rounded shadow-lg">
-      <h2 class="text-lg font-semibold mb-4">Login</h2>
-      <form @submit.prevent="checkPassword">
-        <div class="mb-4">
-          <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
-          <input v-model="password" type="password" id="password" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
-        </div>
-        <div class="flex justify-end">
-          <button type="submit" class="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Login</button>
-        </div>
-      </form>
-      <p v-if="loginError" class="mt-4 text-red-600">Incorrect password. Please try again.</p>
-    </div>
-    </div>
   
 </template>
 
 <script setup>
 import { usePropertiesStore } from '~/store/DataStore'
+
+definePageMeta({
+  middleware: 'auth'
+})
 
 const store = usePropertiesStore();
 
@@ -110,20 +98,6 @@ const currentPage = ref(1)
 const itemsPerPage = 10 // Change this to the number of items you want per page
 const showSold = ref(null)
 
-const password = ref('');
-const isAuthenticated = ref(false);
-const loginError = ref(false);
-
-const hardcodedPassword = 'xx'; // Replace with your desired password
-
-const checkPassword = () => {
-  if (password.value === hardcodedPassword) {
-    isAuthenticated.value = true;
-    loginError.value = false;
-  } else {
-    loginError.value = true;
-  }
-};
 
 const totalPages = computed(() => Math.ceil(store.total / itemsPerPage))
 

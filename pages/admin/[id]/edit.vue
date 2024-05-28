@@ -5,7 +5,12 @@
   </template>
 
 <script setup>
+definePageMeta({
+  middleware: 'auth'
+})
+
 import { usePropertiesStore } from '~/store/DataStore'
+
 
 const route = useRoute()
 const store = usePropertiesStore()

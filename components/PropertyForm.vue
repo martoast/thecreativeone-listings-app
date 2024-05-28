@@ -4,6 +4,31 @@
         <div class="border-b border-white/10 pb-4" :class="property.address ? 'pb-8' : 'pb-0'">
           <h2 class="text-base font-semibold leading-7">Property Details</h2>
           <p class="mt-1 text-sm leading-6 text-gray-700">You can add or update the details of the property from here.</p>
+           <!-- Toggle for apartment -->
+        <div v-if="!props.property">
+          <div class="mt-5 flex items-center">
+          <input v-model="data.form.is_appartment" type="checkbox" id="is_appartment" class="mr-2">
+          <label for="is_appartment" class="block text-sm font-medium leading-6">Is it an apartment or condo?</label>
+          </div>
+
+          <!-- Unit Number and Property Type -->
+          <div v-if="data.form.is_appartment" class="mt-3 flex space-x-4">
+            <div class="flex-1">
+              <label for="type" class="block text-sm font-medium leading-6">Property Type</label>
+              <select v-model="data.form.type" id="type" class="block w-full border-gray-400 rounded-md py-1.5 shadow-sm focus:ring-indigo-500 sm:text-sm sm:leading-6">
+                <option value="">Select Property Type</option>
+                <option value="SUITE">Suite</option>
+                <option value="UNIT">Unit</option>
+                <option value="APARTMENT">Apartment</option>
+                <option value="RM">Room</option>
+              </select>
+            </div>
+            <div class="flex-1">
+              <label for="unit-number" class="block text-sm font-medium leading-6">Unit Number</label>
+              <input v-model="data.form.unit_number" type="text" id="unit-number" class="block w-full border-gray-400 rounded-md py-1.5 shadow-sm focus:ring-indigo-500 sm:text-sm sm:leading-6" placeholder="Unit Number">
+            </div>
+          </div>
+
           <div class="mt-5">
             <mapbox-search-box
                 :access-token="access_token"
@@ -22,6 +47,9 @@
 
           <GoogleMap ref="mapRef" :api-key="googleMapsApiKey" class="map" :zoom="15">
         </GoogleMap>
+        </div>
+
+          
           <div v-if="!data.loading && data.form.address || props.property" class="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6 mt-5">
             <!-- Each input field below corresponds to a property attribute -->
             
@@ -59,7 +87,7 @@
 
             <div class="sm:col-span-3">
               <label for="monthly_hoa_fee" class="block text-sm font-medium leading-6">Monthly HOA Fee</label>
-              <input v-model="property.monthly_hoa_fee" required type="number" id="monthly_hoa_fee" class="block w-full border-gray-400 rounded-md py-1.5 shadow-sm focus:ring-indigo-500 sm:text-sm sm:leading-6" placeholder="HOA Fee in USD">
+              <input v-model="property.monthly_hoa_fee" type="number" id="monthly_hoa_fee" class="block w-full border-gray-400 rounded-md py-1.5 shadow-sm focus:ring-indigo-500 sm:text-sm sm:leading-6" placeholder="HOA Fee in USD">
             </div>
 
             
@@ -180,6 +208,9 @@ const data = reactive({
     latitude: null,
     longitude: null,
     address: null,
+    unit_number: null,
+    is_appartment: null,
+    type: null,
     loading: false
   },
 });
@@ -224,6 +255,19 @@ const defaultProperty = {
 const property = ref(props.property || {...defaultProperty});
 
 const apiUrl = ref(`https://zillow-com1.p.rapidapi.com/property?address=`);
+
+const updateAddress = () => {
+  let fullAddress = data.form.address;
+  if (data.form.is_appartment && data.form.unit_number) {
+    fullAddress += `, ${data.form.type} ${data.form.unit_number}`;
+  }
+  property.value.address = fullAddress;
+
+  // Trigger the API request with the updated address
+  data.loading = true;
+  apiUrl.value = `https://zillow-com1.p.rapidapi.com/property?address=${encodeURIComponent(fullAddress)}`;
+  fetchPropertyDetails();
+};
 
 
 watch(
@@ -315,7 +359,11 @@ const handleRetrieve = async (event) => {
 
     data.form.address = event.detail.features[0].properties.full_address
 
-    property.value.address = event.detail.features[0].properties.full_address
+    updateAddress();
+
+    if (data.form.is_appartment && data.form.unit_number) {
+      property.value.address += ` Unit ${data.form.unit_number}, ${data.form.type}`;
+    }
 
     await fetchNearbyPlaces(data.form.latitude, data.form.longitude, 'hospital');
     // await fetchNearbyPlaces(coordinates.latitude, coordinates.longitude, 'school');

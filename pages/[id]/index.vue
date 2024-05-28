@@ -4,7 +4,7 @@
       <div class="mx-auto max-w-2xl px-4 py-8 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
         <div class="flex justify-center mb-8">
         <a href="http://mycreativefinancing.com/" target="_blank">
-          <img src="/logo.svg" alt="Logo" class="h-12 w-auto" />
+          <img src="/logo.png" alt="Logo" class="h-12 w-auto" />
         </a>
       </div>
         <div class="mb-4">
@@ -15,13 +15,14 @@
 
             
           </button>
+          
         </div>
       <div class="lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-8">
         <!-- Image gallery -->
         <TabGroup as="div" class="flex flex-col-reverse">
           <!-- Image selector -->
           <div class="mx-auto mt-6 hidden w-full max-w-2xl sm:block lg:max-w-none">
-            <TabList class="grid grid-cols-4 gap-6">
+            <TabList class="grid grid-cols-4 gap-6 mb-8">
               <Tab
                 v-for="(image, index) in property.images"
                 :key="index"
@@ -45,6 +46,7 @@
                 />
               </Tab>
             </TabList>
+            <a class="text-white  pt-8 mt-8" style="text-decoration: underline;" href="https://forms.reform.app/vb3xAL/ur-creative-solutions-buyers-review-form-copy/wk4xt6" target="_blank">🆘 Click here for details. Our team is available for any questions. 🆘 </a>
           </div>
 
           <TabPanels class="aspect-h-1 aspect-w-1 w-full">
@@ -61,6 +63,8 @@
             </TabPanel>
           </TabPanels>
         </TabGroup>
+        
+        
 
         <!-- Property info -->
         <div class="mt-10 px-4 sm:mt-16 sm:px-0 lg:mt-0">
@@ -81,7 +85,7 @@
             <!-- General Information -->
             <section>
               <h3 class="text-xl font-semibold text-white">General Information</h3>
-              <div class="space-y-2 text-base text-gray-300 mt-2">
+              <div class="space-y-2 text-base text-white mt-2">
                 <p><span class="font-medium">Property Type:</span> {{ property.property_type }}</p>
                 <p><span class="font-medium">Bedrooms:</span> {{ property.bedrooms }}</p>
                 <p><span class="font-medium">Bathrooms:</span> {{ property.bathrooms }}</p>
@@ -94,7 +98,7 @@
             <!-- Financial Information -->
             <section>
               <h3 class="text-xl font-semibold text-white">Financial Information</h3>
-              <div class="space-y-2 text-base text-gray-300 mt-2">
+              <div class="space-y-2 text-base text-white mt-2">
                 <p><span class="font-medium">Rent Zestimate:</span> {{ formatCurrency(property.rent_zestimate) ?? 'N/A'}}</p>
                 <p><span class="font-medium">Zestimate:</span> {{ formatCurrency(property.zestimate) ?? 'N/A'}}</p>
                 <p><span class="font-medium">Price per Square Foot:</span> {{ formatCurrency(property.price_per_square_foot) ?? 'N/A' }}</p>
@@ -111,7 +115,7 @@
           <!-- Description -->
           <section class="mt-6">
             <h3 class="text-xl font-semibold text-white">Description</h3>
-            <div class="space-y-2 text-base text-gray-300 mt-2">
+            <div class="space-y-2 text-base text-white mt-2">
               <p>{{ property.description }}</p>
             </div>
           </section>
@@ -119,7 +123,7 @@
           <section class="mt-6">
             <h3 class="text-xl font-semibold text-white">Nearby schools</h3>
             <div class="overflow-x-auto mt-2">
-              <table class="min-w-full bg-black text-gray-300">
+              <table class="min-w-full bg-black text-white">
                 <thead>
                   <tr>
                     <th class="py-2 px-4 border-b border-gray-300">Name</th>
@@ -145,7 +149,7 @@
           <section class="mt-6">
             <h3 class="text-xl font-semibold text-white">Nearby Hospitals</h3>
             <div class="overflow-x-auto mt-2">
-              <table class="min-w-full bg-black text-gray-300">
+              <table class="min-w-full bg-black text-white">
                 <thead>
                   <tr>
                     <th class="py-2 px-4 border-b border-gray-300">Name</th>
@@ -171,7 +175,7 @@
           <section class="mt-6">
               <h3 class="text-xl font-semibold text-white">Nearby Homes</h3>
               <div class="overflow-x-auto mt-2">
-                <table class="min-w-full bg-black text-gray-300">
+                <table class="min-w-full bg-black text-white">
                   <thead>
                     <tr>
                       <th class="py-2 px-4 border-b border-gray-300">Address</th>
@@ -183,7 +187,7 @@
                     <tr v-for="home in property.nearby_homes" :key="home.address.streetAddress">
                       <td class="py-2 px-4 border-b border-gray-300">{{ home.address.streetAddress }}</td>
                       <td class="py-2 px-4 border-b border-gray-300">{{ formatCurrency(home.price) }}</td>
-                      <td class="py-2 px-4 border-b border-gray-300">{{ home.lotSize }} {{home.livingAreaUnits}}</td>
+                      <td class="py-2 px-4 border-b border-gray-300">{{ home.lotSize ?? 'N/A' }} {{ home.lotSize ? home.livingAreaUnits : ''}}</td>
                     </tr>
                   </tbody>
                 </table>
@@ -194,7 +198,7 @@
           <section class="mt-6">
             <h3 class="text-xl font-semibold text-white">Tax History</h3>
             <div class="overflow-x-auto mt-2">
-              <table class="min-w-full bg-black text-gray-300">
+              <table class="min-w-full bg-black text-white">
                 <thead>
                   <tr>
                     <th class="py-2 px-4 border-b border-gray-300">Year</th>
@@ -215,7 +219,7 @@
           <section class="mt-6">
             <h3 class="text-xl font-semibold text-white">Price History</h3>
             <div class="overflow-x-auto mt-2">
-              <table class="min-w-full bg-black text-gray-300">
+              <table class="min-w-full bg-black text-white">
                 <thead>
                   <tr>
                     <th class="py-2 px-4 border-b border-gray-300">Date</th>
@@ -233,6 +237,10 @@
               </table>
             </div>
           </section>
+
+          
+
+          
 
         </div>
       </div>

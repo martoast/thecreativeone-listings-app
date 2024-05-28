@@ -1,7 +1,11 @@
 <template>
-  <div class="container mx-auto">
+  <div class="container mx-auto" v-if="isAuthenticated">
+    
     <div class="pt-8 px-4 sm:px-6 lg:px-8">
-    <div class="sm:flex sm:items-center">
+      <a href="http://mycreativefinancing.com/" target="_blank">
+      <img src="/logo.png" alt="Logo" class="h-8 w-auto" />
+    </a>
+    <div class="sm:flex sm:items-center pt-3">
       <div class="sm:flex-auto">
         <h1 class="text-base font-semibold leading-6 text-gray-900">Properties</h1>
         <p class="mt-2 text-sm text-gray-700">A list of all the properties in your account including their address, price, and details.</p>
@@ -54,10 +58,46 @@
         </div>
       </div>
     </div>
+    <!-- Pagination controls -->
+    <div class="my-8 flex justify-between items-center">
+        <button
+          @click="prevPage"
+          :disabled="currentPage === 1"
+          class="px-4 py-2 text-white bg-indigo-600 rounded disabled:opacity-50"
+        >
+          Previous
+        </button>
+        <p>
+          Page {{ currentPage }} of {{ totalPages }}
+        </p>
+        <button
+          @click="nextPage"
+          :disabled="currentPage === totalPages"
+          class="px-4 py-2 bg-indigo-600 text-white rounded disabled:opacity-50"
+        >
+          Next
+        </button>
+      </div>
     <ConfirmationModal v-if="showModal" :property="propertyToDelete" :loading="data.loading" @confirm="deleteProperty" @cancel="hideModal"/>
   </div>
 
   </div>
+
+  <div v-else class="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-75">
+    <div class="bg-white p-6 rounded shadow-lg">
+      <h2 class="text-lg font-semibold mb-4">Login</h2>
+      <form @submit.prevent="checkPassword">
+        <div class="mb-4">
+          <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+          <input v-model="password" type="password" id="password" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+        </div>
+        <div class="flex justify-end">
+          <button type="submit" class="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Login</button>
+        </div>
+      </form>
+      <p v-if="loginError" class="mt-4 text-red-600">Incorrect password. Please try again.</p>
+    </div>
+    </div>
   
 </template>
 
@@ -66,11 +106,35 @@ import { usePropertiesStore } from '~/store/DataStore'
 
 const store = usePropertiesStore();
 
-const fetchProperties = async () => {
-  await store.get();
+const currentPage = ref(1)
+const itemsPerPage = 10 // Change this to the number of items you want per page
+const showSold = ref(null)
+
+const password = ref('');
+const isAuthenticated = ref(false);
+const loginError = ref(false);
+
+const hardcodedPassword = 'xx'; // Replace with your desired password
+
+const checkPassword = () => {
+  if (password.value === hardcodedPassword) {
+    isAuthenticated.value = true;
+    loginError.value = false;
+  } else {
+    loginError.value = true;
+  }
 };
 
-await fetchProperties();
+const totalPages = computed(() => Math.ceil(store.total / itemsPerPage))
+
+const { _data, pending, error, refresh } = await useAsyncData(
+  'properties',
+  () => store.get(currentPage.value, itemsPerPage, showSold.value)
+)
+
+
+
+
 
 const properties = computed(() => store.properties.map(property => ({
   ...property,
@@ -90,6 +154,20 @@ function hideModal() {
   propertyToDelete.value = null;
 }
 
+const nextPage = () => {
+  if (currentPage.value < totalPages.value) {
+    currentPage.value++
+    refresh()
+  }
+}
+
+const prevPage = () => {
+  if (currentPage.value > 1) {
+    currentPage.value--
+    refresh()
+  }
+}
+
 function openDeleteModal(property) {
   console.log("setting delete property");
   propertyToDelete.value = property;
@@ -101,7 +179,7 @@ const deleteProperty = async (property) => {
   data.loading = true;
   console.log("Property delete confirmed, delete it in the API!." + property.ID);
   await store.delete(property.ID);
-  await fetchProperties(); // Fetch properties again after deletion
+  refresh();
   data.loading = false;
   showModal.value = false;
   propertyToDelete.value = null;

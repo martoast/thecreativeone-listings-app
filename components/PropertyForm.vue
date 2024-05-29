@@ -160,8 +160,8 @@
                 class="block w-full border-gray-400 rounded-md py-1.5 shadow-sm focus:ring-indigo-500 sm:text-sm sm:leading-6" 
                 placeholder="Interest Rate" 
                 step="0.01" 
-                min="0" 
-                max="1"
+                min="0"
+                max="100"
               >
             </div>
           
@@ -266,7 +266,6 @@ const updateAddress = () => {
   // Trigger the API request with the updated address
   data.loading = true;
   apiUrl.value = `https://zillow-com1.p.rapidapi.com/property?address=${encodeURIComponent(fullAddress)}`;
-  fetchPropertyDetails();
 };
 
 
@@ -332,10 +331,19 @@ const handleSubmit = async (e) => {
     if (props.property && props.property.ID) {
         // update the existing property
         console.log('Updating property...', property.value);
+        if (property.value.balance_to_close) {
+          property.value.price = Number(property.value.price) + Number(property.value.balance_to_close);
+          console.log("new property price: " + property.value.price.toLocaleString());
+        }
         await propertiesStore.store({ property: property.value });
     } else {
         // create a new property
         console.log('Creating new property...', property.value)
+
+        if (property.value.balance_to_close) {
+          property.value.price = Number(property.value.price) + Number(property.value.balance_to_close);
+          console.log("new property price: " + property.value.price.toLocaleString());
+        }
   
         await propertiesStore.store({ property: {
           ...property.value,

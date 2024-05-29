@@ -8,7 +8,7 @@
         </a>
       </div>
         <div class="mb-4">
-          <button @click="hanldeBackButton" type="button" class="rounded-full bg-primary p-2 text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+          <button @click="hanldeBackButton" type="button" class="rounded-full bg-primary p-2 text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
               <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
             </svg>
@@ -46,7 +46,7 @@
                 />
               </Tab>
             </TabList>
-            <a class="text-white text-sm pt-8 mt-8" style="text-decoration: underline;" href="https://forms.reform.app/vb3xAL/ur-creative-solutions-buyers-review-form-copy/wk4xt6" target="_blank">🆘 Click here for details. Our team is available for any questions. 🆘 </a>
+            
           </div>
 
           <TabPanels class="aspect-h-1 aspect-w-1 w-full">
@@ -78,6 +78,11 @@
               {{ formatCurrency(property.price) }}
             </p>
             <p v-if="property.sold !== null" class="font-medium text-white"><span>Status:</span> <span class="font-bold" :class="property.sold ? 'text-red-700' : 'text-green-300'"> {{ property.sold ? 'Sold' : 'Available' }} </span> </p>
+            <div class="mt-4 sm:flex-none">
+              <a href="https://forms.reform.app/vb3xAL/ur-creative-solutions-buyers-review-form-copy/wk4xt6" target="_blank">
+                <button type="button" class="block rounded-md bg-primary px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">Get More Details</button>
+              </a>
+            </div>
           </div>
 
           <!-- Info Sections -->
@@ -107,7 +112,7 @@
                 <p><span class="font-medium">Balance to Close:</span> {{ formatCurrency(property.balance_to_close) ?? 'N/A' }}</p>
                 <p><span class="font-medium">Monthly Holding Cost:</span> {{ formatCurrency(property.monthly_holding_cost) ?? 'N/A' }}</p>
                 <p><span class="font-medium">Monthly HOA Fee:</span> {{ formatCurrency(property.monthly_hoa_fee) ?? 'N/A' }}</p>
-                <p><span class="font-medium">Interest Rate:</span> {{ property.interest_rate ? `${parseFloat(property.interest_rate) * 100}%` : 'N/A' }}</p>
+                <p><span class="font-medium">Interest Rate:</span> {{ property.interest_rate ? `${parseFloat(property.interest_rate)}%` : 'N/A' }}</p>
               </div>
             </section>
           </div>

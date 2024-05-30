@@ -277,6 +277,17 @@ watch(
   }
 );
 
+watch(
+  () => property.value.balance_to_close,
+  (newBalanceToClose) => {
+    if (Number(newBalanceToClose > 0)) {
+      property.value.price = Number(newBalanceToClose)
+    }
+  }
+);
+
+
+
 await useFetch(apiUrl, {
   headers: {
     'X-RapidAPI-Key': zillowApiKey,
@@ -331,20 +342,12 @@ const handleSubmit = async (e) => {
     if (props.property && props.property.ID) {
         // update the existing property
         console.log('Updating property...', property.value);
-        if (property.value.balance_to_close) {
-          property.value.price = Number(property.value.price) + Number(property.value.balance_to_close);
-          console.log("new property price: " + property.value.price.toLocaleString());
-        }
+        
         await propertiesStore.store({ property: property.value });
     } else {
         // create a new property
         console.log('Creating new property...', property.value)
 
-        if (property.value.balance_to_close) {
-          property.value.price = Number(property.value.price) + Number(property.value.balance_to_close);
-          console.log("new property price: " + property.value.price.toLocaleString());
-        }
-  
         await propertiesStore.store({ property: {
           ...property.value,
           nearby_hospitals: JSON.stringify(property.value.nearby_hospitals),

@@ -112,7 +112,7 @@ const { _data, pending, error, refresh } = await useAsyncData(
 
 const properties = computed(() => store.properties.map(property => ({
   ...property,
-  images: JSON.parse(property.images) // Assuming 'images' is a JSON string of URLs
+  images: property.images.length ? JSON.parse(property.images) : [] // Assuming 'images' is a JSON string of URLs
 })));
 
 const showModal = ref(false);

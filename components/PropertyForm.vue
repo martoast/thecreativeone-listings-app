@@ -136,6 +136,16 @@
         <input v-model="property.zoning" type="text" id="zoning" class="block w-full border-gray-400 rounded-md py-1.5 shadow-sm focus:ring-indigo-500 sm:text-sm sm:leading-6" placeholder="Zoning">
         </div>
 
+        <!-- Dynamic Image URL Fields -->
+        <div class="col-span-full">
+            <label for="images" class="block text-sm font-medium leading-6">Images (URLs)</label>
+            <div v-for="(image, index) in property.images" :key="index" class="flex space-x-2 mb-2">
+              <input v-model="property.images[index]" type="text" class="block w-full border-gray-400 rounded-md py-1.5 shadow-sm focus:ring-indigo-500 sm:text-sm sm:leading-6" placeholder="Image URL">
+              <button @click.prevent="removeImage(index)" type="button" class="text-red-500 hover:text-red-700">Remove</button>
+            </div>
+            <button @click.prevent="addImage" type="button" class="mt-2 text-indigo-500 hover:text-indigo-700">Add Image URL</button>
+          </div>
+
           <div class="sm:col-span-3">
               <label for="purchase_price" class="block text-sm font-medium leading-6">Purchase Price</label>
               <input v-model="property.purchase_price" type="number" id="purchase_price" class="block w-full border-gray-400 rounded-md py-1.5 shadow-sm focus:ring-indigo-500 sm:text-sm sm:leading-6" placeholder="Purchase Price">
@@ -187,6 +197,7 @@
 import { ref } from 'vue';
 import { usePropertiesStore } from '~/store/DataStore'
 import { GoogleMap, Marker } from 'vue3-google-map';
+import debounce from 'lodash.debounce'
 
 const config = useRuntimeConfig()
 
@@ -225,7 +236,7 @@ const defaultProperty = {
   description: '',
   arv: null,
   benefits: '',
-  images: '[]', // Initialize as a JSON string
+  images: [], // Initialize as a JSON string
   sold: false,
   bedrooms: null,
   bathrooms: null,
@@ -252,11 +263,27 @@ const defaultProperty = {
 };
 
 
-const property = ref(props.property || {...defaultProperty});
+const property = ref({ ...defaultProperty });
+
+onMounted(() => {
+  if (props.property) {
+    property.value = { ...props.property };
+    if (typeof property.value.images === 'string') {
+      try {
+        property.value.images = JSON.parse(property.value.images);
+        if (!Array.isArray(property.value.images)) {
+          property.value.images = [];
+        }
+      } catch (error) {
+        property.value.images = [];
+      }
+    }
+  }
+});
 
 const apiUrl = ref(`https://zillow-com1.p.rapidapi.com/property?address=`);
 
-const updateAddress = () => {
+const updateAddress = async () => {
   let fullAddress = data.form.address;
   if (data.form.is_appartment && data.form.unit_number) {
     fullAddress += `, ${data.form.type} ${data.form.unit_number}`;
@@ -264,138 +291,121 @@ const updateAddress = () => {
   property.value.address = fullAddress;
 
   // Trigger the API request with the updated address
-  data.loading = true;
-  apiUrl.value = `https://zillow-com1.p.rapidapi.com/property?address=${encodeURIComponent(fullAddress)}`;
+  if (!props.property) {
+    data.loading = true;
+    apiUrl.value = `https://zillow-com1.p.rapidapi.com/property?address=${encodeURIComponent(fullAddress)}`;
+    await fetchPropertyData();
+  }
 };
 
 
-watch(
-  () => property.value.address,
-  (newAddress) => {
-    data.loading = true;
-    apiUrl.value = `https://zillow-com1.p.rapidapi.com/property?address=${encodeURIComponent(newAddress)}`;
-  }
-);
 
 watch(
   () => property.value.balance_to_close,
   (newBalanceToClose) => {
     if (Number(newBalanceToClose > 0)) {
-      property.value.price = Number(newBalanceToClose)
+      property.value.price = Number(newBalanceToClose);
     }
   }
 );
 
-
-
-await useFetch(apiUrl, {
-  headers: {
-    'X-RapidAPI-Key': zillowApiKey,
-    'X-RapidAPI-Host': 'zillow-com1.p.rapidapi.com'
-  },
-  immediate: false, // Do not fetch immediately after component loads
-  onRequest({ request, options }) {
-    // Set the request headers
-    options.headers = options.headers || {}
-  },
-  onRequestError({ request, options, error }) {
-    // Handle the request errors
-    console.error('Request error:', error)
-  },
-  onResponse({ request, response, options }) {
-    // Process the response data
-    if (response.ok) {
-        fetchPropertyImages(response._data.zpid)
-      property.value.price = response._data.price;
-      property.value.bedrooms = response._data.bedrooms;
-      property.value.bathrooms = response._data.bathrooms;
-      property.value.description = response._data.description;
-      property.value.rent_zestimate = response._data.rentZestimate;
-      property.value.zestimate = response._data.zestimate;
-      property.value.property_type = response._data.homeType;
-      property.value.zoning = response._data.zoning ? response._data.zoning : response._data.resoFacts.zoning
-        property.value.lot_size = response._data.lotSize ? response._data.lotSize : null ;
+const fetchPropertyData = async () => {
+  const { data, error } = await $fetch(apiUrl.value, {
+    headers: {
+      'X-RapidAPI-Key': zillowApiKey,
+      'X-RapidAPI-Host': 'zillow-com1.p.rapidapi.com'
+    },
+    onRequest({ request, options }) {
+      // Set the request headers
+      options.headers = options.headers || {};
+    },
+    onRequestError({ request, options, error }) {
+      // Handle the request errors
+      console.error('Request error:', error);
+    },
+    onResponse({ request, response, options }) {
+      // Process the response data
+      if (response.ok) {
+        fetchPropertyImages(response._data.zpid);
+        property.value.price = response._data.price;
+        property.value.bedrooms = response._data.bedrooms;
+        property.value.bathrooms = response._data.bathrooms;
+        property.value.description = response._data.description;
+        property.value.rent_zestimate = response._data.rentZestimate;
+        property.value.zestimate = response._data.zestimate;
+        property.value.property_type = response._data.homeType;
+        property.value.zoning = response._data.zoning ? response._data.zoning : response._data.resoFacts.zoning;
+        property.value.lot_size = response._data.lotSize ? response._data.lotSize : null;
         property.value.living_area = response._data.livingArea;
-      property.value.year_built = response._data.yearBuilt;
-      property.value.price_per_square_foot = response._data.resoFacts.pricePerSquareFoot;
-      property.value.nearby_schools = response._data.schools;
-      property.value.nearby_homes = response._data.nearbyHomes;
-      property.value.price_history = response._data.priceHistory;
-      property.value.tax_history = response._data.taxHistory;
-      property.value.monthly_hoa_fee = response._data.monthlyHoaFee
-
-      
-      // Update other properties as needed
-    } else {
-      console.error('Response error:', response.status)
+        property.value.year_built = response._data.yearBuilt;
+        property.value.price_per_square_foot = response._data.resoFacts.pricePerSquareFoot;
+        property.value.nearby_schools = response._data.schools;
+        property.value.nearby_homes = response._data.nearbyHomes;
+        property.value.price_history = response._data.priceHistory;
+        property.value.tax_history = response._data.taxHistory;
+        property.value.monthly_hoa_fee = response._data.monthlyHoaFee;
+        // Update other properties as needed
+      } else {
+        console.error('Response error:', response.status);
+      }
+    },
+    onResponseError({ request, response, options }) {
+      // Handle the response errors
+      console.error('Response error:', response.status);
     }
-  },
-  onResponseError({ request, response, options }) {
-    // Handle the response errors
-    console.error('Response error:', response.status)
-  }
-});
+  });
+};
 
 const handleSubmit = async (e) => {
-    data.form.loading = true;
-    const propertiesStore = usePropertiesStore();
-    if (props.property && props.property.ID) {
-        // update the existing property
-        console.log('Updating property...', property.value);
-        
-        await propertiesStore.store({ property: property.value });
-    } else {
-        // create a new property
-        console.log('Creating new property...', property.value)
+  data.form.loading = true;
+  const propertiesStore = usePropertiesStore();
+  const propertyToSubmit = {
+    ...property.value,
+    nearby_hospitals: JSON.stringify(property.value.nearby_hospitals),
+    nearby_schools: JSON.stringify(property.value.nearby_schools),
+    images: JSON.stringify(property.value.images),
+    nearby_homes: JSON.stringify(property.value.nearby_homes),
+    price_history: JSON.stringify(property.value.price_history),
+    tax_history: JSON.stringify(property.value.tax_history)
+  };
 
-        await propertiesStore.store({ property: {
-          ...property.value,
-          nearby_hospitals: JSON.stringify(property.value.nearby_hospitals),
-          nearby_schools: JSON.stringify(property.value.nearby_schools),
-          images: JSON.stringify(property.value.images),
-          nearby_homes: JSON.stringify(property.value.nearby_homes),
-          price_history: JSON.stringify(property.value.price_history),
-          tax_history: JSON.stringify(property.value.tax_history)
-      } });
-        
-    }
-    data.form.loading = false;
-    await navigateTo('/admin/')
-}
+  if (props.property && props.property.ID) {
+    // update the existing property
+    console.log('Updating property...', propertyToSubmit);
+    await propertiesStore.store({ property: propertyToSubmit });
+  } else {
+    // create a new property
+    console.log('Creating new property...', propertyToSubmit);
+    await propertiesStore.store({ property: propertyToSubmit });
+  }
+  data.form.loading = false;
+  await navigateTo('/admin/');
+};
 
 const handleRetrieve = async (event) => {
   if (event.detail.features.length) {
     data.form.latitude = event.detail.features[0].properties.coordinates.latitude;
     data.form.longitude = event.detail.features[0].properties.coordinates.longitude;
-
-    data.form.address = event.detail.features[0].properties.full_address
-
+    data.form.address = event.detail.features[0].properties.full_address;
     updateAddress();
-
     if (data.form.is_appartment && data.form.unit_number) {
       property.value.address += ` Unit ${data.form.unit_number}, ${data.form.type}`;
     }
-
     await fetchNearbyPlaces(data.form.latitude, data.form.longitude, 'hospital');
     // await fetchNearbyPlaces(coordinates.latitude, coordinates.longitude, 'school');
-
-  }
-  else {
-    alert("You must search a location and select from the dropdown menu.");
+  } else {
+    alert('You must search a location and select from the dropdown menu.');
   }
 };
 
-
 const fetchPropertyImages = async (zpid) => {
   const apiUrl = `https://zillow-com1.p.rapidapi.com/images?zpid=${zpid}`;
-
   const response = await $fetch(apiUrl, {
     headers: {
       'X-RapidAPI-Key': zillowApiKey,
       'X-RapidAPI-Host': 'zillow-com1.p.rapidapi.com'
     }
   });
-
   if (response.images.length) {
     property.value.images = response.images.slice(0, 12);
   } else {
@@ -417,7 +427,6 @@ const calculateDistance = (lat1, lon1, lat2, lon2) => {
   return R * c; // Distance in kilometers
 };
 
-
 const fetchNearbyPlaces = async (latitude, longitude, type) => {
   const service = new google.maps.places.PlacesService(mapRef.value.map);
   const request = {
@@ -425,7 +434,6 @@ const fetchNearbyPlaces = async (latitude, longitude, type) => {
     radius: '5000',
     type: [type],
   };
-
   service.nearbySearch(request, (results, status) => {
     if (status === google.maps.places.PlacesServiceStatus.OK) {
       const places = results.map((place) => ({
@@ -443,8 +451,6 @@ const fetchNearbyPlaces = async (latitude, longitude, type) => {
       } else if (type === 'school') {
         property.value.nearby_schools = [...(property.value.nearby_schools || []), ...places];
       }
-      console.log('Updated property details:', property.value);
-
     } else if (status === google.maps.places.PlacesServiceStatus.ZERO_RESULTS) {
       console.log('No places found within the specified radius.');
     } else {
@@ -453,6 +459,13 @@ const fetchNearbyPlaces = async (latitude, longitude, type) => {
   });
 };
 
+const addImage = () => {
+  property.value.images.push('');
+};
+
+const removeImage = (index) => {
+  property.value.images.splice(index, 1);
+};
 
 
 

@@ -359,7 +359,19 @@ const fetchPropertyData = async () => {
 const handleSubmit = async (e) => {
   data.form.loading = true;
   const propertiesStore = usePropertiesStore();
-  const propertyToSubmit = {
+  
+
+  if (props.property && props.property.ID) {
+    // update the existing property
+    let propertyToSubmit = {
+    ...property.value,
+    images: JSON.stringify(property.value.images),
+  };
+    console.log('Updating property...', propertyToSubmit);
+    await propertiesStore.store({ property: propertyToSubmit });
+  } else {
+    // create a new property
+    let propertyToSubmit = {
     ...property.value,
     nearby_hospitals: JSON.stringify(property.value.nearby_hospitals),
     nearby_schools: JSON.stringify(property.value.nearby_schools),
@@ -368,13 +380,6 @@ const handleSubmit = async (e) => {
     price_history: JSON.stringify(property.value.price_history),
     tax_history: JSON.stringify(property.value.tax_history)
   };
-
-  if (props.property && props.property.ID) {
-    // update the existing property
-    console.log('Updating property...', propertyToSubmit);
-    await propertiesStore.store({ property: propertyToSubmit });
-  } else {
-    // create a new property
     console.log('Creating new property...', propertyToSubmit);
     await propertiesStore.store({ property: propertyToSubmit });
   }

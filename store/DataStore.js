@@ -11,7 +11,7 @@ export const usePropertiesStore = defineStore('properties', {
   actions: {
     async get(page = 1, pageSize = 10, sold = null) {
       console.log("Attempting to get properties");
-      let url = `https://mycreativefinancing-hfqa9.ondigitalocean.app/properties/?page=${page}&pageSize=${pageSize}`;
+      let url = `https://seashell-app-lestx.ondigitalocean.app/properties/?page=${page}&pageSize=${pageSize}`;
       if (sold !== null) {
         url += `&sold=${sold}`;
       }
@@ -21,14 +21,14 @@ export const usePropertiesStore = defineStore('properties', {
     },
 
     async find(ID) {
-      const url = `https://mycreativefinancing-hfqa9.ondigitalocean.app/properties/${ID}`;
+      const url = `https://seashell-app-lestx.ondigitalocean.app/properties/${ID}`;
       this.property = await $fetch(url);
     },
 
     async store(params) {
       const url = params.property.ID
-        ? `https://mycreativefinancing-hfqa9.ondigitalocean.app/properties/${params.property.ID}`
-        : "https://mycreativefinancing-hfqa9.ondigitalocean.app/properties/";
+        ? `https://seashell-app-lestx.ondigitalocean.app/properties/${params.property.ID}`
+        : "https://seashell-app-lestx.ondigitalocean.app/properties/";
       const method = params.property.ID ? 'put' : 'post';
 
       return $fetch(url, {
@@ -38,7 +38,7 @@ export const usePropertiesStore = defineStore('properties', {
     },
 
     async delete(ID) {
-      const url = `https://mycreativefinancing-hfqa9.ondigitalocean.app/properties/${ID}`;
+      const url = `https://seashell-app-lestx.ondigitalocean.app/properties/${ID}`;
       return $fetch(url, {
         method: 'delete'
       });

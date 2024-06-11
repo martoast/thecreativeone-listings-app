@@ -2,9 +2,7 @@
   <div class="container mx-auto">
     
     <div class="pt-8 px-4 sm:px-6 lg:px-8">
-      <a href="http://mycreativefinancing.com/" target="_blank">
-      <img src="/logo.png" alt="Logo" class="h-8 w-auto" />
-    </a>
+      <img class="layout_logo" src="https://app.customesignature.com/upload/signature/complete/1056/1056.gif" width="60">
     <div class="sm:flex sm:items-center pt-3">
       <div class="sm:flex-auto">
         <h1 class="text-base font-semibold leading-6 text-gray-900">Properties</h1>

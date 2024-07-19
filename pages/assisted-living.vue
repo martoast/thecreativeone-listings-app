@@ -141,17 +141,26 @@
   }
 
   const getModifiedImageUrl = (url) => {
-  if (url && url.startsWith('https://maps.googleapis.com/')) {
-    // Remove the signature parameter
-    const urlWithoutSignature = url.split('&signature=')[0];
-    
-    // Remove the client parameter if it exists
-    const urlParts = urlWithoutSignature.split('&');
-    const filteredParts = urlParts.filter(part => !part.startsWith('client='));
-    
-    // Add the API key
-    return `${filteredParts.join('&')}&key=${googleMapsApiKey}`;
-  }
-  return url;
-}
+    if (url && url.startsWith('https://maps.googleapis.com/')) {
+        // Remove the signature parameter if it exists
+        let modifiedUrl = url.split('&signature=')[0];
+
+        // Split the URL into parts
+        const urlParts = modifiedUrl.split('&');
+
+        // Filter out the client parameter and replace the key parameter
+        const filteredParts = urlParts.map(part => {
+        if (part.startsWith('key=')) {
+            return `key=${googleMapsApiKey}`;
+        } else if (part.startsWith('client=')) {
+            return null;
+        }
+        return part;
+        }).filter(Boolean); // Remove null values
+
+        // Join the parts back together
+        return filteredParts.join('&');
+    }
+    return url;
+    };
   </script>

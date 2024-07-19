@@ -3,7 +3,7 @@
     <div class="container mx-auto">
       <div class="mx-auto max-w-2xl px-4 py-8 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
         <div class="flex justify-center mb-8">
-        <a href="http://mycreativefinancing.com/" target="_blank">
+        <a href="https://www.thecreativeone.io/" target="_blank">
           <img class="layout_logo" src="https://app.customesignature.com/upload/signature/complete/1056/1056.gif" width="60">
         </a>
       </div>

@@ -22,7 +22,7 @@
             </div>
             <div class="flex flex-1 flex-col p-4">
               <h3 class="text-lg font-bold text-gray-900">
-                <a :href="`/${property.ID}`">
+                <a :href="`https://www.thecreativeone.io/listings/${property.ID}`" target="_blank">
                   <span aria-hidden="true" class="absolute inset-0" />
                   {{ property.address }}
                 </a>

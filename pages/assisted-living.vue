@@ -22,7 +22,7 @@
             </div>
             <div class="flex flex-1 flex-col p-4">
               <h3 class="text-lg font-bold text-gray-900">
-                <a :href="`/property/${property.ID}`">
+                <a :href="`/${property.ID}`">
                   <span aria-hidden="true" class="absolute inset-0" />
                   {{ property.address }}
                 </a>

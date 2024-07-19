@@ -58,10 +58,18 @@
               <input v-model="property.address" required type="text" id="address" class="block w-full border-gray-400 rounded-md py-1.5 shadow-sm focus:ring-indigo-500 sm:text-sm sm:leading-6" placeholder="Property Address">
             </div>
 
-            <!-- Sold Checkbox -->
-            <div class="sm:col-span-3 flex items-center">
+            <div>
+              <!-- Sold Checkbox -->
+            <div class="sm:col-span-3 flex items-center mb-3">
               <input v-model="property.sold" type="checkbox" id="sold" class="mr-2">
               <label for="sold" class="block text-sm font-medium leading-6">Sold: {{property.sold}}</label>
+            </div>
+
+            <!-- Assisted Living Checkbox -->
+            <div class="sm:col-span-3 flex items-center">
+              <input v-model="property.assisted_living" type="checkbox" id="assisted_living" class="mr-2">
+              <label for="assisted_living" class="block text-sm font-medium leading-6">Assisted Living: {{property.assisted_living}}</label>
+            </div>
             </div>
 
             <div class="sm:col-span-3">
@@ -257,8 +265,8 @@ const defaultProperty = {
   nearby_homes: [],
   price_history: [],
   tax_history: [],
-  monthly_hoa_fee: null
-
+  monthly_hoa_fee: null,
+  assisted_living: false,
 
 };
 
@@ -378,7 +386,8 @@ const handleSubmit = async (e) => {
     images: JSON.stringify(property.value.images),
     nearby_homes: JSON.stringify(property.value.nearby_homes),
     price_history: JSON.stringify(property.value.price_history),
-    tax_history: JSON.stringify(property.value.tax_history)
+    tax_history: JSON.stringify(property.value.tax_history),
+    assisted_living: property.value.assisted_living
   };
     console.log('Creating new property...', propertyToSubmit);
     await propertiesStore.store({ property: propertyToSubmit });

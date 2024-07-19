@@ -9,15 +9,27 @@ export const usePropertiesStore = defineStore('properties', {
   }),
 
   actions: {
-    async get(page = 1, pageSize = 10, sold = null) {
+    async get(page = 1, pageSize = 10, sold = null, assistedLiving = null) {
       console.log("Attempting to get properties");
       let url = `https://seashell-app-lestx.ondigitalocean.app/properties/?page=${page}&pageSize=${pageSize}`;
+      
       if (sold !== null) {
         url += `&sold=${sold}`;
       }
-      const response = await $fetch(url);
-      this.properties = response.properties;
-      this.total = response.total;
+      
+      if (assistedLiving !== null) {
+        url += `&assistedLiving=${assistedLiving}`;
+      }
+      
+      try {
+        const response = await $fetch(url);
+        this.properties = response.properties;
+        this.total = response.total;
+        console.log("Properties fetched successfully:", this.properties.length);
+      } catch (error) {
+        console.error("Error fetching properties:", error);
+        throw error;
+      }
     },
 
     async find(ID) {

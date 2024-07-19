@@ -54,7 +54,21 @@ export const usePropertiesStore = defineStore('properties', {
       return $fetch(url, {
         method: 'delete'
       });
-    }
+    },
+    // In your DataStore.js
+    async getAssistedLiving(page = 1, pageSize = 10) {
+      console.log("Fetching assisted living properties");
+      let url = `https://seashell-app-lestx.ondigitalocean.app/properties/?page=${page}&pageSize=${pageSize}&assistedLiving=true`;
+      
+      return $fetch(url).then(response => {
+        this.properties = response.properties;
+        this.total = response.total;
+        return response;
+      }).catch(error => {
+        console.error("Error fetching assisted living properties:", error);
+        throw error;
+      });
+    },
   },
 
   getters: {

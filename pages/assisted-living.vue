@@ -15,7 +15,7 @@
           >
             <div class="aspect-w-3 aspect-h-2 bg-gray-200 sm:aspect-none sm:h-64 group-hover:opacity-75">
               <img
-                :src="property.images[0]"
+                :src="getModifiedImageUrl(property.images[0])"
                 alt="Main image of the property"
                 class="h-full w-full object-cover object-center sm:h-full sm:w-full"
               />
@@ -101,6 +101,10 @@
   
   const currentPage = ref(1)
   const itemsPerPage = 10 // Change this to the number of items you want per page
+
+  const config = useRuntimeConfig()
+
+  const googleMapsApiKey = config.public.GOOGLE_MAPS_API_KEY
   
   const { data, pending, error, refresh } = await useAsyncData(
     'assistedLivingProperties',
@@ -135,4 +139,19 @@
     }
     return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(value);
   }
+
+  const getModifiedImageUrl = (url) => {
+  if (url && url.startsWith('https://maps.googleapis.com/')) {
+    // Remove the signature parameter
+    const urlWithoutSignature = url.split('&signature=')[0];
+    
+    // Remove the client parameter if it exists
+    const urlParts = urlWithoutSignature.split('&');
+    const filteredParts = urlParts.filter(part => !part.startsWith('client='));
+    
+    // Add the API key
+    return `${filteredParts.join('&')}&key=${googleMapsApiKey}`;
+  }
+  return url;
+}
   </script>

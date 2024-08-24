@@ -406,7 +406,6 @@ const handleRetrieve = async (event) => {
       property.value.address += ` Unit ${data.form.unit_number}, ${data.form.type}`;
     }
     await fetchNearbyPlaces(data.form.latitude, data.form.longitude, 'hospital');
-    // await fetchNearbyPlaces(coordinates.latitude, coordinates.longitude, 'school');
   } else {
     alert('You must search a location and select from the dropdown menu.');
   }
@@ -460,11 +459,9 @@ const fetchNearbyPlaces = async (latitude, longitude, type) => {
       }));
 
       // Depending on the type, append to the appropriate property field
-      if (type === 'hospital') {
-        property.value.nearby_hospitals = [...(property.value.nearby_hospitals || []), ...places];
-      } else if (type === 'school') {
-        property.value.nearby_schools = [...(property.value.nearby_schools || []), ...places];
-      }
+      if (type === 'hospital' && places.length) {
+        property.value.nearby_hospitals = places;
+      } 
     } else if (status === google.maps.places.PlacesServiceStatus.ZERO_RESULTS) {
       console.log('No places found within the specified radius.');
     } else {

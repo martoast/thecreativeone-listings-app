@@ -106,6 +106,30 @@
             <textarea v-model="property.description" id="description" rows="3" class="block w-full border-gray-400 rounded-md py-1.5 shadow-sm focus:ring-indigo-500 sm:text-sm sm:leading-6" placeholder="Description of the property"></textarea>
           </div>
 
+
+          <div class="sm:col-span-3">
+              <label for="latitude" class="block text-sm font-medium leading-6">Latitude</label>
+              <input v-model="property.latitude" required type="number" step="any" id="latitude" class="block w-full border-gray-400 rounded-md py-1.5 shadow-sm focus:ring-indigo-500 sm:text-sm sm:leading-6" placeholder="Latitude">
+          </div>
+
+          <div class="sm:col-span-3">
+              <label for="longitude" class="block text-sm font-medium leading-6">Longitude</label>
+              <input v-model="property.longitude" required type="number" step="any" id="longitude" class="block w-full border-gray-400 rounded-md py-1.5 shadow-sm focus:ring-indigo-500 sm:text-sm sm:leading-6" placeholder="Longitude">
+          </div>
+
+
+          
+
+
+
+
+
+
+
+
+
+
+
             <div class="sm:col-span-3">
                 <label for="rent-zestimate" class="block text-sm font-medium leading-6">Estimated Rent</label>
                 <input v-model="property.rent_zestimate" type="number" id="rent-zestimate" class="block w-full border-gray-400 rounded-md py-1.5 shadow-sm focus:ring-indigo-500 sm:text-sm sm:leading-6" placeholder="Estimated Rent">
@@ -267,6 +291,8 @@ const defaultProperty = {
   tax_history: [],
   monthly_hoa_fee: null,
   assisted_living: false,
+  latitude: null,
+  longitude: null
 
 };
 
@@ -352,6 +378,8 @@ const fetchPropertyData = async () => {
         property.value.price_history = response._data.priceHistory;
         property.value.tax_history = response._data.taxHistory;
         property.value.monthly_hoa_fee = response._data.monthlyHoaFee;
+        property.value.latitude = response._data.latitude;
+        property.value.longitude = response._data.longitude;
         // Update other properties as needed
       } else {
         console.error('Response error:', response.status);
@@ -387,7 +415,6 @@ const handleSubmit = async (e) => {
     nearby_homes: JSON.stringify(property.value.nearby_homes),
     price_history: JSON.stringify(property.value.price_history),
     tax_history: JSON.stringify(property.value.tax_history),
-    assisted_living: property.value.assisted_living
   };
     console.log('Creating new property...', propertyToSubmit);
     await propertiesStore.store({ property: propertyToSubmit });

@@ -93,6 +93,11 @@
               <input v-model="property.price" required type="number" id="price" class="block w-full border-gray-400 rounded-md py-1.5 shadow-sm focus:ring-indigo-500 sm:text-sm sm:leading-6" placeholder="Price in USD">
             </div>
 
+            <div v-if="property.assisted_living" class="sm:col-span-3">
+              <label for="assisted_living_rate" class="block text-sm font-medium leading-6">AssistedLiving Rate</label>
+              <input v-model="property.assisted_living_rate" :required="property.assisted_living" type="number" id="assisted_living_rate" class="block w-full border-gray-400 rounded-md py-1.5 shadow-sm focus:ring-indigo-500 sm:text-sm sm:leading-6" placeholder="Price in USD">
+            </div>
+
             <div class="sm:col-span-3">
               <label for="monthly_hoa_fee" class="block text-sm font-medium leading-6">Monthly HOA Fee</label>
               <input v-model="property.monthly_hoa_fee" type="number" id="monthly_hoa_fee" class="block w-full border-gray-400 rounded-md py-1.5 shadow-sm focus:ring-indigo-500 sm:text-sm sm:leading-6" placeholder="HOA Fee in USD">
@@ -176,6 +181,15 @@
               <button @click.prevent="removeImage(index)" type="button" class="text-red-500 hover:text-red-700">Remove</button>
             </div>
             <button @click.prevent="addImage" type="button" class="mt-2 text-indigo-500 hover:text-indigo-700">Add Image URL</button>
+          </div>
+
+          <div class="col-span-full">
+            <label for="amenities" class="block text-sm font-medium leading-6">Amenities</label>
+            <div v-for="(amenity, index) in property.amenities" :key="index" class="flex space-x-2 mb-2">
+              <input v-model="property.amenities[index]" type="text" class="block w-full border-gray-400 rounded-md py-1.5 shadow-sm focus:ring-indigo-500 sm:text-sm sm:leading-6" placeholder="Describe amenity...">
+              <button @click.prevent="removeAmenity(index)" type="button" class="text-red-500 hover:text-red-700">Remove</button>
+            </div>
+            <button @click.prevent="addAmenity" type="button" class="mt-2 text-indigo-500 hover:text-indigo-700">Add Amenity</button>
           </div>
 
           <div class="sm:col-span-3">
@@ -292,7 +306,9 @@ const defaultProperty = {
   monthly_hoa_fee: null,
   assisted_living: false,
   latitude: null,
-  longitude: null
+  longitude: null,
+  assisted_living_rate: null,
+  amenities: []
 
 };
 
@@ -311,6 +327,20 @@ onMounted(() => {
       } catch (error) {
         property.value.images = [];
       }
+    }
+
+    // Handle amenities
+    if (typeof property.value.amenities === 'string') {
+      try {
+        property.value.amenities = JSON.parse(property.value.amenities);
+        if (!Array.isArray(property.value.amenities)) {
+          property.value.amenities = [];
+        }
+      } catch (error) {
+        property.value.amenities = [];
+      }
+    } else if (!Array.isArray(property.value.amenities)) {
+      property.value.amenities = [];
     }
   }
 });
@@ -402,6 +432,7 @@ const handleSubmit = async (e) => {
     let propertyToSubmit = {
     ...property.value,
     images: JSON.stringify(property.value.images),
+    amenities: JSON.stringify(property.value.amenities),
   };
     console.log('Updating property...', propertyToSubmit);
     await propertiesStore.store({ property: propertyToSubmit });
@@ -415,6 +446,7 @@ const handleSubmit = async (e) => {
     nearby_homes: JSON.stringify(property.value.nearby_homes),
     price_history: JSON.stringify(property.value.price_history),
     tax_history: JSON.stringify(property.value.tax_history),
+    amenities: JSON.stringify(property.value.amenities),
   };
     console.log('Creating new property...', propertyToSubmit);
     await propertiesStore.store({ property: propertyToSubmit });
@@ -503,6 +535,14 @@ const addImage = () => {
 
 const removeImage = (index) => {
   property.value.images.splice(index, 1);
+};
+
+const addAmenity = () => {
+  property.value.amenities.push('');
+};
+
+const removeAmenity = (index) => {
+  property.value.amenities.splice(index, 1);
 };
 
 

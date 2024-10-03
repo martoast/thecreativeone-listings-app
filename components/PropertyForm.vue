@@ -98,13 +98,17 @@
               <input v-model="property.assisted_living_rate" :required="property.assisted_living" type="number" id="assisted_living_rate" class="block w-full border-gray-400 rounded-md py-1.5 shadow-sm focus:ring-indigo-500 sm:text-sm sm:leading-6" placeholder="Price in USD">
             </div>
 
+            <div v-if="property.assisted_living" class="sm:col-span-3">
+                <label for="google-review-url" class="block text-sm font-medium leading-6">Google review URL</label>
+                <input v-model="property.google_review_url" type="text" id="google-review-url" class="block w-full border-gray-400 rounded-md py-1.5 shadow-sm focus:ring-indigo-500 sm:text-sm sm:leading-6" placeholder="URL for google reviews">
+            </div>
+
             <div class="sm:col-span-3">
               <label for="monthly_hoa_fee" class="block text-sm font-medium leading-6">Monthly HOA Fee</label>
               <input v-model="property.monthly_hoa_fee" type="number" id="monthly_hoa_fee" class="block w-full border-gray-400 rounded-md py-1.5 shadow-sm focus:ring-indigo-500 sm:text-sm sm:leading-6" placeholder="HOA Fee in USD">
             </div>
 
-            
-
+        
             <!-- Description -->
           <div class="col-span-full">
             <label for="description" class="block text-sm font-medium leading-6">Description</label>
@@ -191,6 +195,8 @@
             </div>
             <button @click.prevent="addAmenity" type="button" class="mt-2 text-indigo-500 hover:text-indigo-700">Add Amenity</button>
           </div>
+
+      
 
           <div class="sm:col-span-3">
               <label for="purchase_price" class="block text-sm font-medium leading-6">Purchase Price</label>
@@ -298,9 +304,7 @@ const defaultProperty = {
   balance_to_close: null,
   monthly_holding_cost: null,
   interest_rate: null,
-  nearby_hospitals: [],
   nearby_schools: [],
-  nearby_homes: [],
   price_history: [],
   tax_history: [],
   monthly_hoa_fee: null,
@@ -308,7 +312,8 @@ const defaultProperty = {
   latitude: null,
   longitude: null,
   assisted_living_rate: null,
-  amenities: []
+  amenities: [],
+  google_review_url: null
 
 };
 
@@ -404,7 +409,6 @@ const fetchPropertyData = async () => {
         property.value.year_built = response._data.yearBuilt;
         property.value.price_per_square_foot = response._data.resoFacts.pricePerSquareFoot;
         property.value.nearby_schools = response._data.schools;
-        property.value.nearby_homes = response._data.nearbyHomes;
         property.value.price_history = response._data.priceHistory;
         property.value.tax_history = response._data.taxHistory;
         property.value.monthly_hoa_fee = response._data.monthlyHoaFee;
@@ -440,10 +444,8 @@ const handleSubmit = async (e) => {
     // create a new property
     let propertyToSubmit = {
     ...property.value,
-    nearby_hospitals: JSON.stringify(property.value.nearby_hospitals),
     nearby_schools: JSON.stringify(property.value.nearby_schools),
     images: JSON.stringify(property.value.images),
-    nearby_homes: JSON.stringify(property.value.nearby_homes),
     price_history: JSON.stringify(property.value.price_history),
     tax_history: JSON.stringify(property.value.tax_history),
     amenities: JSON.stringify(property.value.amenities),
@@ -464,7 +466,7 @@ const handleRetrieve = async (event) => {
     if (data.form.is_appartment && data.form.unit_number) {
       property.value.address += ` Unit ${data.form.unit_number}, ${data.form.type}`;
     }
-    await fetchNearbyPlaces(data.form.latitude, data.form.longitude, 'hospital');
+
   } else {
     alert('You must search a location and select from the dropdown menu.');
   }
@@ -484,49 +486,6 @@ const fetchPropertyImages = async (zpid) => {
     console.error('Error fetching images');
   }
   data.loading = false;
-};
-
-const calculateDistance = (lat1, lon1, lat2, lon2) => {
-  const toRad = (value) => (value * Math.PI) / 180;
-  const R = 6371; // Radius of the Earth in kilometers
-  const dLat = toRad(lat2 - lat1);
-  const dLon = toRad(lon2 - lon1);
-  const a =
-    Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-    Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) *
-    Math.sin(dLon / 2) * Math.sin(dLon / 2);
-  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-  return R * c; // Distance in kilometers
-};
-
-const fetchNearbyPlaces = async (latitude, longitude, type) => {
-  const service = new google.maps.places.PlacesService(mapRef.value.map);
-  const request = {
-    location: new google.maps.LatLng(latitude, longitude),
-    radius: '5000',
-    type: [type],
-  };
-  service.nearbySearch(request, (results, status) => {
-    if (status === google.maps.places.PlacesServiceStatus.OK) {
-      const places = results.map((place) => ({
-        name: place.name,
-        address: place.vicinity,
-        rating: place.rating || 'No rating',
-        latitude: place.geometry.location.lat(),
-        longitude: place.geometry.location.lng(),
-        distance: calculateDistance(latitude, longitude, place.geometry.location.lat(), place.geometry.location.lng()).toFixed(2) // Distance in kilometers
-      }));
-
-      // Depending on the type, append to the appropriate property field
-      if (type === 'hospital' && places.length) {
-        property.value.nearby_hospitals = places;
-      } 
-    } else if (status === google.maps.places.PlacesServiceStatus.ZERO_RESULTS) {
-      console.log('No places found within the specified radius.');
-    } else {
-      console.error('Error with API status:', status);
-    }
-  });
 };
 
 const addImage = () => {
